@@ -38,3 +38,7 @@ gem 'unicorn'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem "therubyracer"
+gem "less-rails"
+gem 'twitter-bootstrap-rails', '~> 3.2.0'
+
