@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140830155009) do
+ActiveRecord::Schema.define(version: 20140830155537) do
 
   create_table "internships", force: true do |t|
     t.text     "title"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140830155009) do
     t.text     "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "personal_page"
   end
 
   create_table "uploaded_files", force: true do |t|

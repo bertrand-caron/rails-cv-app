@@ -69,6 +69,6 @@ class RefereesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def referee_params
-      params.require(:referee).permit(:name, :email, :title)
+      params.require(:referee).permit(:name, :email, :title, :personal_page)
     end
 end

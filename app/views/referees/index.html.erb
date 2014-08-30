@@ -30,7 +30,8 @@
 <% @referees.each do |referee| %>
   <div style="margin-top:20px;margin-botoom:20px; width:100%; background:#EEEEEE;border-radius:10px">
     <h3><a href="mailto:<%= referee.email%>"><%= referee.name %></a></h3>
-    <%= referee.title %>
+    <%= referee.title %><br>
+    <u><a href="<%= referee.personal_page %>">Personal Page</a></u>
   </div>
 <% end %>
 
