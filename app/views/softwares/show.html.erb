@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @software.name %>
+</p>
+
+<p>
+  <strong>Github link:</strong>
+  <%= @software.github_link %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @software.description %>
+</p>
+
+<%= link_to 'Edit', edit_software_path(@software) %> |
+<%= link_to 'Back', softwares_path %>

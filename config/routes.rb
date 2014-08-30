@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :softwares
+
   resources :referees
 
   resources :uploaded_files
