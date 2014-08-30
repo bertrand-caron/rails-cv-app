@@ -20,5 +20,20 @@
   <%= @internship.report_path %>
 </p>
 
+<p>
+  <strong>Location:</strong>
+  <%= @internship.location %>
+</p>
+
+<p>
+  <strong>Laboratory:</strong>
+  <%= @internship.laboratory %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @internship.duration %>
+</p>
+
 <%= link_to 'Edit', edit_internship_path(@internship) %> |
 <%= link_to 'Back', internships_path %>
