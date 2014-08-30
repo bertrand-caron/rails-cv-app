@@ -1,5 +1,7 @@
-<h1>Listing internships</h1>
+<h1>Internships</h1>
+<hr>
 
+<% if false %>
 <table>
   <thead>
     <tr>
@@ -25,7 +27,34 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
+
+<% @internships.each do |internship| %>
+  <div style="margin-top:20px;margin-botoom:20px; width:100%; background:#EEEEEE;border-radius:10px">
+    <div style="width:100%; overflow: hidden">
+      <div style="width:80%;float:left">
+        <b><%= internship.title %></b>
+      </div>
+      <div style="float:right">
+     <b>Paris (France)</b>
+      </div>
+    </div>
+    <div style="width:100%; overflow: hidden">
+      <div style="float:left">
+        <i>Laboratoire de Biochimie Théorique</i>
+      </div>
+      <div style="float:right">
+        <i>Feb-Juil. 2014</i>
+      </div>
+    </div>
+    <div style="width:80%">
+      <%= internship.description%>
+    </div>
+  </div>
+<% end %>
 
 <br>
 
-<%= link_to 'New Internship', new_internship_path %>
+<%= button_to 'Add Internship', new_internship_path, :class => "btn", :method => :get %>
+
+<br>
