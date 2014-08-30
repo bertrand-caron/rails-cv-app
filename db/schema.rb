@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140830090037) do
+ActiveRecord::Schema.define(version: 20140830094229) do
 
   create_table "internships", force: true do |t|
     t.text     "title"
     t.string   "hyperlink"
     t.text     "description"
     t.string   "report_path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "uploaded_files", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

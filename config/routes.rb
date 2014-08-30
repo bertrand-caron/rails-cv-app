@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :uploaded_files
+
   resources :internships
 
   # The priority is based upon order of creation: first created -> highest priority.
