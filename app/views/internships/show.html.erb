@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @internship.title %>
+</p>
+
+<p>
+  <strong>Hyperlink:</strong>
+  <%= @internship.hyperlink %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @internship.description %>
+</p>
+
+<p>
+  <strong>Report path:</strong>
+  <%= @internship.report_path %>
+</p>
+
+<%= link_to 'Edit', edit_internship_path(@internship) %> |
+<%= link_to 'Back', internships_path %>
