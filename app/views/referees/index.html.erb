@@ -1,37 +1,16 @@
 <h1>Referees</h1>
 <hr>
 
-<% if false %>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @referees.each do |referee| %>
-      <tr>
-        <td><%= referee.name %></td>
-        <td><%= referee.email %></td>
-        <td><%= referee.title %></td>
-        <td><%= link_to 'Show', referee %></td>
-        <td><%= link_to 'Edit', edit_referee_path(referee) %></td>
-        <td><%= link_to 'Destroy', referee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
-
 <% @referees.each do |referee| %>
   <div style="margin-top:20px;margin-botoom:20px; width:100%; background:#EEEEEE;border-radius:10px">
-    <h3><a href="mailto:<%= referee.email%>"><%= referee.name %></a></h3>
+    <h3><%= link_to referee.name, referee %></h3>
     <%= referee.title %><br>
-    <u><a href="<%= referee.personal_page %>">Personal Page</a></u>
+    <div style="font-size:9px">
+      <ul style="list-style-type:none;font-size:9px;margin:0;padding:0;">
+        <li style="float:left;margin-left:2px"><a href="mailto:<%= referee.email%>">Contact him</a></li>
+        <li style="margin-left:60px"><a href="<%= referee.personal_page %>">Personnal page</a></li>
+      </ul>
+    </div>
   </div>
 <% end %>
 

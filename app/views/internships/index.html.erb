@@ -1,39 +1,11 @@
 <h1>Internships</h1>
 <hr>
 
-<% if false %>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Hyperlink</th>
-      <th>Description</th>
-      <th>Report path</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @internships.each do |internship| %>
-      <tr>
-        <td><%= internship.title %></td>
-        <td><%= internship.hyperlink %></td>
-        <td><%= internship.description %></td>
-        <td><%= internship.report_path %></td>
-        <td><%= link_to 'Show', internship %></td>
-        <td><%= link_to 'Edit', edit_internship_path(internship) %></td>
-        <td><%= link_to 'Destroy', internship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
-
 <% @internships.each do |internship| %>
   <div style="margin-top:20px;margin-botoom:20px; width:100%; background:#EEEEEE;border-radius:10px">
     <div style="width:100%; overflow: hidden">
       <div style="width:80%;float:left">
-        <b><%= internship.title %></b>
+        <b><%= link_to internship.title, internship %></b>
       </div>
       <div style="float:right">
      <b><%= internship.location %></b>
@@ -50,6 +22,11 @@
     <div style="width:80%">
       <%= internship.description%>
     </div>
+    <% if not internship.report_path.empty? %>
+    <div style="font-size:9px">
+      <%= link_to "View Report (PDF)", internship.report_path %>
+    </div>
+    <% end %>
   </div>
 <% end %>
 
