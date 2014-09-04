@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'pages/home'
   get 'pages/contact'
+  get 'pages/curriculum'
   get 'contact', to: 'pages#contact'
+  get 'curriculum', to: 'pages#curriculum'
   resources :softwares
   resources :referees
   resources :uploaded_files

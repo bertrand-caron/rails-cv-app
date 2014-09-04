@@ -4,4 +4,9 @@ class PagesController < ApplicationController
 
   def contact
   end
+
+  def curriculum
+    @internships = Internship.all
+    @referees = Referee.all
+  end
 end
