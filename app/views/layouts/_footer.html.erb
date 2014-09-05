@@ -2,3 +2,10 @@
     <a class="btn btn-primary btn-lg" role="button">Learn more</a>
     Powered by <a href="http://bcaron.me" >myself</a>
 </div>
+
+
+<% if signed_in? %>
+You are signed in as <%= link_to current_user.name, current_user %>
+<br>
+<%= link_to "Sign Out", signout_path, method: "delete" %>
+<% end %>
