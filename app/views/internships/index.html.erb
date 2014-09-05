@@ -32,6 +32,8 @@
 
 <br>
 
-<%= button_to 'Add Internship', new_internship_path, :class => "btn", :method => :get %>
+<% if signed_in? %>
+  <%= button_to 'Add Internship', new_internship_path, :class => "btn", :method => :get %>
+<% end %>
 
 <br>

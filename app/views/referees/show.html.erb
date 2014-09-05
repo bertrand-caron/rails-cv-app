@@ -23,5 +23,7 @@
   <%= @referee.gender %>
 </p>
 
-<%= link_to 'Edit', edit_referee_path(@referee) %> |
+<% if signed_in? %>
+  <%= link_to 'Edit', edit_referee_path(@referee) %> |
+<% end %>
 <%= link_to 'Back', referees_path %>

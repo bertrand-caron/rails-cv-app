@@ -1,5 +1,6 @@
 class InternshipsController < ApplicationController
   before_action :set_internship, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
 
   # GET /internships
   # GET /internships.json
@@ -79,4 +80,5 @@ class InternshipsController < ApplicationController
     def internship_params
       params.require(:internship).permit(:title, :hyperlink, :description, :report_path, :location, :laboratory, :duration)
     end
+
 end

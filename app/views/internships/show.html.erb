@@ -35,5 +35,7 @@
   <%= @internship.duration %>
 </p>
 
-<%= link_to 'Edit', edit_internship_path(@internship) %> |
+<% if signed_in? %>
+  <%= link_to 'Edit', edit_internship_path(@internship) %> |
+<% end %>
 <%= link_to 'Back', internships_path %>

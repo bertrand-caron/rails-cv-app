@@ -1,5 +1,6 @@
 class RefereesController < ApplicationController
   before_action :set_referee, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
 
   # GET /referees
   # GET /referees.json

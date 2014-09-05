@@ -1,5 +1,6 @@
 class UploadedFilesController < ApplicationController
   before_action :set_uploaded_file, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
 
   # GET /uploaded_files
   # GET /uploaded_files.json

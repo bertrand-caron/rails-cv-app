@@ -23,6 +23,8 @@
 
 <br>
 
-<%= button_to 'Upload new file', new_uploaded_file_path, :class => "btn", :method => :get %>
+<% if signed_in? %>
+  <%= button_to 'Upload new file', new_uploaded_file_path, :class => "btn", :method => :get %>
+<% end %>
 
 <br>

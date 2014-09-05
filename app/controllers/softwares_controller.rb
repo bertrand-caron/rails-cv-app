@@ -1,5 +1,6 @@
 class SoftwaresController < ApplicationController
   before_action :set_software, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
 
   # GET /softwares
   # GET /softwares.json
