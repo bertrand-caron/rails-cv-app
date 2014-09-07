@@ -66,10 +66,17 @@ class SoftwaresController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_software
       @software = Software.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        # If such a record can't be found, look for a record whos hyperlink matches the id
+        @software = Software.find_by hyperlink: params[:id]
+        if not @software
+          # If the answer of the find_by request is nil, just dump everything and go back to the root
+          redirect_to '/'
+        end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def software_params
-      params.require(:software).permit(:name, :github_link, :description)
+      params.require(:software).permit(:name, :github_link, :description, :hyperlink)
     end
 end
