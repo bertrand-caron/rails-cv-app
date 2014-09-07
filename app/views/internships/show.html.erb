@@ -36,6 +36,10 @@
 </p>
 
 <% if signed_in? %>
+  <p>
+    <strong>Rank:</strong>
+    <%= @internship.rank %>
+  </p>
   <%= link_to 'Edit', edit_internship_path(@internship) %> |
 <% end %>
 <%= link_to 'Back', internships_path %>

@@ -16,6 +16,7 @@ class RefereesController < ApplicationController
   # GET /referees/new
   def new
     @referee = Referee.new
+    @referee.rank = Referee.count + 1
   end
 
   # GET /referees/1/edit
@@ -70,6 +71,6 @@ class RefereesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def referee_params
-      params.require(:referee).permit(:name, :email, :title, :personal_page, :gender)
+      params.require(:referee).permit(:name, :email, :title, :personal_page, :gender, :rank)
     end
 end

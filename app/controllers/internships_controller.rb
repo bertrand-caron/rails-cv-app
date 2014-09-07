@@ -16,6 +16,7 @@ class InternshipsController < ApplicationController
   # GET /internships/new
   def new
     @internship = Internship.new
+    @internship.rank = Internship.count + 1
   end
 
   # GET /internships/1/edit
@@ -78,7 +79,7 @@ class InternshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def internship_params
-      params.require(:internship).permit(:title, :hyperlink, :description, :report_path, :location, :laboratory, :duration)
+      params.require(:internship).permit(:title, :hyperlink, :description, :report_path, :location, :laboratory, :duration, :rank)
     end
 
 end

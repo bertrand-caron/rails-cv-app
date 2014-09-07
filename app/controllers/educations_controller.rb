@@ -15,6 +15,7 @@ class EducationsController < ApplicationController
   # GET /educations/new
   def new
     @education = Education.new
+    @education.rank = Education.count + 1
   end
 
   # GET /educations/1/edit
@@ -69,6 +70,6 @@ class EducationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def education_params
-      params.require(:education).permit(:institution, :institution_location, :degree, :year, :description)
+      params.require(:education).permit(:institution, :institution_location, :degree, :year, :description, :rank)
     end
 end

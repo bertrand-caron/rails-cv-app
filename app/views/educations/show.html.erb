@@ -25,5 +25,11 @@
   <%= @education.description %>
 </p>
 
-<%= link_to 'Edit', edit_education_path(@education) %> |
+<% if signed_in? %>
+  <p>
+    <strong>Rank:</strong>
+    <%= @education.rank %>
+  </p>
+  <%= link_to 'Edit', edit_education_path(@education) %> |
+<% end %>
 <%= link_to 'Back', educations_path %>
