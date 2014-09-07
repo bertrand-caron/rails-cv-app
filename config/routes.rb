@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  resources :educations, :path => "education"
   resources :users
-
   root to: 'pages#home'
   get 'pages/home'
   get 'pages/contact'

@@ -1,0 +1,35 @@
+<div style="margin-left:25px">
+  <h2>Education</h2>
+  <hr style="margin-top:0px">
+  
+  <% @educations.each do |education| %>
+    <div style="margin-top:20px; width:100%; background:#EEEEEE;border-radius:10px;padding:10px">
+      <div style="width:100%; overflow: hidden">
+        <div style="width:80%;float:left">
+          <b><%= link_to education.institution, education %></b>
+        </div>
+        <div style="float:right">
+       <b><%= education.institution_location %></b>
+        </div>
+      </div>
+      <div style="width:100%; overflow: hidden">
+        <div style="float:left">
+          <i><%= education.degree %></i>
+        </div>
+        <div style="float:right">
+          <i><%= education.year %></i>
+        </div>
+      </div>
+      <div style="width:80%">
+        <%= raw education.description%>
+      </div>
+    </div>
+  <% end %>
+  
+  <br>
+  
+  <% if signed_in? %>
+    <%= button_to 'Add Education Step', new_education_path, :class => "btn", :method => :get %>
+  <% end %>
+</div>
+

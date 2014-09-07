@@ -1,39 +1,39 @@
-<h2>Internships</h2>
-<hr>
-
-<% @internships.each do |internship| %>
-  <div style="margin-top:20px;margin-botoom:20px; width:100%; background:#EEEEEE;border-radius:10px">
-    <div style="width:100%; overflow: hidden">
-      <div style="width:80%;float:left">
-        <b><%= link_to internship.title, internship %></b>
+<div style="margin-left:25px">
+  <h2>Internships</h2>
+  <hr style="margin-top:0px">
+  
+  <% @internships.each do |internship| %>
+    <div style="margin-top:20px; width:100%; background:#EEEEEE;border-radius:10px;padding:10px 10px 0 10px">
+      <div style="width:100%; overflow: hidden">
+        <div style="width:80%;float:left">
+          <b><%= link_to internship.title, internship %></b>
+        </div>
+        <div style="float:right">
+       <b><%= internship.location %></b>
+        </div>
       </div>
-      <div style="float:right">
-     <b><%= internship.location %></b>
+      <div style="width:100%; overflow: hidden">
+        <div style="float:left">
+          <i><%= internship.laboratory %></i>
+        </div>
+        <div style="float:right">
+          <i><%= internship.duration %></i>
+        </div>
       </div>
-    </div>
-    <div style="width:100%; overflow: hidden">
-      <div style="float:left">
-        <i><%= internship.laboratory %></i>
+      <div style="width:80%">
+        <%= raw internship.description%>
       </div>
-      <div style="float:right">
-        <i><%= internship.duration %></i>
+      <% if not internship.report_path.empty? %>
+      <div style="font-size:9px">
+        <%= link_to "View Report (PDF)", internship.report_path %>
       </div>
+      <% end %>
     </div>
-    <div style="width:80%">
-      <%= internship.description%>
-    </div>
-    <% if not internship.report_path.empty? %>
-    <div style="font-size:9px">
-      <%= link_to "View Report (PDF)", internship.report_path %>
-    </div>
-    <% end %>
-  </div>
-<% end %>
-
-<br>
-
-<% if signed_in? %>
-  <%= button_to 'Add Internship', new_internship_path, :class => "btn", :method => :get %>
-<% end %>
-
-<br>
+  <% end %>
+  
+  <br>
+  
+  <% if signed_in? %>
+    <%= button_to 'Add Internship', new_internship_path, :class => "btn", :method => :get %>
+  <% end %>
+</div>
