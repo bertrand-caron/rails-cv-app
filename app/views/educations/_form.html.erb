@@ -13,29 +13,29 @@
 
   <div class="field">
     <%= f.label :institution %><br>
-    <%= f.text_field :institution %>
+    <%= f.text_field :institution, class: "form-control", placeholder: "Ex: University of Sao Paulo, Brazil" %>
   </div>
   <div class="field">
     <%= f.label :institution_location %><br>
-    <%= f.text_field :institution_location %>
+    <%= f.text_field :institution_location, class: "form-control", placeholder: "Ex: Paris (France)" %>
   </div>
   <div class="field">
     <%= f.label :degree %><br>
-    <%= f.text_field :degree %>
+    <%= f.text_field :degree, class: "form-control", placeholder: "Ex: Bachelor of Science in Physics" %>
   </div>
   <div class="field">
     <%= f.label :year %><br>
-    <%= f.text_field :year %>
+    <%= f.text_field :year, class: "form-control", placeholder: "Ex: 2011-2013" %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control", rows: "4", placeholder: "NB: HTML tags are allowed here, such as <br> for a line break." %>
   </div>
-  <div class="field">
+  <div class="field" style="width:75px">
     <%= f.label :rank %><br>
-    <%= f.text_area :rank %>
+    <%= f.number_field :rank, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add Education", class: "btn btn-primary" %>
   </div>
 <% end %>

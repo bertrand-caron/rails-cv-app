@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @internship.title %>
-</p>
+  <h2>Internship: <%= @internship.title %></h2>
+  <hr>
 
+<div style="margin:0 0 0 50px">
 <p>
   <strong>Hyperlink:</strong>
-  <%= @internship.hyperlink %>
+  /internships/<%= @internship.hyperlink %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @internship.description %>
+  <br>
+  <%= raw @internship.description %>
 </p>
 
 <p>
@@ -35,11 +35,15 @@
   <%= @internship.duration %>
 </p>
 
+
 <% if signed_in? %>
   <p>
     <strong>Rank:</strong>
     <%= @internship.rank %>
   </p>
+  </div>
   <%= link_to 'Edit', edit_internship_path(@internship) %> |
+<% else %>
+  </div>
 <% end %>
 <%= link_to 'Back', internships_path %>

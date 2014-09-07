@@ -13,29 +13,29 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_area :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :personal_page %><br>
-    <%= f.text_area :personal_page %>
+    <%= f.text_field :personal_page, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field" style="width:150px">
     <%= f.label :gender %><br>
-    <%= f.text_area :gender %>
+    <%= f.select :gender, [ ['Male',0], ['Female', 1]], {}, { :class => "form-control"} %>
   </div>
-  <div class="field">
+  <div class="field" style="width:75px">
     <%= f.label :rank %><br>
-    <%= f.text_area :rank %>
+    <%= f.number_field :rank, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add Referee", class: "btn btn-primary" %>
   </div>
 <% end %>

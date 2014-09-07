@@ -13,37 +13,37 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_area :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :hyperlink %><br>
-    <%= f.text_field :hyperlink %>
+    <%= f.text_field :hyperlink, class: "form-control", placeholder: "Ex: 'IBPC-2014' will link to /internships/IBPC-2014 instead of internships/11" %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control", rows: "4" %>
   </div>
   <div class="field">
     <%= f.label :report_path %><br>
-    <%= f.text_field :report_path %>
+    <%= f.text_field :report_path, class: "form-control", placeholder: "Ex: /uploads/IBPC-2012.pdf" %>
   </div>
   <div class="field">
     <%= f.label :laboratory %><br>
-    <%= f.text_area :laboratory %>
+    <%= f.text_field :laboratory, class: "form-control", placeholder: "Laboratory Acronym (Laboratory Full Name)" %>
   </div>
   <div class="field">
     <%= f.label :location %><br>
-    <%= f.text_area :location %>
+    <%= f.text_field :location, class: "form-control", placeholder: "City (Country)" %>
   </div>
   <div class="field">
     <%= f.label :duration %><br>
-    <%= f.text_area :duration %>
+    <%= f.text_field :duration, class: "form-control", placeholder: "Ex: Feb 2011-July 2011" %>
   </div>
-  <div class="field">
+  <div class="field" style="width:75px">
     <%= f.label :rank %><br>
-    <%= f.text_area :rank %>
+    <%= f.number_field :rank, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add Internship", class: "btn btn-primary"%>
   </div>
 <% end %>

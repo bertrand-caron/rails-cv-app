@@ -29,5 +29,6 @@
     <%= @referee.rank %>
   </p>
   <%= link_to 'Edit', edit_referee_path(@referee) %> |
+  <%= link_to 'Destroy', @referee, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
 <%= link_to 'Back', referees_path %>
