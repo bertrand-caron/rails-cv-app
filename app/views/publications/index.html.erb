@@ -1,0 +1,28 @@
+<div style="margin-left:25px">
+  <h2 style="color:#F09819">Publications</h2>
+  <hr style="margin-top:0px">
+
+  <% @publications.each do |publication| %>
+    <div style="margin-top:20px; width:100%; background:#EEEEEE;border-radius:10px;padding:10px 10px 10px 10px">
+      <div style="width:100%; overflow: hidden">
+        <div style="width:80%;float:left">
+          <b><%= link_to publication.title, publication %></b>
+        </div>
+        <div style="float:right">
+       <b><%= publication.journal %></b>
+        </div>
+      </div>
+      <div style="width:100%; overflow: hidden">
+        <div style="">
+        <%= publication.authors %> (<%= publication.details %>)
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <br>
+
+  <% if signed_in? %>
+    <%= button_to 'Add Publication', new_publication_path, :class => "btn", :method => :get %>
+  <% end %>
+</div>

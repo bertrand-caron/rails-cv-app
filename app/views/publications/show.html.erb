@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @publication.title %>
+</p>
+
+<p>
+  <strong>Journal:</strong>
+  <%= @publication.journal %>
+</p>
+
+<p>
+  <strong>Authors:</strong>
+  <%= @publication.authors %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @publication.details %>
+</p>
+
+<p>
+  <strong>Abstract:</strong>
+  <%= @publication.abstract %>
+</p>
+
+<% if signed_in? %>
+  <p>
+    <strong>Rank:</strong>
+    <%= @publication.rank %>
+  </p>
+  </div>
+  <%= link_to 'Edit', edit_publication_path(@publication) %> |
+<% else %>
+  </div>
+<% end %>
+<%= link_to 'Back', publications_path %>

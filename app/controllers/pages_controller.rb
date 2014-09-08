@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     @educations = Education.all
     @internships = Internship.all
     @awards = Award.all
+    @publications = Publication.all
     @referees = Referee.all
   end
 

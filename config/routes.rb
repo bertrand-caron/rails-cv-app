@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :publications
+
   resources :awards
 
   resources :educations, :path => "education"
