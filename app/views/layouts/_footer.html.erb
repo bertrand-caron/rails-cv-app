@@ -6,7 +6,6 @@
 
 
 <% if signed_in? %>
-You are signed in as <%= link_to current_user.name, current_user %>
-<br>
+You are signed in as <%= link_to current_user.name, current_user %> |
 <%= link_to "Sign Out", signout_path, method: "delete" %>
 <% end %>

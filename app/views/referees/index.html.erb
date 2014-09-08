@@ -1,5 +1,5 @@
 <div style="margin-left:25px">
-  <h2>Referees</h2>
+  <h2 style="color:#F09819">Referees</h2>
   <hr style="margin-top:0px">
   
   <% @referees.each do |referee| %>
@@ -8,8 +8,8 @@
       <%= referee.title %><br>
       <div style="font-size:9px">
         <ul style="list-style-type:none;font-size:9px;margin:0;padding:0;">
-          <li style="float:left;margin-left:2px"><a href="mailto:<%= referee.email%>">Contact <%= referee.gender == 0 && "him" || "her" %></a></li>
-          <li style="margin-left:60px"><a href="<%= referee.personal_page %>">Browse Personnal page</a></li>
+          <li style="float:left;margin-left:2px"><a href="mailto:<%= referee.email%>">Contact <%= referee.gender == 0 && "him" || "her" %></a> |</li>
+          <li style="margin-left:60px"><a href="<%= referee.personal_page %>"> Browse Personnal page</a></li>
         </ul>
       </div>
     </div>
