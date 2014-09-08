@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'pages/contact'
   get 'pages/curriculum'
   get 'contact', to: 'pages#contact'
+  get 'contact_send', to: 'pages#contact_send'
   get 'curriculum', to: 'pages#curriculum'
   resources :softwares
   resources :referees

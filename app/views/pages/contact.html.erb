@@ -1,3 +1,19 @@
-<h1>Contact Details</h1>
-<hr>
-
+<div style="width:50%;margin: 0 auto">
+  <h1>Contact Form</h1>
+  <hr>
+  
+  <%= form_tag("/contact_send", method: "get") do %>
+  
+    <%= label_tag(:email, "Your Email:") %>
+    <%= text_field_tag :email, nil, class: "form-control" %><br>
+  
+    <%= label_tag(:content, "Message:") %>
+    <%= text_area_tag :content, nil, class: "form-control", rows: "4" %><br>
+  
+    <%= label_tag(:surprise, "If you are a human, please write the first two letters of your email address in the following field:") %>
+    <%= text_field_tag :surprise, nil, class: "form-control" %><br>
+  
+    <%= submit_tag "Send Message", class: "btn btn-primary" %>
+  <% end %>
+</div>
+<br>
