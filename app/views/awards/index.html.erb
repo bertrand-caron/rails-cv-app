@@ -1,0 +1,31 @@
+<div style="margin-left:25px">
+  <h2 style="color:#F09819">Awards</h2>
+  <hr style="margin-top:0px">
+
+  <% @awards.each do |award| %>
+    <div style="margin-top:20px; width:100%; background:#EEEEEE;border-radius:10px;padding:10px 10px 10px 10px">
+      <div style="width:100%; overflow: hidden">
+        <div style="width:80%;float:left">
+          <b><%= link_to award.title, award %></b>
+        </div>
+        <div style="float:right">
+       <b><%= award.location %></b>
+        </div>
+      </div>
+      <div style="width:100%; overflow: hidden">
+        <div style="float:left">
+        <%= raw award.description%>
+        </div>
+        <div style="float:right">
+          <i><%= award.time %></i>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <br>
+
+  <% if signed_in? %>
+    <%= button_to 'Add Award', new_award_path, :class => "btn", :method => :get %>
+  <% end %>
+</div>

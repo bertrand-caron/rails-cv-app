@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :awards
+
   resources :educations, :path => "education"
   resources :users
   root to: 'pages#home'
