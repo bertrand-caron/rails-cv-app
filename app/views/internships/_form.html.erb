@@ -43,6 +43,10 @@
     <%= f.label :rank %><br>
     <%= f.number_field :rank, class: "form-control" %>
   </div>
+  <div class="field">
+    <%= f.label :referee_id %><br>
+    <%= f.select :referee_id, @referee_hash, {}, class: "form-control" %>
+  </div>
   <div class="actions">
     <%= f.submit "Add Internship", class: "btn btn-primary"%>
   </div>

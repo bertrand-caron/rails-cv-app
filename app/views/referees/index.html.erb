@@ -4,7 +4,7 @@
   
   <% @referees.each do |referee| %>
     <div style="margin-top:20px; width:100%; background:#EEEEEE;border-radius:10px;padding:0 10px">
-      <h3 style="margin-bottom:0"><%= link_to referee.name, referee %></h3>
+      <h3 id="<%= referee.name.gsub(" ","") %>" style="margin-bottom:0"><%= link_to referee.name, referee %></h3>
       <%= referee.title %><br>
       <div style="font-size:9px">
         <ul style="list-style-type:none;font-size:9px;margin:0;padding:0;">

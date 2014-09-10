@@ -17,10 +17,12 @@ class InternshipsController < ApplicationController
   def new
     @internship = Internship.new
     @internship.rank = Internship.count + 1
+    @referee_hash = Hash[Referee.all.map{|i| i.name}.zip(Referee.all.map{|i| i.id})]
   end
 
   # GET /internships/1/edit
   def edit
+    @referee_hash = Hash[Referee.all.map{|i| i.name}.zip(Referee.all.map{|i| i.id})]
   end
 
   # POST /internships
@@ -79,7 +81,7 @@ class InternshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def internship_params
-      params.require(:internship).permit(:title, :hyperlink, :description, :report_path, :location, :laboratory, :duration, :rank)
+      params.require(:internship).permit(:title, :hyperlink, :description, :report_path, :location, :laboratory, :duration, :rank, :referee_id)
     end
 
 end
