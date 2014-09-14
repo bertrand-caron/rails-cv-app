@@ -27,6 +27,10 @@
     <%= f.label :personal_page %><br>
     <%= f.text_field :personal_page, class: "form-control" %>
   </div>
+  <div class="field">
+    <%= f.label :thumbnail_img%><br>
+    <%= f.text_field :thumbnail_img, class: "form-control" %>
+  </div>
   <div class="field" style="width:150px">
     <%= f.label :gender %><br>
     <%= f.select :gender, [ ['Male',0], ['Female', 1]], {}, { :class => "form-control"} %>

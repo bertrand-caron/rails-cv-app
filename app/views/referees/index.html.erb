@@ -3,14 +3,19 @@
   <hr style="margin-top:0px">
   
   <% @referees.each do |referee| %>
-    <div style="margin-top:20px; width:100%; background:#EEEEEE;border-radius:10px;padding:0 10px">
-      <h3 id="<%= referee.name.gsub(" ","") %>" style="margin-bottom:0"><%= link_to referee.name, referee %></h3>
-      <%= referee.title %><br>
-      <div style="font-size:9px">
-        <ul style="list-style-type:none;font-size:9px;margin:0;padding:0;">
-          <li style="float:left;margin-left:2px"><a href="mailto:<%= referee.email%>">Contact <%= referee.gender == 0 && "him" || "her" %></a> |</li>
-          <li style="margin-left:60px"><a href="<%= referee.personal_page %>"> Browse Personnal page</a></li>
-        </ul>
+    <div style="margin-top:20px; width:100%; background:#EEEEEE;border-radius:10px;padding:0 10px;height:82px">
+      <div style="width:80%;float:left">
+        <h3 id="<%= referee.name.gsub(" ","") %>" style="margin-bottom:0;margin-top:10px"><%= link_to referee.name, referee %></h3>
+        <%= referee.title %><br>
+        <div style="font-size:9px;float:left">
+          <ul style="list-style-type:none;font-size:9px;margin:0;padding:0;">
+            <li style="float:left;margin-left:2px"><a href="mailto:<%= referee.email%>">Contact <%= referee.gender == 0 && "him" || "her" %></a> |</li>
+            <li style="width:400px"><a href="<%= referee.personal_page %>"> Browse Personnal page</a></li>
+          </ul>
+        </div>
+      </div>
+      <div align="right"  style="padding-top:10px" clear="both">
+        <img src="<%= referee.thumbnail_img %>" height="62" style="border-radius:7px">
       </div>
     </div>
   <% end %>
