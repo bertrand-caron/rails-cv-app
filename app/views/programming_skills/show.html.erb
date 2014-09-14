@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @programming_skill.title %>
+</p>
+
+<p>
+  <strong>Skill Type:</strong>
+  <%= @programming_skill.skill_type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @programming_skill.description %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @programming_skill.details %>
+</p>
+
+<p>
+  <strong>Hyperlink:</strong>
+  <%= @programming_skill.hyperlink %>
+</p>
+
+<p>
+  <strong>Rank:</strong>
+  <%= @programming_skill.rank %>
+</p>
+
+<p>
+  <strong>Ranking:</strong>
+  <%= @programming_skill.ranking %>
+</p>
+
+<%= link_to 'Edit', edit_programming_skill_path(@programming_skill) %> |
+<%= link_to 'Back', programming_skills_path %>

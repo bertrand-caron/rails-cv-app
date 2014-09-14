@@ -1,0 +1,21 @@
+<div style="margin-left:25px">
+  <h2 style="color:#F09819">Programming Skills</h2>
+  <hr style="margin-top:0px">
+
+  <% @programming_skills.each do |skill| %>
+    <div style="margin-top:7px; width:100%; background:#EEEEEE;border-radius:10px;padding:7px ">
+      <div style="float:left">
+        <b><%= link_to skill.title, skill %></b>
+      </div>
+      <div align="right">
+        <%= raw skill.description %>
+      </div>
+    </div>
+  <% end %>
+
+  <br>
+
+  <% if signed_in? %>
+    <%= button_to 'Add Programming Skill', new_programming_skill_path, :class => "btn", :method => :get %>
+  <% end %>
+</div>

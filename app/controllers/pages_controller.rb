@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   def curriculum
     @educations = Education.all
     @internships = Internship.all
+    @programming_skills= ProgrammingSkill.all
     @awards = Award.all
     @publications = Publication.all
     @referees = Referee.all
