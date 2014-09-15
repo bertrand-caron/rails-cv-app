@@ -1,39 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @programming_skill.title %>
-</p>
+<div style="margin:0 75px">
+  <h1><%= @programming_skill.title %> <%= "Programming Language" if @programming_skill.skill_type == 0 %></h1>
+  <hr>
 
-<p>
-  <strong>Skill Type:</strong>
-  <%= @programming_skill.skill_type %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @programming_skill.description %>
-</p>
+  <div style="margin-left:50px">
+  <p>
+    <strong>Description:</strong>
+    <%= raw @programming_skill.description %>
+  </p>
 
-<p>
-  <strong>Details:</strong>
-  <%= @programming_skill.details %>
-</p>
+  <hr>
+  <h3>Details<h3>
+    <div style="background:#EEEEEE;border-radius:10px;padding:10px; margin-top:10px" class="markdown-jumbotron">
+      <%= markdown(@programming_skill.details) %>
+    </div>
 
-<p>
-  <strong>Hyperlink:</strong>
-  <%= @programming_skill.hyperlink %>
-</p>
+  <% if signed_in? %>
+    <p>
+      <strong>Skill Type:</strong>
+      <%= @programming_skill.skill_type %>
+    </p>
+    <p>
+      <strong>Hyperlink:</strong>
+      <%= @programming_skill.hyperlink %>
+    </p>
+    <p>
+      <strong>Rank:</strong>
+      <%= @programming_skill.rank %>
+    </p>
+  <% end %>
 
-<p>
-  <strong>Rank:</strong>
-  <%= @programming_skill.rank %>
-</p>
-
-<p>
-  <strong>Ranking:</strong>
-  <%= @programming_skill.ranking %>
-</p>
+  <p>
+    <strong>Ranking:</strong>
+    <%= @programming_skill.ranking %> / 5
+  </p>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_programming_skill_path(@programming_skill) %> |
 <%= link_to 'Back', programming_skills_path %>

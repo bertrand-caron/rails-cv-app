@@ -1,3 +1,32 @@
 // Place all the styles related to the ProgrammingSkills controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.markdown-jumbotron{
+
+	h1,h2,h3,h4,h5{
+	text-decoration: underline;
+	margin-top:10px;
+	padding-left:15px;
+	}
+
+	h1{
+        font-size:24px;
+	}
+	h2{
+	font-size:18px;
+	}
+	h3{
+	font-size:14px;
+	}
+	h4{
+	font-size:12px;
+	}
+	h5{
+	font-size:10px;
+	}
+	p{
+	padding-left:15px
+	}
+
+}
