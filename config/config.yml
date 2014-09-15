@@ -1,0 +1,10 @@
+# The present YAML file is loaded as Settings in config/initializers/load_config.rb
+
+# Title of the website, as displayed in the navbar
+title: "Bertrand Caron - Research Activities"
+
+# Disclaimer displayed at the bottom of the page, in the footer
+disclaimer: "Powered by <a href='http://bcaron.me' >Myself</a>"  
+
+# Email receiving the messages sent via the Contact Form
+email: admin@bcaron.me
