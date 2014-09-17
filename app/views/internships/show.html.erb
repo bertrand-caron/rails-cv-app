@@ -4,20 +4,11 @@
   <hr>
 
 <div style="margin:0 0 0 50px">
-<p>
-  <strong>Hyperlink:</strong>
-  /internships/<%= @internship.hyperlink %>
-</p>
 
 <p>
   <strong>Description:</strong>
   <br>
   <%= raw @internship.description %>
-</p>
-
-<p>
-  <strong>Report path:</strong>
-  <%= @internship.report_path %>
 </p>
 
 <p>
@@ -35,17 +26,33 @@
   <%= @internship.duration %>
 </p>
 
-<p>
-  <strong>Referee Id:</strong>
-  <%= @internship.referee_id %>
-</p>
-
 
 <% if signed_in? %>
-  <p>
-    <strong>Rank:</strong>
-    <%= @internship.rank %>
-  </p>
+  <br>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      Admin Settings
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Referee Id:</strong>
+        <%= @internship.referee_id %>
+      </p>
+      <p>
+        <strong>Hyperlink:</strong>
+        /internships/<%= @internship.hyperlink %>
+      </p>
+      <p>
+        <strong>Report path:</strong>
+        <%= @internship.report_path %>
+      </p>
+      <p>
+        <strong>Rank:</strong>
+        <%= @internship.rank %>
+      </p>
+    </div>
+  </div>
+
   </div>
   <%= link_to 'Edit', edit_internship_path(@internship) %> |
 <% else %>

@@ -26,10 +26,18 @@
 </p>
 
 <% if signed_in? %>
-  <p>
-    <strong>Rank:</strong>
-    <%= @publication.rank %>
-  </p>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      Admin Settings
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Rank:</strong>
+        <%= @publication.rank %>
+      </p>
+    </div>
+  </div>
+
   </div>
   <%= link_to 'Edit', edit_publication_path(@publication) %> |
 <% else %>

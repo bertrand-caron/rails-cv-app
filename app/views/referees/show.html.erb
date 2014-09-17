@@ -20,22 +20,29 @@
   <%= @referee.personal_page %>
 </p>
 
-<p>
-  <strong>Thumbnail Image Link:</strong>
-  <%= @referee.thumbnail_img %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @referee.gender %>
-</p>
-
 <% if signed_in? %>
-  <p>
-    <strong>Rank:</strong>
-    <%= @referee.rank %>
-  </p>
+  <br>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      Admin Settings
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Rank:</strong>
+        <%= @referee.rank %>
+      </p>
+      <p>
+        <strong>Gender:</strong>
+        <%= @referee.gender %>
+      </p>
+      <p>
+        <strong>Thumbnail Image Link:</strong>
+        <%= @referee.thumbnail_img %>
+      </p>
+    </div>
+  </div>
   <%= link_to 'Edit', edit_referee_path(@referee) %> |
   <%= link_to 'Destroy', @referee, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
+
 <%= link_to 'Back', referees_path %>

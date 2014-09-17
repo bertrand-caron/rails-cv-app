@@ -12,24 +12,32 @@
   </p>
 
   <hr>
-  <h3>Details<h3>
+  <h3>Details</h3>
     <div style="background:#EEEEEE;border-radius:10px;padding:10px; margin-top:10px" class="markdown-jumbotron">
       <%= markdown(@programming_skill.details) %>
     </div>
 
   <% if signed_in? %>
-    <p>
-      <strong>Skill Type:</strong>
-      <%= @programming_skill.skill_type %>
-    </p>
-    <p>
-      <strong>Hyperlink:</strong>
-      <%= @programming_skill.hyperlink %>
-    </p>
-    <p>
-      <strong>Rank:</strong>
-      <%= @programming_skill.rank %>
-    </p>
+  <br>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      Admin Settings
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Skill Type:</strong>
+        <%= @programming_skill.skill_type %>
+      </p>
+      <p>
+        <strong>Hyperlink:</strong>
+        <%= @programming_skill.hyperlink %>
+      </p>
+      <p>
+        <strong>Rank:</strong>
+        <%= @programming_skill.rank %>
+      </p>
+    </div>
+  </div>
   <% end %>
 
   <p>
