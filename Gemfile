@@ -33,6 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'redcarpet'
 gem 'font-awesome-rails'
+gem 'actionpack-page_caching'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

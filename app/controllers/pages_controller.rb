@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  #caches_page :curriculum, :contact
+
   def home
   end
 
