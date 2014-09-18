@@ -1,16 +1,32 @@
+<% content_for(:title, "Curriculum Vitae") %>
 <div style="margin:0 50px">
 
   <div align="center" style="color:#888" class="cv-name-header">
-    <h1 style="margin-bottom:10px;font-size:350%"><span style="color:#F09819">Bertrand Caron</span> | PhD Student</h1>
-    <p>6 rue Charles Dubois, 80000 Amiens, France</p>
+    <h1 style="margin-bottom:10px;font-size:350%"><span style="color:#F09819"><%= Settings['name']%></span> | <span id="demo" style="white-space:pre"><%=Settings['cv-title']%></span></h1>
+    <p><%=Settings['address']%></p>
     <p>
-        <i class="fa fa-mobile" style="font-size:22px"></i> (+33) 6 62 04 28 09 
-       • <i class="fa fa-info-circle" style="font-size:15px"></i> 22 years old</p>
+        <i class="fa fa-mobile" style="font-size:22px"></i> <%=Settings['mobile-phone']%>
+       • <i class="fa fa-info-circle" style="font-size:15px"></i> <%=Settings['infos']%></p>
     <p>
-        <i class="fa fa-stack-overflow" style="font-size:19px"></i> <a href="http://stackoverflow.com/users/1680996/bertrand-caron">bertrand-caron</a>
-      • <i class="fa fa-github" style="font-size:22px"></i> <a href="https://github.com/bertrand-caron">bertrand-caron</a>
+        <i class="fa fa-stack-overflow" style="font-size:19px"></i> <a href="http://stackoverflow.com/users/<%=Settings['social-media']['stack-overflow-id']%>"><%=Settings['social-media']['stack-overflow-name']%></a>
+      • <i class="fa fa-github" style="font-size:22px"></i> <a href="https://github.com/<%=Settings['social-media']['github']%>"><%= Settings['social-media']['github']%></a>
     </p>
   </div>
+
+<script>
+$(document).ready(function(){
+  $("#demo").mouseover(function(){
+    $(this).fadeOut('fast',function(){
+    $(this).html("<%=Settings['cv-title-alt'] %>").fadeIn('fast');
+    });
+  });
+  $("#demo").mouseout(function(){
+    $(this).fadeOut('fast',function(){
+    $(this).html("<%= Settings['cv-title'] %>").fadeIn('fast');
+    });
+  });
+});
+</script>
   
   <%= render :file => 'educations/index' %>
   <%= render :file => 'internships/index' %>

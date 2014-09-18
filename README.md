@@ -80,13 +80,15 @@ Make sure to edit the config file to match your setup:
 
     sudo service nginx restart
 
-### Initial Login
+### Create First User
 
-Visit YOUR_SERVER in your web browser for your first CV login. The setup has created an admin account for you. You can use it to log in:
-
-    root
-    5iveL!fe
-
-**Important Note:** Please go over to your profile page and immediately change the password, so nobody can access your CV by using this login information later on.
+    # Go to the CV rails app folder
+    cd ~cv/cv
+    # Open the rails console
+    rails console
+    # Create your first user
+    irb(main):001:0> user=User.create!(:email=>'admin@local.host',:name=>'Admin',:password=>'foobar')
+    # Exit the rails console
+    irb(main):001:0> exit
 
 **Enjoy!**

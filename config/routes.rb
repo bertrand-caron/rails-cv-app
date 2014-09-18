@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :educations, :path => "education"
   resources :users
-  root to: 'pages#home'
+  root to: 'pages#curriculum'
   get 'pages/home'
   get 'pages/contact'
   get 'pages/curriculum'

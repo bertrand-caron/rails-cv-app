@@ -1,5 +1,6 @@
 class ProgrammingSkillsController < ApplicationController
   before_action :set_programming_skill, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
 
   # GET /programming_skills
   # GET /programming_skills.json
