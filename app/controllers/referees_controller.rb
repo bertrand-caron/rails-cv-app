@@ -5,6 +5,7 @@ class RefereesController < ApplicationController
   # GET /referees
   # GET /referees.json
   def index
+    @set_title = true
     @referees = Referee.all
   end
 

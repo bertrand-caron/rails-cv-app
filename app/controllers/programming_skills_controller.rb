@@ -5,6 +5,7 @@ class ProgrammingSkillsController < ApplicationController
   # GET /programming_skills
   # GET /programming_skills.json
   def index
+    @set_title = true
     @programming_skills = ProgrammingSkill.all
   end
 

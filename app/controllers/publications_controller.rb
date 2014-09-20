@@ -4,6 +4,7 @@ class PublicationsController < ApplicationController
   # GET /publications
   # GET /publications.json
   def index
+    @set_title = true
     @publications = Publication.all
   end
 

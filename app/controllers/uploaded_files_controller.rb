@@ -5,6 +5,7 @@ class UploadedFilesController < ApplicationController
   # GET /uploaded_files
   # GET /uploaded_files.json
   def index
+    @set_title = true
     @uploaded_files = UploadedFile.all
   end
 

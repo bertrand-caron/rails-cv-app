@@ -4,6 +4,7 @@ class EducationsController < ApplicationController
   # GET /educations
   # GET /educations.json
   def index
+    @set_title = true
     @educations = Education.all
   end
 

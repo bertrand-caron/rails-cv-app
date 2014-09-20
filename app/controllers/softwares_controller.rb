@@ -5,6 +5,7 @@ class SoftwaresController < ApplicationController
   # GET /softwares
   # GET /softwares.json
   def index
+    @set_title = true
     @softwares = Software.all
   end
 

@@ -5,6 +5,7 @@ class InternshipsController < ApplicationController
   # GET /internships
   # GET /internships.json
   def index
+    @set_title = true
     @internships = Internship.all
   end
 

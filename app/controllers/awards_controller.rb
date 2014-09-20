@@ -4,6 +4,7 @@ class AwardsController < ApplicationController
   # GET /awards
   # GET /awards.json
   def index
+    @set_title = true
     @awards = Award.all
   end
 
