@@ -35,6 +35,7 @@ gem 'redcarpet'
 gem 'font-awesome-rails'
 gem 'actionpack-page_caching'
 gem 'piwik_analytics', :github => 'bertrand-caron/piwik-ruby-tracking'
+gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

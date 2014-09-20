@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/bmc/jquery-raty-rails.git
+  revision: f362f17c0ff3ac039ab05b5e48e5db24a27794b3
+  specs:
+    jquery-raty-rails (0.0.1)
+      rails (>= 3.2.3)
+
+GIT
   remote: git://github.com/bertrand-caron/piwik-ruby-tracking.git
   revision: 0a33656abd4f01009b54624ad17024fd72b41bab
   specs:
@@ -156,6 +163,7 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-raty-rails!
   less-rails
   piwik_analytics!
   rails (= 4.1.5)

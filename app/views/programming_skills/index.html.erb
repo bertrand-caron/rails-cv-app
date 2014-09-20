@@ -8,6 +8,9 @@
     <div style="margin-top:7px; width:100%; background:#EEEEEE;border-radius:10px;padding:7px ">
       <div style="float:left">
         <b><%= link_to skill.title, skill %></b>
+         <p style="color:#428bca;float:right;margin-left:20px;font-size:18px">
+           <%= raw (1..5).reduce(""){|acc,e| acc + "<i class='fa fa-star" + (e <= skill.ranking ? '' : '-o') + "'></i>"} %>
+         <p>
       </div>
       <div align="right">
         <%= raw skill.description %>
