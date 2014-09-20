@@ -91,4 +91,11 @@ Make sure to edit the config file to match your setup:
     # Exit the rails console
     irb(main):001:0> exit
 
+### Use your credentials to sign in and start adding items
+
+Sign in at `your_cv_app_url/signin using` the credentials your generated.
+
+Signing in grants you an additional button in the navbar, Models, giving you acces to
+the different sections (Education, Internships, etc.).
+
 **Enjoy!**

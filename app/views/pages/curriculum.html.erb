@@ -13,6 +13,7 @@
     </p>
   </div>
 
+<% if Settings['cv-title-alt'] %>
 <script>
 $(document).ready(function(){
   $("#demo").mouseover(function(){
@@ -27,6 +28,7 @@ $(document).ready(function(){
   });
 });
 </script>
+<% end %>
   
   <%= render :file => 'educations/index' %>
   <%= render :file => 'internships/index' %>

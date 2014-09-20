@@ -4,7 +4,11 @@ name: "Bertrand Caron"
 
 # Title of the website, as displayed in the navbar
 page-title: "Academic Curriculum Vitae"
+
+# CV Title
 cv-title: "Future PhD Student"
+
+# Alternate CV title displayed when hovering over CV title. Comment out to disable this effect.
 cv-title-alt: "Web Developer ?"
 
 # Disclaimer displayed at the bottom of the page, in the footer
@@ -21,4 +25,8 @@ social-media:
 mobile-phone: "+(33) 6 62 04 28 09"
 address: "6 Rue Charles Dubois, 80000 Amiens, France"
 infos: "22 years old"
+
 domain-name: "cv.bcaron.me"
+
+# Display the 'Fork on Github' footer
+display-footer: true
