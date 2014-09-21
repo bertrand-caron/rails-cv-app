@@ -40,8 +40,52 @@ Create a `cv` user for the CV App:
 
 ### Install Gems
 
+If the 'bundler' gem is not installed yet, do it:
+
+    # Install Bundler gem
+    sudo -u cv -H gem install bundler
+
+Then install all the necessary gems:
+
     # Install Gems
     sudo -u cv -H bundle install
+
+### Set the secret key
+
+    # Copy the template secrets.yml file
+    sudo -u cv -H cp config/secrets.yml.example config/secrets.yml
+
+    # Open the secret file, and enter a valid secret key as explaiend in the comments
+    sudo -u cv -H editor config/secrets.yml
+
+### Migrate database
+    # Run the necessary database migrations
+    sudo -u cv -H bin/rake db:migrate RAILS_ENV=development
+
+
+### Create First User
+
+    # Go to the CV rails app folder
+    cd ~cv/cv
+    # Open the rails console
+    rails console
+    # Create your first user
+    # 'irb(main):001:0>' is the console prompt
+    irb(main):001:0> user=User.create!(:email=>'admin@local.host',:name=>'Admin',:password=>'foobar')
+    # Exit the rails console
+    irb(main):001:0> exit
+
+### Test the App
+
+At the point, you should be able to fire the app with `rails server`
+ant test it at localhost:3000.
+
+### Use your credentials to sign in and start adding items
+
+Sign in at `your_cv_app_url/signin` using the credentials your generated.
+
+Signing in grants you an additional button in the navbar, Models, giving you acces to
+the different sections (Education, Internships, etc.).
 
 ### Install Init Script
 
@@ -80,22 +124,5 @@ Make sure to edit the config file to match your setup:
 
     sudo service nginx restart
 
-### Create First User
-
-    # Go to the CV rails app folder
-    cd ~cv/cv
-    # Open the rails console
-    rails console
-    # Create your first user
-    irb(main):001:0> user=User.create!(:email=>'admin@local.host',:name=>'Admin',:password=>'foobar')
-    # Exit the rails console
-    irb(main):001:0> exit
-
-### Use your credentials to sign in and start adding items
-
-Sign in at `your_cv_app_url/signin using` the credentials your generated.
-
-Signing in grants you an additional button in the navbar, Models, giving you acces to
-the different sections (Education, Internships, etc.).
 
 **Enjoy!**
