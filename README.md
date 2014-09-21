@@ -38,6 +38,11 @@ Create a `cv` user for the CV App:
     # Update config file
     sudo -u cv -H editor config/config.yml
 
+    # If you plan on using piwik, also copy the following file
+    sudo -u cv -H cp config/piwik.yml.example config/piwik.yml
+    # And update it with your settings
+    sudo -u cv -H editor config/piwik.yml
+
 ### Install Gems
 
 If the 'bundler' gem is not installed yet, do it:

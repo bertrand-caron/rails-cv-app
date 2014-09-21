@@ -32,5 +32,5 @@ You are signed in as <%= link_to current_user.name, current_user %> |
 <%= link_to "Sign Out", signout_path, method: "delete" %>
 <% end %>
 
-<%= piwik_tracking_tag %>
+<%= piwik_tracking_tag if Settings['use-piwik'] %>
 
