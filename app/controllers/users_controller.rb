@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:index, :edit, :update, :new, :create, :destroy]
+  add_breadcrumb "Users", :users_path
 
   # GET /users
   # GET /users.json
@@ -12,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    add_breadcrumb @user.name, @user
   end
 
   # GET /users/new

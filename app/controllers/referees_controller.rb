@@ -1,6 +1,7 @@
 class RefereesController < ApplicationController
   before_action :set_referee, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
+  add_breadcrumb "Referees", referees_path:
 
   # GET /referees
   # GET /referees.json
@@ -12,6 +13,7 @@ class RefereesController < ApplicationController
   # GET /referees/1
   # GET /referees/1.json
   def show
+    add_breadcrumb @referee.name, @referee
   end
 
   # GET /referees/new

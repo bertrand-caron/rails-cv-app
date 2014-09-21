@@ -10,3 +10,9 @@
 	color:#888;
 	}
 }
+
+.breadcrumb > li + li::before
+{
+	content: '/';
+	padding: 0 3px;
+}

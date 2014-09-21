@@ -1,5 +1,6 @@
 class AwardsController < ApplicationController
   before_action :set_award, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Awards", :awards_path
 
   # GET /awards
   # GET /awards.json
@@ -11,6 +12,7 @@ class AwardsController < ApplicationController
   # GET /awards/1
   # GET /awards/1.json
   def show
+    add_breadcrumb @award.title, @award
   end
 
   # GET /awards/new

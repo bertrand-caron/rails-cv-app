@@ -1,6 +1,7 @@
 class InternshipsController < ApplicationController
   before_action :set_internship, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
+  add_breadcrumb "Internships", internships_path:
 
   # GET /internships
   # GET /internships.json
@@ -12,6 +13,7 @@ class InternshipsController < ApplicationController
   # GET /internships/1
   # GET /internships/1.json
   def show
+    add_breadcrumb @internship.title, @internship
   end
 
   # GET /internships/new

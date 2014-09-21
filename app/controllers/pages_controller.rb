@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def contact
+    add_breadcrumb "Contact", contact_path
   end
 
   def curriculum

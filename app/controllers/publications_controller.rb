@@ -1,5 +1,6 @@
 class PublicationsController < ApplicationController
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Publications", publications_path:
 
   # GET /publications
   # GET /publications.json
@@ -11,6 +12,7 @@ class PublicationsController < ApplicationController
   # GET /publications/1
   # GET /publications/1.json
   def show
+    add_breadcrumb @publication.title, @publication
   end
 
   # GET /publications/new

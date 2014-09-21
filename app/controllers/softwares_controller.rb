@@ -1,6 +1,7 @@
 class SoftwaresController < ApplicationController
   before_action :set_software, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
+  add_breadcrumb "Softwares", softwares_path:
 
   # GET /softwares
   # GET /softwares.json
@@ -12,6 +13,7 @@ class SoftwaresController < ApplicationController
   # GET /softwares/1
   # GET /softwares/1.json
   def show
+    add_breadcrumb @software.name, @software
   end
 
   # GET /softwares/new

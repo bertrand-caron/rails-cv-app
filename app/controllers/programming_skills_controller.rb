@@ -1,6 +1,7 @@
 class ProgrammingSkillsController < ApplicationController
   before_action :set_programming_skill, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
+  add_breadcrumb "Programming Skills", programming_skills_path:
 
   # GET /programming_skills
   # GET /programming_skills.json
@@ -12,6 +13,7 @@ class ProgrammingSkillsController < ApplicationController
   # GET /programming_skills/1
   # GET /programming_skills/1.json
   def show
+    add_breadcrumb @programming_skill.title, @programming_skill
   end
 
   # GET /programming_skills/new

@@ -1,6 +1,7 @@
 class UploadedFilesController < ApplicationController
   before_action :set_uploaded_file, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:index, :edit, :update, :new, :create, :destroy]
+  add_breadcrumb "Files", :uploaded_files_path
 
   # GET /uploaded_files
   # GET /uploaded_files.json
@@ -12,6 +13,7 @@ class UploadedFilesController < ApplicationController
   # GET /uploaded_files/1
   # GET /uploaded_files/1.json
   def show
+    add_breadcrumb @uploaded_file.name, @uploaded_file
   end
 
   # GET /uploaded_files/new

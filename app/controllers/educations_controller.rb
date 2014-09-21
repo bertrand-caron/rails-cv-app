@@ -1,5 +1,6 @@
 class EducationsController < ApplicationController
   before_action :set_education, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Education", :educations_path
 
   # GET /educations
   # GET /educations.json
@@ -11,6 +12,7 @@ class EducationsController < ApplicationController
   # GET /educations/1
   # GET /educations/1.json
   def show
+    add_breadcrumb @education.institution, @institution
   end
 
   # GET /educations/new
