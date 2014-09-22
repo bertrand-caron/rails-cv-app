@@ -1,6 +1,6 @@
 class PublicationsController < ApplicationController
+  add_breadcrumb "Publications", :publications_path
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
-  add_breadcrumb "Publications", publications_path:
 
   # GET /publications
   # GET /publications.json
@@ -12,17 +12,18 @@ class PublicationsController < ApplicationController
   # GET /publications/1
   # GET /publications/1.json
   def show
-    add_breadcrumb @publication.title, @publication
   end
 
   # GET /publications/new
   def new
     @publication = Publication.new
     @publication.rank = Publication.count + 1
+    add_breadcrumb "New", new_publication_path
   end
 
   # GET /publications/1/edit
   def edit
+    add_breadcrumb "Edit",edit_publication_path 
   end
 
   # POST /publications
@@ -69,6 +70,7 @@ class PublicationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_publication
       @publication = Publication.find(params[:id])
+      add_breadcrumb @publication.title, @publication
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

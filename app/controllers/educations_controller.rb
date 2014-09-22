@@ -1,6 +1,6 @@
 class EducationsController < ApplicationController
-  before_action :set_education, only: [:show, :edit, :update, :destroy]
   add_breadcrumb "Education", :educations_path
+  before_action :set_education, only: [:show, :edit, :update, :destroy]
 
   # GET /educations
   # GET /educations.json
@@ -12,17 +12,18 @@ class EducationsController < ApplicationController
   # GET /educations/1
   # GET /educations/1.json
   def show
-    add_breadcrumb @education.institution, @institution
   end
 
   # GET /educations/new
   def new
     @education = Education.new
     @education.rank = Education.count + 1
+    add_breadcrumb "New", new_education_path
   end
 
   # GET /educations/1/edit
   def edit
+    add_breadcrumb "Edit", edit_education_path
   end
 
   # POST /educations
@@ -69,6 +70,7 @@ class EducationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_education
       @education = Education.find(params[:id])
+      add_breadcrumb @education.institution, @education
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

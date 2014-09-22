@@ -1,7 +1,7 @@
 class UploadedFilesController < ApplicationController
+  add_breadcrumb "Files", :uploaded_files_path
   before_action :set_uploaded_file, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:index, :edit, :update, :new, :create, :destroy]
-  add_breadcrumb "Files", :uploaded_files_path
 
   # GET /uploaded_files
   # GET /uploaded_files.json
@@ -13,16 +13,17 @@ class UploadedFilesController < ApplicationController
   # GET /uploaded_files/1
   # GET /uploaded_files/1.json
   def show
-    add_breadcrumb @uploaded_file.name, @uploaded_file
   end
 
   # GET /uploaded_files/new
   def new
     @uploaded_file = UploadedFile.new
+    add_breadcrumb "New", new_uploaded_file_path
   end
 
   # GET /uploaded_files/1/edit
   def edit
+    add_breadcrumb "Edit", edit_uploaded_file_path
   end
 
   # POST /uploaded_files
@@ -77,6 +78,7 @@ class UploadedFilesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_uploaded_file
       @uploaded_file = UploadedFile.find(params[:id])
+      add_breadcrumb @uploaded_file.name, @uploaded_file
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

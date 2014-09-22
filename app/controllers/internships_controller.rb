@@ -1,7 +1,7 @@
 class InternshipsController < ApplicationController
+  add_breadcrumb "Internships", :internships_path
   before_action :set_internship, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
-  add_breadcrumb "Internships", internships_path:
 
   # GET /internships
   # GET /internships.json
@@ -13,7 +13,6 @@ class InternshipsController < ApplicationController
   # GET /internships/1
   # GET /internships/1.json
   def show
-    add_breadcrumb @internship.title, @internship
   end
 
   # GET /internships/new
@@ -21,11 +20,13 @@ class InternshipsController < ApplicationController
     @internship = Internship.new
     @internship.rank = Internship.count + 1
     @referee_hash = Hash[Referee.all.map{|i| i.name}.zip(Referee.all.map{|i| i.id})]
+    add_breadcrumb "New", new_internship_path
   end
 
   # GET /internships/1/edit
   def edit
     @referee_hash = Hash[Referee.all.map{|i| i.name}.zip(Referee.all.map{|i| i.id})]
+    add_breadcrumb "Edit", edit_internship_path
   end
 
   # POST /internships
@@ -72,7 +73,8 @@ class InternshipsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_internship
       # First, look for the internship with the matching id
-      @internship = Internship.find params[:id] 
+      begin
+        @internship = Internship.find params[:id] 
       rescue ActiveRecord::RecordNotFound
         # If such an internship can't be found, look for an internship whos hyperlink matches the id
         @internship = Internship.find_by hyperlink: params[:id]
@@ -80,6 +82,8 @@ class InternshipsController < ApplicationController
           # If the answer of the find_by request is nil, just dump everything and go back to the root
           redirect_to '/'
         end
+      end
+      add_breadcrumb @internship.title, @internship
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

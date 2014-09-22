@@ -1,7 +1,7 @@
 class SoftwaresController < ApplicationController
+  add_breadcrumb "Softwares", :softwares_path
   before_action :set_software, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
-  add_breadcrumb "Softwares", softwares_path:
 
   # GET /softwares
   # GET /softwares.json
@@ -13,16 +13,17 @@ class SoftwaresController < ApplicationController
   # GET /softwares/1
   # GET /softwares/1.json
   def show
-    add_breadcrumb @software.name, @software
   end
 
   # GET /softwares/new
   def new
     @software = Software.new
+    add_breadcrumb "New", new_software_path
   end
 
   # GET /softwares/1/edit
   def edit
+    add_breadcrumb "Edit", edit_software_path
   end
 
   # POST /softwares
@@ -68,7 +69,8 @@ class SoftwaresController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_software
-      @software = Software.find(params[:id])
+      begin
+        @software = Software.find(params[:id])
       rescue ActiveRecord::RecordNotFound
         # If such a record can't be found, look for a record whos hyperlink matches the id
         @software = Software.find_by hyperlink: params[:id]
@@ -76,6 +78,8 @@ class SoftwaresController < ApplicationController
           # If the answer of the find_by request is nil, just dump everything and go back to the root
           redirect_to '/'
         end
+      end
+      add_breadcrumb @software.name, @software
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
