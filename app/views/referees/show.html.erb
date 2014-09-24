@@ -1,11 +1,14 @@
 <% content_for :title, controller_name.capitalize + ": " +  @referee.name %>
 
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @referee.name %>
-</p>
+  <h2><%= @referee.name %></h2>
+  <hr>
+
+<div style="float:right">
+	<img style="margin-bottom:20px;max-height:200px;border-radius:50%" src="<%= @referee.thumbnail_img%>">
+</div>
 
 <p>
   <strong>Email:</strong>
@@ -24,7 +27,7 @@
 
 <% if signed_in? %>
   <br>
-  <div class="panel panel-info">
+  <div class="panel panel-info" style="clear:both">
     <div class="panel-heading">
       Admin Settings
     </div>

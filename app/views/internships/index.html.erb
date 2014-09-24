@@ -5,11 +5,15 @@
   <hr style="margin-top:0px">
   
   <% @internships.each do |internship| %>
-    <div style="margin-top:20px; width:100%; background:#EEEEEE;border-radius:10px;padding:10px 10px 0 10px">
+    <div style="margin-top:20px; width:100%; background:#EEEEEE;border-radius:10px;padding:10px 10px 0 10px" onmouseover="show_edit_tools(this)" onmouseout="hide_edit_tools(this)">
       <div style="width:100%; overflow: hidden">
         <div style="width:80%;float:left">
           <b><%= link_to internship.title, internship %></b>
           <%= link_to "Supervisor: "+Referee.find(internship.referee_id).name, "#"+Referee.find(internship.referee_id).name.gsub(" ","") %>
+          <% if signed_in? %>
+          <span style="padding-left:10px;font-size:14px;vertical-align:top;display:none"><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_internship_path(internship) %></span>
+          <span style="padding-left:2px;font-size:14px;vertical-align:top;display:none"><%= link_to '<i class="fa fa-close"></i>'.html_safe, internship, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+          <% end %>
         </div>
         <div style="float:right">
        <b><%= internship.location %></b>

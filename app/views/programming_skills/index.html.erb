@@ -5,11 +5,15 @@
   <hr style="margin-top:0px">
 
   <% @programming_skills.each do |skill| %>
-    <div style="margin-top:7px; width:100%; background:#EEEEEE;border-radius:10px;padding:7px ">
+    <div style="margin-top:7px; width:100%; background:#EEEEEE;border-radius:10px;padding:7px" onmouseover="show_edit_tools(this)" onmouseout="hide_edit_tools(this)">
       <div style="float:left">
         <b><%= link_to skill.title, skill %></b>
          <p style="color:#428bca;float:right;margin-left:20px;font-size:18px">
            <%= raw (1..5).reduce(""){|acc,e| acc + "<i class='fa fa-star" + (e <= skill.ranking ? '' : '-o') + "'></i>"} %>
+          <% if signed_in? %>
+          <span style="padding-left:10px;font-size:14px;vertical-align:top;display:none"><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_programming_skill_path(skill) %></span>
+          <span style="padding-left:2px;font-size:14px;vertical-align:top;display:none"><%= link_to '<i class="fa fa-close"></i>'.html_safe, skill, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+          <% end %>
          <p>
       </div>
       <div align="right">
