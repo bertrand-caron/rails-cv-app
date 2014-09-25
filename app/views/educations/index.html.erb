@@ -1,9 +1,12 @@
 <% content_for(:title, 'Education') if @set_title %>
 
-<div style="margin-left:25px">
-  <h2 style="color:#F09819">Education</h2>
-  <hr style="margin-top:0px">
+<div style="margin-left:25px" >
+  <h2 style="color:#F09819">Education
+  <span style="float:right" onclick="$('#education_content').toggle('slow');$(this).find('i').toggleClass('fa-caret-right');$(this).find('i').toggleClass('fa-caret-down')"><i class="fa fa-caret-down"></i></span>
+  </h2>
+  <hr style="margin-top:0px;clear:left">
   
+  <div id='education_content'>
   <% @educations.each do |education| %>
     <div style="margin-top:20px; width:100%; background:#EEEEEE;border-radius:10px;padding:10px" onmouseover="show_edit_tools(this)" onmouseout="hide_edit_tools(this)">
       <div style="width:100%; overflow: hidden">
@@ -37,5 +40,7 @@
   <% if signed_in? %>
     <%= button_to 'Add Education Step', new_education_path, :class => "btn", :method => :get %>
   <% end %>
+
+  </div><!-- End of education_content-->
 </div>
 
