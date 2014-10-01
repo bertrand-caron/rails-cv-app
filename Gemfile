@@ -46,4 +46,5 @@ gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails', '~> 3.2.0'
+gem 'yaml_db', :github => 'turgu1/yaml_db'
 
