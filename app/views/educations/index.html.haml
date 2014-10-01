@@ -1,0 +1,29 @@
+- content_for(:title, 'Education') if @set_title
+
+.listable-content
+  %h2.listable-title
+    %span{:onclick => "toggle_section('#education_content',this)"}
+      %i.fa.fa-caret-down
+    Education
+  %hr
+  #education_content
+    - @educations.each do |education|
+      .listable-item{:onmouseout => "hide_edit_tools(this)", :onmouseover => "show_edit_tools(this)"}
+        .first-line
+          .line--left-content
+            %h3= link_to education.institution, education
+            - if signed_in?
+              .edit-tools= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_education_path(education)
+              .edit-tools= link_to '<i class="fa fa-close"></i>'.html_safe, education, method: :delete, data: { confirm: 'Are you sure?' }
+          .line--right-content
+            %b= education.institution_location
+        .second-line
+          .line--left-content
+            %i.big-text= education.degree
+          .line--right-content
+            %i= education.year
+        .third-line
+          = raw education.description
+    %br/
+    - if signed_in?
+      = button_to 'Add Education Step', new_education_path, :class => "btn", :method => :get

@@ -1,0 +1,25 @@
+- content_for(:title, 'Publications') if @set_title
+
+.listable-content
+  %h2.listable-title
+    %span{:onclick => "toggle_section('#publications_content',this)"}
+      %i.fa.fa-caret-down
+    Publications
+  %hr
+  #publications_content
+    - @publications.each do |publication|
+      .listable-item{:onmouseout => "hide_edit_tools(this)", :onmouseover => "show_edit_tools(this)"}
+        .first-line
+          .line--left-content
+            %h3= link_to publication.title, publication
+            - if signed_in?
+              .edit-tools= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_publication_path(publication)
+              .edit-tools= link_to '<i class="fa fa-close"></i>'.html_safe, publication, method: :delete, data: { confirm: 'Are you sure?' }
+          .line--right-content
+            %b= publication.journal
+        .second-line
+          = publication.authors
+          = "(" + publication.details + ")" if ! publication.details.empty?
+    %br
+    - if signed_in?
+      = button_to 'Add Publication', new_publication_path, :class => "btn", :method => :get

@@ -1,8 +1,8 @@
 <% content_for(:title, "Curriculum Vitae") %>
-<div style="margin:0 50px">
+<div style="margin:0 50px" id="curriculum-page">
 
   <div align="center" style="color:#888" class="cv-name-header">
-    <h1 style="margin-bottom:10px;font-size:350%"><span style="color:#F09819"><%= Settings['name']%></span> | <span id="demo" style="white-space:pre"><%=Settings['cv-title']%></span></h1>
+    <h1 style="margin-bottom:10px;font-size:450%"><span style="color:#F09819"><%= Settings['name']%></span> | <span id="demo" style="white-space:pre"><%=Settings['cv-title']%></span></h1>
     <p><%=Settings['address']%></p>
     <p>
         <i class="fa fa-mobile" style="font-size:22px"></i> <%=Settings['mobile-phone']%>
@@ -38,3 +38,5 @@ $(document).ready(function(){
   <%= render :file => 'referees/index' %>
   <br>
 </div>
+
+<%= render 'email_widget' %>

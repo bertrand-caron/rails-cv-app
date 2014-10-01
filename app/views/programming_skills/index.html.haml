@@ -1,0 +1,25 @@
+- content_for(:title, 'Programming Skills') if @set_title
+
+.listable-content
+  %h2.listable-title
+    %span{:onclick => "toggle_section('#programming_skills_content',this)"}
+      %i.fa.fa-caret-down
+    Programming Skills
+  %hr
+  #programming_skills_content
+    - @programming_skills.each do |skill|
+      .listable-item{:onmouseout => "hide_edit_tools(this)", :onmouseover => "show_edit_tools(this)"}
+        %div{:style => "float:left"}
+          %b= link_to skill.title, skill
+          %p{:style => "color:#428bca;float:right;margin-left:20px;font-size:18px"}
+            = raw (1..5).reduce(""){|acc,e| acc + "<i class='fa fa-star" + (e <= skill.ranking ? '' : '-o') + "'></i>"}
+            - if signed_in?
+              %span{:style => "padding-left:10px;font-size:14px;vertical-align:top;display:none"}= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_programming_skill_path(skill)
+              %span{:style => "padding-left:2px;font-size:14px;vertical-align:top;display:none"}= link_to '<i class="fa fa-close"></i>'.html_safe, skill, method: :delete, data: { confirm: 'Are you sure?' }
+          %p
+        %div{:align => "right"}
+          = raw skill.description
+    %br/
+    - if signed_in?
+      = button_to 'Add Programming Skill', new_programming_skill_path, :class => "btn", :method => :get
+  / End of programming_skills_content
