@@ -1,7 +1,27 @@
-%h2
-  Interested in my profile, but not ready to call me in yet ?
-  Instead of bookmarking my profile, 
-  Why not sign up for an automatic email reminder ?
+.jumbotron{:style => 'margin-left:100px;margin-right:100px;padding-bottom:30px;padding-top:10px'}
+  #subscribe-description{:style => "text-align:center;"}
+    %h2{:style => 'font-weight:300;line-height:55px;'}
+      %span{:style => 'color:#428bca'}
+        Interested
+      in my profile, but not ready to call me in yet ?
+      %br
+      Instead of bookmarking my profile, 
+      %br
+      Why not
+      %span{:style => 'color:#428bca'}
+        sign up
+      for an automatic email reminder ?
 
-%button{:class => 'btn btn-primary'} Subscribe !
+  #subscribe-form{:style => "display:none;width:50%;text-align:center;margin:0 auto"}
+    = form_tag("/contact_send", method: "get") do
+      = label_tag(:email, "Your Email:")
+      = text_field_tag :email, nil, class: "form-control"
+      %br/
+      = label_tag(:surprise, "To ensure you are a human, please write the first two letters of your email address :")
+      = text_field_tag :surprise, nil, class: "form-control"
+      %span.help-block
+        Nobody likes these, but they're a necessary evil to stop automation causing all sorts of problems.
 
+  %div{:style => 'text-align:center'}
+    %button#subscribe-button{:style =>"margin:0 auto;width:120px", :class => 'btn btn-primary', :onclick => "click_subscribe_button()"} Subscribe !
+    #button#cancel-button{:style => 'display:none', :class => 'btn btn-danger', :onclick => "$('#subscribe-form').toggle('slow');$('#cancel-button').hide('slow');$('#subscribe-button').html('Subscribe')"} I changed my mind

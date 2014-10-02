@@ -15,6 +15,7 @@ class PagesController < ApplicationController
     @awards = Award.all
     @publications = Publication.all
     @referees = Referee.all
+
   end
 
   def contact_send
@@ -23,5 +24,9 @@ class PagesController < ApplicationController
       flash[:notice] = "Your email was successfully sent."
     end
     redirect_to root_path
+  end
+
+  def subscribe
+    render :text => "Subscribed"
   end
 end
