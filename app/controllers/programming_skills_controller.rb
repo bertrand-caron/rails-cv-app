@@ -85,6 +85,6 @@ class ProgrammingSkillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def programming_skill_params
-      params.require(:programming_skill).permit(:title, :skill_type, :description, :details, :hyperlink, :rank, :ranking)
+      params.require(:programming_skill).permit(:title, :skill_type, :description, :details, :hyperlink, :rank, :ranking, :icon)
     end
 end

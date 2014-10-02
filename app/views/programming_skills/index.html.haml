@@ -10,7 +10,7 @@
     - @programming_skills.each do |skill|
       .listable-item{:onmouseout => "hide_edit_tools(this)", :onmouseover => "show_edit_tools(this)", :style => "height:auto;clear:both;padding-left:20px"}
         %div{:style => 'display:inline;float:left;font-size:23px;line-height:30px;color:#428bca'}
-          = content_tag 'i', nil,:class => "icon-#{skill.title.downcase}"
+          = content_tag 'i', nil,:class => "icon-#{skill.icon}"
           = link_to skill.title, skill
           %span{:style => "color:#428bca;margin-left:20px;font-size:18px;height:30px"}
             = raw (1..5).reduce(""){|acc,e| acc + "<i class='fa fa-star" + (e <= skill.ranking ? '' : '-o') + "'></i>"}

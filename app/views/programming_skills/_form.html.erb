@@ -31,6 +31,10 @@
     <%= f.label :hyperlink %><br>
     <%= f.text_field :hyperlink, class: "form-control" %>
   </div>
+  <div class="field">
+    <%= f.label :icon %><br>
+    <%= f.text_field :icon, class: "form-control", placeholder: '(Optionnal) If set, will display an icon as given in the Font-mfizz library, without the \'icon-*\'. Ex: \'raspberrypi\''  %>
+  </div>
   <div class="field" style="width:75px">
     <%= f.label :rank %><br>
     <%= f.number_field :rank, class: "form-control" %>
