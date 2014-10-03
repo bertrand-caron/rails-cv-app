@@ -65,7 +65,7 @@ Then install all the necessary gems:
 
 ### Migrate database
     # Run the necessary database migrations
-    sudo -u cv -H bin/rake db:migrate RAILS_ENV=development
+    sudo -u cv -H bin/rake db:migrate RAILS_ENV=production
 
 
 ### Create First User
@@ -79,6 +79,11 @@ Then install all the necessary gems:
     irb(main):001:0> user=User.create!(:email=>'admin@local.host',:name=>'Admin',:password=>'foobar')
     # Exit the rails console
     irb(main):001:0> exit
+
+### Precompile assets
+
+    # Precompile the assets, as needed for production environment
+    sudo -u cv -H bundle exec rake assets:precompile ENV_RAILS=production
 
 ### Test the App
 

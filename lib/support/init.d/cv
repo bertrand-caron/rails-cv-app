@@ -15,6 +15,7 @@
 app_user="cv"
 DAEMON=/usr/local/bin/unicorn
 DAEMON_OPTS="-c /home/$app_user/cv/config/unicorn.rb -D"
+DAEMON_OPTS="$DAEMON_OPTS -E production" #Switches to production environment
 NAME=unicorn
 DESC="Unicorn app for research subdomain of YOUR_SERVER_FQDN"
 PID=/home/$app_user/cv/shared/pids/unicorn.pid
