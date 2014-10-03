@@ -14,11 +14,10 @@ function toggle_section(div_content,caret_span){
 
 function click_subscribe_button(){
 	if ($('#subscribe-form').is(':visible')){
-		$.post("/subscribe", {email: $('#email').val(), surprise: $("#surprise").val()},function(data){
+		$.post("/subscribe", {email: $('#email').val(), when: $("#when").val()},function(data){
 			$('#subscribe-button').html(data)
 		} );
-		$('#subscribe-form').hide();
-		$('#subscribe-button').html('Subscribed');
+		$('#subscribe-form').hide('slow');
 		$('#subscribe-button').prop('disabled',true);
 		$('#cancel-button').hide();
 	} else {

@@ -1,27 +1,30 @@
 .jumbotron{:style => 'margin-left:100px;margin-right:100px;padding-bottom:30px;padding-top:10px'}
   #subscribe-description{:style => "text-align:center;"}
     %h2{:style => 'font-weight:300;line-height:55px;'}
-      %span{:style => 'color:#428bca'}
-        Interested
+      %span{:style => 'color:#428bca;font-variant:small-caps'} Interested
       in my profile, but not ready to call me in yet ?
       %br
-      Instead of bookmarking my profile, 
+      Instead of 
+      %span{:style => "color:#d9534f;font-variant:small-caps"} bookmarking
+      my profile and 
+      %span{:style => "color:#d9534f;font-variant:small-caps"}forgetting
+      about it, 
       %br
-      Why not
-      %span{:style => 'color:#428bca'}
-        sign up
+      why not
+      %span{:style => 'color:#428bca;font-variant:small-caps'} sign up
       for an automatic email reminder ?
 
-  #subscribe-form{:style => "display:none;width:50%;text-align:center;margin:0 auto"}
+  #subscribe-form{:style => "display:none;width:85%;text-align:center;margin:0 auto"}
     = form_tag("/contact_send", method: "get") do
-      = label_tag(:email, "Your Email:")
-      = text_field_tag :email, nil, class: "form-control"
+      %hr{:style => 'border-top-color:#000'}
+      = label_tag :email, "Your Email:", style: "display:inline;float:left;font-size:21px;line-height:35px;font-weight:300;padding-top:0px;margin-right:20px"
+      = text_field_tag :email, nil, class: "form-control", style: "width:80%"
       %br/
-      = label_tag(:surprise, "To ensure you are a human, please write the first two letters of your email address :")
-      = text_field_tag :surprise, nil, class: "form-control"
-      %span.help-block
-        Nobody likes these, but they're a necessary evil to stop automation causing all sorts of problems.
+      = label_tag :when, "You want to be sent me an email version of the Résumé in", style: "display:inline;float:left;font-size:21px;line-height:22px;font-weight:300;padding-top:10px"
+      %div{:style => 'width:60px;display:inline;float:left;margin:5px 5px'}= number_field_tag :when, "2", { :class => 'form-control'}
+      %p{:style => 'padding-top:10px;float:left'} days
+      %hr{:style => 'border-top-color:#000;clear:left;margin-top:40px'}
 
   %div{:style => 'text-align:center'}
-    %button#subscribe-button{:style =>"margin:0 auto;width:120px", :class => 'btn btn-primary', :onclick => "click_subscribe_button()"} Subscribe !
-    #button#cancel-button{:style => 'display:none', :class => 'btn btn-danger', :onclick => "$('#subscribe-form').toggle('slow');$('#cancel-button').hide('slow');$('#subscribe-button').html('Subscribe')"} I changed my mind
+    %button#subscribe-button{:style =>"margin:0 auto;width:120px", :class => 'btn btn-primary', :onclick => "click_subscribe_button()"} I am interested !
+    #button#cancel-button{:style => 'display:none', :class => 'btn btn-danger', :onclick => "$('#subscribe-form').toggle('slow');$('#cancel-button').hide('slow');$('#subscribe-button').html('I am interested !')"} I changed my mind
