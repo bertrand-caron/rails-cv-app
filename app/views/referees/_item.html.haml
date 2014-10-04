@@ -1,0 +1,15 @@
+%div{:style => "width:80%;float:left"}
+  %h3{:id => item.name.gsub(" ",""), :style => "margin-bottom:0;padding-top:10px;display:inline"}= link_to item.name, item
+  - if signed_in?
+    .edit-tools= edit_tool_tag edit_referee_path(item)
+    .edit-tools= delete_tool_tag item
+  %p{:style => "margin-bottom:0"}= item.title
+  %div{:style => "font-size:9px;float:left;width:80%"}
+    %ul{:style => "list-style-type:none;font-size:9px;margin:0;padding:0;"}
+      %li
+        %a{:href => "mailto:#{item.email}"}
+          Contact #{item.gender == 0 && "him" || "her"}
+      %li
+        %a{:href => item.personal_page} Browse Personnal page
+%div{:align => "right", :clear => "both", :style => "padding-top:0"}
+  %img{:style => "border-radius:50%", :height => "62", :src => item.thumbnail_img}/

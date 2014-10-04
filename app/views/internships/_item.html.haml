@@ -1,0 +1,19 @@
+.first-line
+  .line--left-content
+    %h3= link_to item.title, item
+    = link_to "Supervisor: "+Referee.find(item.referee_id).name, "#"+Referee.find(item.referee_id).name.gsub(" ","")
+    - if signed_in?
+      .edit-tools= edit_tool_tag edit_internship_path(item)
+      .edit-tools= delete_tool_tag item
+  .line--right-content
+    %b= item.location
+.second-line
+  .line--left-content
+    %i= item.laboratory
+  .line--right-content
+    %i= item.duration
+.third-line
+  = raw item.description
+- if not item.report_path.empty?
+  .bottom-line
+    = link_to "View Report (PDF)", item.report_path

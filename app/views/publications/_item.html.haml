@@ -1,0 +1,11 @@
+.first-line
+  .line--left-content
+    %h3= link_to item.title, item
+    - if signed_in?
+      .edit-tools= edit_tool_tag edit_publication_path(item)
+      .edit-tools= delete_tool_tag item
+  .line--right-content
+    %b= item.journal
+.second-line
+  = item.authors
+  = "(" + item.details + ")" if ! item.details.empty?

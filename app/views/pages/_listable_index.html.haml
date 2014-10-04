@@ -1,0 +1,15 @@
+- content_for(:title, models_name) if @set_title
+
+.listable-content
+  %h2.listable-title
+    %span{:onclick => "toggle_section(\"\##{models_name.tr(' ','_')}-content\",this)"}
+      %i.fa.fa-caret-down
+    = models_name
+  %hr
+  %div{:id => "#{models_name.tr(' ','_')}-content"}
+    - listable_enum.each do |item|
+      .listable-item{:onmouseout => "hide_edit_tools(this)", :onmouseover => "show_edit_tools(this)"}
+        = render partial: "#{models_name.downcase.pluralize.tr(' ','_')}/item", locals: {item: item}
+    %br
+    - if signed_in?
+      = button_to "Add #{models_name.singularize}", new_item_path, :class => "btn", :method => :get

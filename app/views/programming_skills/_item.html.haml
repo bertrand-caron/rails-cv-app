@@ -1,0 +1,9 @@
+%div{:style => 'display:inline;float:left;font-size:23px;line-height:37px;color:#428bca'}
+  = content_tag 'i', nil,:class => "icon-#{item.icon}"
+  = link_to item.title, item
+  %span{:style => "color:#428bca;margin-left:20px;font-size:18px;height:30px"}
+    = star_tag(item)
+    - if signed_in?
+      .edit-tools{:style => "padding-left:10px"}= edit_tool_tag edit_programming_skill_path(item)
+      .edit-tools{:style => "padding-left:2px"}= delete_tool_tag item
+%p{:align=> "right", :style => "padding-top:7px;margin-bottom:8px"}= raw item.description

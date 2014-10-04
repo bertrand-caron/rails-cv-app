@@ -9,13 +9,6 @@ class PagesController < ApplicationController
   end
 
   def curriculum
-    @educations = Education.all
-    @internships = Internship.all
-    @programming_skills= ProgrammingSkill.all
-    @awards = Award.all
-    @publications = Publication.all
-    @referees = Referee.all
-
   end
 
   def contact_send
