@@ -13,8 +13,8 @@
           .line--left-content
             %h3= link_to publication.title, publication
             - if signed_in?
-              .edit-tools= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_publication_path(publication)
-              .edit-tools= link_to '<i class="fa fa-close"></i>'.html_safe, publication, method: :delete, data: { confirm: 'Are you sure?' }
+              .edit-tools= edit_tool_tag edit_publication_path(publication)
+              .edit-tools= delete_tool_tag publication
           .line--right-content
             %b= publication.journal
         .second-line

@@ -13,8 +13,8 @@
           .line--left-content
             %h3= link_to education.institution, education
             - if signed_in?
-              .edit-tools= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_education_path(education)
-              .edit-tools= link_to '<i class="fa fa-close"></i>'.html_safe, education, method: :delete, data: { confirm: 'Are you sure?' }
+              .edit-tools= edit_tool_tag edit_education_path(education)
+              .edit-tools= delete_tool_tag education
           .line--right-content
             %b= education.institution_location
         .second-line

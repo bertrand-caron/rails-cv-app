@@ -13,8 +13,8 @@
             %h3= link_to internship.title, internship
             = link_to "Supervisor: "+Referee.find(internship.referee_id).name, "#"+Referee.find(internship.referee_id).name.gsub(" ","")
             - if signed_in?
-              .edit-tools= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_internship_path(internship)
-              .edit-tools= link_to '<i class="fa fa-close"></i>'.html_safe, internship, method: :delete, data: { confirm: 'Are you sure?' }
+              .edit-tools= edit_tool_tag edit_internship_path(internship)
+              .edit-tools= delete_tool_tag internship
           .line--right-content
             %b= internship.location
         .second-line

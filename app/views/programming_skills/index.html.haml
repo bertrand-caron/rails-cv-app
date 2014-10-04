@@ -13,10 +13,10 @@
           = content_tag 'i', nil,:class => "icon-#{skill.icon}"
           = link_to skill.title, skill
           %span{:style => "color:#428bca;margin-left:20px;font-size:18px;height:30px"}
-            = raw (1..5).reduce(""){|acc,e| acc + "<i class='fa fa-star" + (e <= skill.ranking ? '' : '-o') + "'></i>"}
+            = star_tag(skill)
             - if signed_in?
-              .edit-tools{:style => "padding-left:10px"}= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_programming_skill_path(skill)
-              .edit-tools{:style => "padding-left:2px"}= link_to '<i class="fa fa-close"></i>'.html_safe, skill, method: :delete, data: { confirm: 'Are you sure?' }
+              .edit-tools{:style => "padding-left:10px"}= edit_tool_tag edit_programming_skill_path(skill)
+              .edit-tools{:style => "padding-left:2px"}= delete_tool_tag skill
         %p{:align=> "right", :style => "padding-top:5px"}= raw skill.description
     %br/
     - if signed_in?
