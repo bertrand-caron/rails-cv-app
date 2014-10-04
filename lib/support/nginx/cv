@@ -1,18 +1,18 @@
-upstream research {
-  server unix:/home/cv/cv/tmp/sockets/cv.socket;
+upstream cv {
+  server unix:/home/cv/cv-app/tmp/sockets/cv.socket;
 }
 
 server {
   listen 80;
-  server_name   research.YOUR_SERVER_FQDN;
+  server_name   cv.YOUR_SERVER_FQDN;
   rewrite       ^ https://$server_name$request_uri? permanent;
 }
 
 server {
   listen *:443 ;
-  server_name research.YOUR_SERVER_FQDN;
+  server_name cv.YOUR_SERVER_FQDN;
   server_tokens off;
-  root /home/cv/cv/public;
+  root /home/cv/cv-app/public;
 
   # SSL
   # ============================================================================
@@ -24,19 +24,19 @@ server {
   #Disables all weak ciphers
   ssl_ciphers ALL:!aNULL:!ADH:!eNULL:!LOW:!EXP:RC4+RSA:+HIGH:+MEDIUM;
 
-  access_log  /var/log/nginx/research_access.log;
-  error_log   /var/log/nginx/research_error.log;
+  access_log  /var/log/nginx/cv_access.log;
+  error_log   /var/log/nginx/cv_error.log;
 
   client_max_body_size 500M; # allows file uploads up to 500 megabytes
 
   location / {
 
     # serve static files from defined root folder;.
-    # @research is a named location for the upstream fallback, see below
-    try_files $uri $uri/index.html $uri.html @research;
+    # @cv is a named location for the upstream fallback, see below
+    try_files $uri $uri/index.html $uri.html @cv;
   }
 
-  location @research {
+  location @cv {
     proxy_read_timeout 300; # https://github.com/gitlabhq/gitlabhq/issues/694
     proxy_connect_timeout 300; # https://github.com/gitlabhq/gitlabhq/issues/694
     proxy_redirect     off;
@@ -45,7 +45,7 @@ server {
     proxy_set_header   Host              $http_host;
     proxy_set_header   X-Real-IP         $remote_addr;
 
-    proxy_pass http://research;
+    proxy_pass http://cv;
   }
 
 }

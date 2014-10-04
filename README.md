@@ -25,12 +25,12 @@ Create a `cv` user for the CV App:
 ### Clone the Source
 
     # Clone CV App repository
-    sudo -u cv -H git clone git@gitlab.bcaron.me:root/b-caron-research-activities.git
+    sudo -u cv -H git clone git@gitlab.bcaron.me:root/cv-app.git
 
 ### Configure It
 
     # Go to CV App installation folder
-    cd /home/cv/cv
+    cd /home/cv/cv-app
 
     # Copy the example config
     sudo -u cv -H cp config/config.yml.example config/config.yml
@@ -87,7 +87,7 @@ Then install all the necessary gems:
 
 ### Test the App
 
-At the point, you should be able to fire the app with `rails server`
+At the point, you should be able to fire the app with `RAILS_ENV=production rails server`
 ant test it at localhost:3000.
 
 ### Use your credentials to sign in and start adding items
@@ -97,9 +97,18 @@ Sign in at `your_cv_app_url/signin` using the credentials your generated.
 Signing in grants you an additional button in the navbar, Models, giving you acces to
 the different sections (Education, Internships, etc.).
 
+### Set up Unicorn Server
+
+Copy the example config, and modify it if necessary.
+
+    # Copy the example config
+    sudo -u cv -H cp config/unicorn.rb.example config/unicorn.rb
+    # If you are not using the default user ('cv') or directory (/home/cv'), you need to modify it
+    sudo -u cv -H editor config/unicorn.rb
+
 ### Install Init Script
 
-Download the init script (will be `/etc/init.d/cv`):
+Copy the init script (will be `/etc/init.d/cv`):
 
     sudo cp lib/support/init.d/cv /etc/init.d/cv
 
