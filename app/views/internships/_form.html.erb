@@ -13,19 +13,15 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title, class: "form-control" %>
+    <%= f.text_field :title, class: "form-control", placeholder: 'Ex: The Influence of Probabilistic Methodologies on Networking' %>
+    <p class='help-block'><b>Tip</b> For better rendering, try to keep the title a little less than on-line long.</p>
   </div>
-  <div class="field">
-    <%= f.label :hyperlink %><br>
-    <%= f.text_field :hyperlink, class: "form-control", placeholder: "Ex: 'IBPC-2014' will link to /internships/IBPC-2014 instead of internships/11" %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, class: "form-control", rows: "4" %>
-  </div>
+  <%= render :partial => 'pages/hyperlink_form_field', :locals => {:f => f} %>
+  <%= render :partial => 'pages/description_form_field', :locals => {:f => f} %>
   <div class="field">
     <%= f.label :report_path %><br>
     <%= f.text_field :report_path, class: "form-control", placeholder: "Ex: /uploads/IBPC-2012.pdf" %>
+    <p class='help-block'><b>Optionnal</b> If you uploaded a file (Ex: Report), you can have a link to it displayed a the bottom of the item.</p>
   </div>
   <div class="field">
     <%= f.label :laboratory %><br>
@@ -39,13 +35,11 @@
     <%= f.label :duration %><br>
     <%= f.text_field :duration, class: "form-control", placeholder: "Ex: Feb 2011-July 2011" %>
   </div>
-  <div class="field" style="width:75px">
-    <%= f.label :rank %><br>
-    <%= f.number_field :rank, class: "form-control" %>
-  </div>
-  <div class="field">
+  <%= render :partial => 'pages/rank_form_field', :locals => {:f => f} %>
+  <div class="field field-referee">
     <%= f.label :referee_id %><br>
     <%= f.select :referee_id, @referee_hash, {}, class: "form-control" %>
+    <p class='help-block'><b>Optionnal</b> If you added your supervisor for this position as a <a href=/referees>referee</a>, select it here. If you didn't, you can always add it later.</p>
   </div>
   <div class="actions">
     <%= f.submit "Add Internship", class: "btn btn-primary"%>

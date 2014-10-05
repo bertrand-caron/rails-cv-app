@@ -13,16 +13,13 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control" %>
+    <%= f.text_field :name, class: "form-control", placeholder: 'Ex: Rails Cannon' %>
   </div>
   <div class="field">
     <%= f.label :github_link %><br>
-    <%= f.text_field :github_link, class: "form-control" %>
+    <%= f.text_field :github_link, class: "form-control", placeholder: 'Ex: https://github.com/john-doe/rails-cannon' %>
   </div>
-  <div class="field">
-    <%= f.label :hyperlink %><br>
-    <%= f.text_field :hyperlink, class: "form-control" %>
-  </div>
+  <%= render :partial => 'pages/hyperlink_form_field', locals: {:f => f} %>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description, class: "form-control", rows: "4" %>

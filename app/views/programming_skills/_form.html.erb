@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title, class: "form-control"  %>
+    <%= f.text_field :title, class: "form-control", placeholder: 'Ex: Ruby on Rails'  %>
   </div>
   <div class="field" style="width:150px">
     <%= f.label :skill_type %><br>
@@ -21,27 +21,30 @@
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description, class: "form-control", rows: "2"  %>
+    <%= f.text_area :description, class: "form-control", rows: "1", placeholder: 'Ex: Designing Web Applications: Twitter, Instagram, Facebook'  %>
+    <p class='help-block'><b>Tip</b> For better rendering, the skill description should be a one-liner. Use the 'Details' field below to provide further information.</p>
   </div>
   <div class="field">
     <%= f.label :details %><br>
     <%= f.text_area :details, class: "form-control", rows: "10"  %>
+    <p class='help-block'><b>Syntax</b> This section acceps <a href=''>Markdown</a>, a simple yet powerful for structuring information.
+    If you don't know Markdown already, you should really have a look at it.
+    Otherwise, just use plain HTML, or worse, unformatted text.
+    </p>
   </div>
-  <div class="field">
-    <%= f.label :hyperlink %><br>
-    <%= f.text_field :hyperlink, class: "form-control" %>
-  </div>
+  <%= render :partial => 'pages/hyperlink_form_field', :locals => {:f => f} %>
   <div class="field">
     <%= f.label :icon %><br>
-    <%= f.text_field :icon, class: "form-control", placeholder: '(Optionnal) If set, will display an icon as given in the Font-mfizz library, without the \'icon-*\'. Ex: \'raspberrypi\''  %>
+    <%= f.text_field :icon, class: "form-control", placeholder: '(Optionnal) Ex: \'raspberrypi\''  %>
+    <p class='help-block'><b>Optionnal</b> If set, will display an icon as given in the <a href='http://mfizz.com/oss/font-mfizz'>Font-mfizz</a> library, without the 'icon-*'
+    Search it for an icon you like.
+    </p>
   </div>
-  <div class="field" style="width:75px">
-    <%= f.label :rank %><br>
-    <%= f.number_field :rank, class: "form-control" %>
-  </div>
-  <div class="field" style="width:75px">
+  <%= render :partial => 'pages/rank_form_field', :locals => {:f => f} %>
+  <div class="field field-ranking" style="">
     <%= f.label :ranking %><br>
-    <%= f.number_field :ranking, class: "form-control" %>
+    <%= f.number_field :ranking, class: "form-control", min: '0', max: '5', value: '3' %>
+    <p class='help-block'>Rank your skill on a scale from 0 to 5. Try to use the bigger span possible in your skills to avoid looking delusional.<p>
   </div>
   <div class="actions">
     <%= f.submit "Add Programming Skill", class: "btn btn-primary"%>

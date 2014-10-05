@@ -1,0 +1,8 @@
+.field.field-rank
+  = f.label :rank
+  %br
+  = f.number_field :rank, class: "form-control"
+  %p.help-block
+    Rank is used to order the items in a non-chronological order.
+    %br
+    Higest-rank items are display at the top, lowest-rank at the bottom. Any integer will do.

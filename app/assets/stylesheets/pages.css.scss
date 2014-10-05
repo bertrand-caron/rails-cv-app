@@ -98,3 +98,39 @@ h2 .fa:hover{color:#c97c0d;}
 	font-size:14px;
 	line-height:auto;
 }
+
+.field {
+	clear:both;
+	margin-bottom:20px;
+	label{
+		font-size:25px;
+		line-height:32px;
+		font-weight:300;
+	}
+}
+
+.field-rank, .field-gender, .field-ranking {
+	input, select{
+		float:left;
+		margin-top:5px;
+		margin-right:20px;
+	}
+}
+
+.field-rank {
+	input, select{width:75px;}
+}
+
+.field-gender {
+	overflow:hidden;
+	input, select{width:150px;}
+	p{padding-top:6px}
+}
+
+.field-ranking {
+	input, select{width:50px;}
+}
+
+.field-referee {
+	input, select{width:40%;}
+}

@@ -27,14 +27,8 @@
     <%= f.label :year %><br>
     <%= f.text_field :year, class: "form-control", placeholder: "Ex: 2011-2013" %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, class: "form-control", rows: "4", placeholder: "NB: HTML tags are allowed here, such as <br> for a line break." %>
-  </div>
-  <div class="field" style="width:75px">
-    <%= f.label :rank %><br>
-    <%= f.number_field :rank, class: "form-control" %>
-  </div>
+  <%= render :partial => 'pages/description_form_field', :locals => {:f => f} %>
+  <%= render :partial => 'pages/rank_form_field', :locals => {:f => f} %>
   <div class="actions">
     <%= f.submit "Add Education", class: "btn btn-primary" %>
   </div>

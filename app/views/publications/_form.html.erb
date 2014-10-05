@@ -13,28 +13,30 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title, class: "form-control" %>
+    <%= f.text_field :title, class: "form-control", placeholder: 'Ex: Application and Research of Smalltalk Harnessing Based on Game-Theoretic Symmetries' %>
+    <p><b>Tip</b> For better rendering, try to keep it approximately as long as this help text is wide (10-12 words).<p>
   </div>
   <div class="field">
     <%= f.label :journal %><br>
-    <%= f.text_field :journal, class: "form-control" %>
+    <%= f.text_field :journal, class: "form-control", placeholder: 'Ex: Nanoscopic Drug Invention Today' %>
+    <p><b>Tip</b> For better rendering, don't be afraid to use (official) abbreviations for long names.</p>
   </div>
   <div class="field">
     <%= f.label :authors %><br>
-    <%= f.text_area :authors, class: "form-control" %>
+    <%= f.text_area :authors, class: "form-control", rows: "1", placeholder: 'Ex: J. Doe, H. Bond, C. Ramirez' %>
+    <p><b>Tip</b> For better rendering, try to keep the author list under one line (using <i>et al.</i> if necessary).</p>
   </div>
   <div class="field">
     <%= f.label :details %><br>
-    <%= f.text_area :details, class: "form-control", rows: "2" %>
+    <%= f.text_area :details, class: "form-control", rows: "1", placeholder: '(Optionnal) Ex: Submitted April 2014, revised August 2014' %>
+    <p class='block-help'><b>Optionnal</b> Add publishing details that will be displayed next to the authors.</p>
   </div>
   <div class="field">
     <%= f.label :abstract %><br>
-    <%= f.text_area :abstract, class: "form-control", rows: "4" %>
+    <%= f.text_area :abstract, class: "form-control", rows: "4", placeholder: 'Ex: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas.' %>
+    <p><b>Tip</b> There is no word limits for the abstract (although the Journal you published it in must have one).</p>
   </div>
-  <div class="field" style="width:75px">
-    <%= f.label :rank %><br>
-    <%= f.number_field :rank, class: "form-control" %>
-  </div>
+  <%= render :partial => 'pages/rank_form_field', locals: {:f => f} %>
   <div class="actions">
     <%= f.submit "Add Publication", class: "btn btn-primary" %>
   </div>
