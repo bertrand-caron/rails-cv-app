@@ -13,6 +13,10 @@ namespace 'git' do
     puts `RAILS_ENV=production bundle exec rake assets:precompile`
     puts ''
 
+    puts "Running migrations"
+    puts `RAILS_ENV=production bundle exec rake db:migrate`
+    puts ''
+
     puts "Restarting Unicorn Server"
     puts `sudo service cv restart`
     puts ''
