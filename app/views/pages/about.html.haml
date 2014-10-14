@@ -1,23 +1,75 @@
-%div{style: 'width:100%;background: url("http://travaux-lib.bcaron.me/background.jpg");min-height:500px', align: 'center'}
-  %h1{style: 'padding-top:30px;font-size:50px;line-height:55px;font-weight:300'} Take your CV to the 21st century
-%div{style: 'width:100%;background-color:#eee;padding-top:30px', align: 'center'}
+-content_for :title, 'Take your CV to the 21st century !'
+#about-teaser{style: 'width:100%;background: url("http://www.courseworkhome.co.uk/blog/wp-content/uploads/2014/06/curriculum-vitae.jpg");background-size:cover;min-height:400px', align: 'center'}
+  %h1{style: 'padding-top:30px;margin-top:0;font-size:70px;line-height:75px;font-weight:300;color:#f3ac46'} Take your CV to the 21st century
+  %h2{style: 'margin-top:0;color:#EEE;font-weight:300'} Get your stand-alone Résumé Web App now !
+  #buttons{style: 'float:left;width:50%;margin-top:110px'}
+    %form{action: 'https://github.com/bertrand-caron/fson'}
+      %button.btn.btn-info.btn-lg{style: 'font-size:30px'} <i class="fa fa-code-fork"></i> Fork on GitHub
+  %div{style: 'float:left;width:50%;margin-top:110px'}
+    %button.btn.btn-primary.btn-lg{style: 'font-size:30px'} <i class="fa fa-tachometer"></i> Sell me your App !
+#about-features{style: 'width:100%;background-color:#eee;padding-top:30px;margin-top:0', align: 'center'}
   %div{style: 'float:left;width:33%;padding:3%'} 
-    %i.fa.fa-at{{style: 'font-size:80px'}}
+    %i.fa.fa-mobile{{style: 'font-size:80px'}}
     = puts '<i class="fa fa-at"></i>'
     %h2{style: 'margin-top:2px'} Simple CMS System
     %p
       Manage your complete profile as you do your groceries: all your education, experiences, skills can be incorporated
       in a comprehensive database; exportable should you need it.
   %div{style: 'float:left;width:33%;padding:3%'}
-    %i.fa.fa-area-chart{style: 'font-size:80px'}
+    %i.fa.fa-anchor{style: 'font-size:80px'}
     %h2{style: 'margin-top:2px'} Advanced interactivity
     %p
       Forget about LinkedIn profiles, where you need to summon the spirit of the Internet to get something a simple as a bullet point(), let
       alone produce a link.
   %div{style: 'float:left;width:33%;padding:3%'}
-    %i.fa.fa-lastfm{style: 'font-size:80px'}
-    %h2{style: 'margin-top:2px'} Protected Contact
+    %i.fa.fa-certificate{style: 'font-size:80px'}
+    %h2{style: 'margin-top:2px'} Protected Contact Form
     %p
       Don't let your professional email address be reachable by every spam-bot.
       Instead, use this protected Contact form to let people contact you.
   %div{style: 'clear:both'}
+#about-table{style: 'width:100%;background-color:#ddd;padding-top:15px;margin-top:0', align: 'center'}
+  %h1{style: 'padding-top:15px;margin-top:0;font-size:70px;line-height:75px;font-weight:300;color:#428bca'} Get set up now !
+  %div{style: 'width:100%;margin-bottom:50px', align: 'center'}
+    %div{style: 'float:left;width:50%'}
+      %h2 The Hard Way
+      .progress{style: 'width:100px'}
+        .progress-bar.progress-bar-danger{role: 'progressbar', :'aria-valuenow' => "1", :'aria-valuemin' => "0", :'aria-valuemax' => "100", style: 'width:80%'}
+      %p
+        Are you a nerd with a web server at home running Nginx ?
+        Then just go ahead, fork te project and set up the Rails App on your gear.
+    %div{style: 'float:left;width:50%'}
+      %h2 The Easy Way
+      .progress{style: 'width:100px'}
+        .progress-bar{role: 'progressbar', :'aria-valuenow' => "1", :'aria-valuemin' => "0", :'aria-valuemax' => "100", style: 'width:10%'}
+      %p
+        If you don't know all this geeky stuff but are interested in having your
+        Résumé set-up and handed out to you by a profesionnal Web Developer, check
+        out the hosting solutions below.
+    %div{style: 'clear:both'}
+  %table{style: 'margin:50px auto 0px auto;width:70%'}
+    %thead
+      %tr
+        %td{style:'width:30%'}
+        %td{style:'width:10%;text-align:center'}
+        %td{style:'width:10%'}
+    %tbody
+      %tr
+        %td <i class="fa fa-certificate"></i> Have a registered domain name 
+        %td{style: 'text-align:center'} <i class="fa fa-check"></i>
+        %td{style: 'text-align:center'} <i class="fa fa-times"></i>
+      %tr
+        %td <i class="icon-nginx"></i> Have a web server running on Nginx
+        %td{style: 'text-align:center'} <i class="fa fa-check"></i>
+        %td{style: 'text-align:center'} <i class="fa fa-times"></i>
+      %tr
+        %td <i class="icon-ruby-on-rails"></i> Know how to set up a Rails App
+        %td{style: 'text-align:center'} <i class="fa fa-check"></i>
+        %td{style: 'text-align:center'} <i class="fa fa-times"></i>
+      %tr
+        %td
+        %td{style: 'text-align:center'}
+          %button.btn.btn-info.btn-lg Fork on Github
+        %td{style: 'text-align:center'}
+          %button.btn.btn-primary.btn-lg Hosting Plans
+  %div{style: 'min-height:50px'}

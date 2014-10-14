@@ -134,3 +134,33 @@ h2 .fa:hover{color:#c97c0d;}
 .field-referee {
 	input, select{width:40%;}
 }
+
+#buttons .btn-info, .btn-primary, .btn-primary:hover {
+	border-color:#c2d8eb;
+}
+
+#about-table {
+	h2 {
+		font-weight:300;
+	}
+	p {
+		font-size:20px;
+		line-height:25px;
+		padding:0 9%;
+	}
+	table {
+		tbody td {
+			font-size:20px;
+			padding: 10px 10px;
+		}
+		tr:nth-child(odd){
+			background-color:#ddd;
+		}
+		tr:nth-child(even){
+			background-color:#eee;
+		}
+		tr:last-child{
+			background-color:#ddd;
+		}
+	}
+}
