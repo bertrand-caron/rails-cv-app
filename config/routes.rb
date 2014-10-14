@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
   get 'contact_send', to: 'pages#contact_send'
   get 'curriculum', to: 'pages#curriculum'
+  get 'about', to: 'pages#about'
   match 'subscribe', to: 'pages#subscribe', via: :post
   resources :softwares
   resources :referees
