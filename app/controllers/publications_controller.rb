@@ -1,6 +1,7 @@
 class PublicationsController < ApplicationController
   add_breadcrumb "Publications", :publications_path
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:show, :edit, :update, :new, :create, :destroy]
 
   # GET /publications
   # GET /publications.json

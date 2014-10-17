@@ -1,6 +1,10 @@
 .first-line
   .line--left-content
-    %h3= link_to item.title, item
+    %h3
+      - if signed_in?
+        = link_to item.title, item
+      - else
+        = item.title
     - if signed_in?
       .edit-tools= edit_tool_tag edit_award_path(item)
       .edit-tools= delete_tool_tag item

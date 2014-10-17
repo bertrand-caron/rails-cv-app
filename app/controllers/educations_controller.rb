@@ -1,6 +1,7 @@
 class EducationsController < ApplicationController
   add_breadcrumb "Education", :educations_path
   before_action :set_education, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:show, :edit, :update, :new, :create, :destroy]
 
   # GET /educations
   # GET /educations.json

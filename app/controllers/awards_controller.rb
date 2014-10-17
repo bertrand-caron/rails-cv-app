@@ -1,6 +1,7 @@
 class AwardsController < ApplicationController
   add_breadcrumb "Awards", :awards_path
   before_action :set_award, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:show, :edit, :update, :new, :create, :destroy]
 
   # GET /awards
   # GET /awards.json

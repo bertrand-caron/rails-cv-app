@@ -1,5 +1,9 @@
 %div{:style => "width:80%;float:left"}
-  %h3{:id => item.name.gsub(" ",""), :style => "margin-bottom:0;padding-top:10px;display:inline"}= link_to item.name, item
+  %h3{:id => item.name.gsub(" ",""), :style => "margin-bottom:0;padding-top:10px;display:inline;color:#428bca"}
+    - if signed_in?
+      = link_to item.name, item
+    - else
+      = item.name
   - if signed_in?
     .edit-tools= edit_tool_tag edit_referee_path(item)
     .edit-tools= delete_tool_tag item
