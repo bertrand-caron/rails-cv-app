@@ -1,0 +1,44 @@
+#about-pricing{style: 'background-color:#eee;display:none'}
+  %h1{style: 'text-align:center;font-weight:300;font-size:50px;line-height:55px;margin-top:0;'} Pricing
+  %div{style:'width:100%;padding:1% 10%'}
+    %h2{style: 'margin-top:0'} How it works
+    %ol
+      %li You choose a domain name
+      %li You decide for how long you want your website set up.
+      %li I buy the domain name, set up the hosting  and configure the CMS
+      %li In 24 hours, your Résumé Web App is setup and you receive the CMS credentials.
+      %li{style: 'color:#888'} (Optionnal) If you need additional customization, we can discuss it and I can give you a quotation (see my consulting fees)
+      %li You fill the CMS with your information and you are all set !
+  %div{style:'width:100%;padding:1% 10%'}
+    %h2{style: 'margin-top:0'} How much it costs 
+    %table{style: 'width:80%'}
+      %thead
+        %tr
+          %th Item
+          %th Rate
+          %th{style: 'text-align:center'} Quantity
+      %tbody
+        %tr 
+          %td Domain Name Registration
+          %td.right 6.99€ - 11.99€ / year
+          %td <span contenteditable>1</span>
+        %tr 
+          %td Hosting Fees
+          %td.right 24.00€ / year (2.00€ / month)
+          %td <span contenteditable>1</span>
+        %tr 
+          %td Configuration Fees (flat rate)
+          %td.right 50€
+          %td 1
+        %tr 
+          %td Additional Consulting Rate
+          %td.right 25€/hour (Ask for a detailed quotation)
+          %td <span contenteditable>0</span>
+        %tr
+          %td Total
+          %td
+          %td
+  %div{style: 'padding-bottom:30px', align: 'center'}
+    %button.btn.btn-primary.btn-lg{onclick: "$('#quote-div').toggle()"} Get a quote
+  #quote-div{style: 'display:none'}
+    Hello

@@ -164,3 +164,46 @@ h2 .fa:hover{color:#c97c0d;}
 		}
 	}
 }
+
+#about-pricing{
+	h1 {
+		margin-bottom:10px;
+	}
+	h2 {
+		font-weight:300;
+	}
+	p, li {
+		font-size:20px;
+		line-height:25px;
+	}
+	span {
+		background-color:#FFF;
+		border-radius: 10px;
+		border : #EEE solid 1px;
+		padding-left: 10px;
+		padding-right: 10px;
+		text-align:center;
+	}
+	table {
+		tbody td {
+			font-size:20px;
+			padding: 10px 10px;
+			text-align:center;
+		}
+		tr:nth-child(odd){
+			background-color:#eee;
+		}
+		tr:nth-child(even){
+			background-color:#ddd;
+		}
+		th {
+			background-color:#ddd;
+			font-size:20px;
+			padding: 10px 10px;
+			text-align:center;
+		}
+	}
+	.right {
+		text-align:right;
+	}
+}

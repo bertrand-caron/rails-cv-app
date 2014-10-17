@@ -3,10 +3,10 @@
   %h1{style: 'padding-top:30px;margin-top:0;font-size:70px;line-height:75px;font-weight:300;color:#f3ac46'} Take your CV to the 21st century
   %h2{style: 'margin-top:0;color:#EEE;font-weight:300'} Get your stand-alone Résumé Web App now !
   #buttons{style: 'float:left;width:50%;margin-top:110px'}
-    %form{action: 'https://github.com/bertrand-caron/fson'}
+    %form{action: 'https://github.com/bertrand-caron/cvapp'}
       %button.btn.btn-info.btn-lg{style: 'font-size:30px'} <i class="fa fa-code-fork"></i> Fork on GitHub
   %div{style: 'float:left;width:50%;margin-top:110px'}
-    %button.btn.btn-primary.btn-lg{style: 'font-size:30px'} <i class="fa fa-tachometer"></i> Sell me your App !
+    %button.btn.btn-primary.btn-lg{style: 'font-size:30px', onclick: "$('#about-pricing').toggle();$('html, body').animate({scrollTop: $('#about-pricing').offset().top},1000)"} <i class="fa fa-tachometer"></i> Sell me your App !
   %div{style: 'clear:both'}
 #about-features{style: 'width:100%;background-color:#eee;padding-top:30px;margin-top:0', align: 'center'}
   %div{style: 'float:left;width:33%;padding:3%'} 
@@ -28,7 +28,9 @@
     %p
       Don't let your professional email address be reachable by every spam-bot.
       Instead, use this protected Contact form to let people contact you.
-  %div{style: 'clear:both'}
+  %form{action: 'https://cv-demo.bcaron.me', target: '_blank'}
+    %button.btn.btn-primary.btn-lg{style: 'clear:both;text-align:center;display:block', align: 'center'} Try the CMS in the Sandbox
+  %div{style: 'clear:both;padding-top:30px'}
 #about-table{style: 'width:100%;background-color:#ddd;padding-top:15px;margin-top:0', align: 'center'}
   %h1{style: 'padding-top:15px;margin-top:0;font-size:70px;line-height:75px;font-weight:300;color:#428bca'} Get set up now !
   %div{style: 'width:100%;margin-bottom:50px', align: 'center'}
@@ -70,7 +72,9 @@
       %tr
         %td
         %td{style: 'text-align:center'}
-          %button.btn.btn-info.btn-lg Fork on Github
+          %form{action: 'https://github.com/bertrand-caron/cvapp'}
+            %button.btn.btn-info.btn-lg Fork on Github
         %td{style: 'text-align:center'}
-          %button.btn.btn-primary.btn-lg Hosting Plans
+          %button.btn.btn-primary.btn-lg{onclick: "$('#about-pricing').toggle();$('html, body').animate({scrollTop: $('#about-pricing').offset().top},1000)"} Hosting Plans
   %div{style: 'min-height:50px'}
+= render :file => 'pages/_pricing'
