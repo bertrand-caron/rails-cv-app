@@ -35,3 +35,6 @@ display-footer: true
 # Piwik settings are given in a separate config file config/piwik.yml
 # A template file is provided (config/piwik.yml.example)
 use-piwik: false
+
+# Display the 'promotional' About page in the navbar
+display-about-page: true

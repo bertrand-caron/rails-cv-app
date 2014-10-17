@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="/contact">Contact</a></li>
-        <li><a href="/about">About</a></li>
+        <% if Settings['display-about-page']%><li><a href="/about">About</a></li><%end%>
         <% if signed_in? %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Models<span class="caret"></span></a>
@@ -34,6 +34,12 @@
         </li>
         <% end %>
       </ul>
+      <% if signed_in? %>
+      <ul class="nav navbar-nav" style='float:right'>
+        <li><p class='navbar-text'>Signed in as <%= link_to current_user.name, current_user%></p></li>
+        <li><%=link_to "Sign Out", signout_path, method: "delete"%></li>
+      </ul>
+      <% end %>
     </div><!-- /.navbar-collapse -->
 
   </div><!-- /.container-fluid -->

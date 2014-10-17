@@ -1,9 +1,2 @@
-<footer style='padding-left:20px'>
-  <% if signed_in? %>
-    You are signed in as <%= link_to current_user.name, current_user %> |
-    <%= link_to "Sign Out", signout_path, method: "delete" %>
-  <% end %>
-
-  <%= piwik_tracking_tag if Settings['use-piwik'] %>
-</footer>
+<%= piwik_tracking_tag if Settings['use-piwik'] %>
 

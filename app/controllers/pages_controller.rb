@@ -30,6 +30,7 @@ class PagesController < ApplicationController
   end
 
   def about
+    redirect_to root_url unless Settings['display-about-page']
   end
 
 end
