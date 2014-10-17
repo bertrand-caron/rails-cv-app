@@ -1,35 +1,6 @@
-<hr style='clear:both'>
-
-<% if Settings['display-footer'] %>
-<div class="jumbotron" style="margin-left:100px;margin-right:100px;padding-bottom:10px" align="center">
-    <span style="font-family: 'Open Sans', sans-serif;font-size:56px;font-weight: 300;">Want one like mine ?</span>
-    <br>
-    <div id='div-btn-soon' style="display:inline-block;margin-left:20px;margin-top:25px;margin-bottom:25px;">
-      <button class="btn btn-primary" style="margin:0;font-size:26px;width:220px" id="btn-soon">Fork on Github</button>
-    </div>
-    <br>
-    <p style="font-family: 'Open Sans', sans-serif;font-size:26px;font-weight: 300;">© <%= raw Settings['disclaimer'] %></p>
-</div>
-
-<script>
-$(document).ready(function(){
-  $("#btn-soon").mouseover(function(){
-    $(this).attr("disabled", true);
-    $(this).html('Coming Soon');
-  });
-  $("#div-btn-soon").mouseout(function(){
-    $("#btn-soon").attr("disabled", false);
-    $("#btn-soon").html('Fork on Github');
-  });
-});
-</script>
-<% end %>
-
-
-
 <% if signed_in? %>
-You are signed in as <%= link_to current_user.name, current_user %> |
-<%= link_to "Sign Out", signout_path, method: "delete" %>
+  You are signed in as <%= link_to current_user.name, current_user %> |
+  <%= link_to "Sign Out", signout_path, method: "delete" %>
 <% end %>
 
 <%= piwik_tracking_tag if Settings['use-piwik'] %>

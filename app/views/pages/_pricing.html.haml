@@ -15,7 +15,7 @@
       %thead
         %tr
           %th Item
-          %th Rate
+          %th{style: 'text-align:right'} Rate
           %th{style: 'text-align:center'} Quantity
       %tbody
         %tr 
@@ -37,8 +37,20 @@
         %tr
           %td Total
           %td
-          %td
+          %td#total{}
+  #quote-div{style: 'display:none;width:50%;margin:0 auto'}
+    = form_tag do
+      = label_tag :domain, 'Desired Domain Name'
+      = text_field_tag :domain, nil, class: 'form-control'
+      %br
+
+      = label_tag :time, 'Requested Time'
+      = text_field_tag :time, nil, class: 'form-control'
+      %br
+
+      = label_tag :request, 'Additional Requests'
+      = text_field_tag :request, nil, class: 'form-control'
+    %br
   %div{style: 'padding-bottom:30px', align: 'center'}
-    %button.btn.btn-primary.btn-lg{onclick: "$('#quote-div').toggle()"} Get a quote
-  #quote-div{style: 'display:none'}
-    Hello
+    %button#main-btn.btn.btn-primary.btn-lg{onclick: "$('#quote-div').toggle();$(this).html('Submit');$('#cancel-btn').toggle()"} Get a quote
+    %button#cancel-btn.btn.btn-danger.btn-lg{onclick: "$('#quote-div').toggle();$(this).toggle();$('#main-btn').html('Get a quote')", style: 'display:none'} I changed my mind
