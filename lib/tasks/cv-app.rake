@@ -10,7 +10,7 @@ namespace 'git' do
   end
 
   desc "Automates 'git merge' workflow"
-  task :pull => :environment do
+  task :merge=> :environment do
     puts "Merging from gitlab"
     puts `git merge`
     puts ''
