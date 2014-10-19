@@ -14,7 +14,9 @@ class SettingsController < ApplicationController
   # PATCH/PUT /settings/edit
   def update
     settings_params.each do |key,value|
-      eval("UserSettings.#{key} = \"#{value}\" ")
+      # The gsub is crucial to avoid simply breaking the eval, or worst potential Injection Attacks !
+      # I submitted an Issue Ticket to rails-settings-cached people (Issue #50)
+      eval("UserSettings.#{key} = \"#{value.gsub(/"/,'')}\" ")
     end
     redirect_to settings_path, notice: 'Settings Updated'
   end
