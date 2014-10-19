@@ -83,7 +83,7 @@ Then install all the necessary gems:
 ### Initialize User Settings
 
     # Run the rake tasks
-    bundle exec rake settings:init
+    RAILS_ENV=production bundle exec rake settings:init
 
 
 ### Precompile assets
