@@ -9,10 +9,14 @@ namespace 'git' do
     Rake::Task['git:prep_server'].invoke
   end
 
-  desc "Automates 'git merge' workflow"
+  desc "Automates 'git merge origin/master' workflow for cv-demo"
   task :merge=> :environment do
-    puts "Merging from gitlab"
-    puts `git merge`
+    puts "Fetching --all from gitlab'"
+    puts `git fetch --all`
+    puts ''
+
+    puts "Merging from gitlab's oring/master"
+    puts `git merge origin/master`
     puts ''
 
     Rake::Task['git:prep_server'].invoke
