@@ -2,7 +2,7 @@
 <div style="margin:0 50px" id="curriculum-page">
 
   <div align="center" style="color:#888" class="cv-name-header">
-    <h1 style="margin-bottom:10px;font-size:450%"><span style="color:#F09819"><%= Settings['name']%></span> | <span id="demo" style="white-space:pre"><%=Settings['cv-title']%></span></h1>
+    <h1 style="margin-bottom:10px;font-size:450%"><span style="color:#F09819"><%= UserSettings.full_name %></span> | <span id="demo" style="white-space:pre"><%=UserSettings.main_occupation%></span></h1>
     <p><%=Settings['address']%></p>
     <p>
         <i class="fa fa-mobile" style="font-size:22px"></i> <%=Settings['mobile-phone']%>
@@ -13,17 +13,17 @@
     </p>
   </div>
 
-<% if Settings['cv-title-alt'] %>
+<% if UserSettings.alt_occupation %> <!-- FIXME -->
 <script>
 $(document).ready(function(){
   $("#demo").mouseover(function(){
     $(this).fadeOut('fast',function(){
-    $(this).html("<%=Settings['cv-title-alt'] %>").fadeIn('fast');
+    $(this).html("<%=UserSettings.alt_occupation %>").fadeIn('fast');
     });
   });
   $("#demo").mouseout(function(){
     $(this).fadeOut('fast',function(){
-    $(this).html("<%= Settings['cv-title'] %>").fadeIn('fast');
+    $(this).html("<%= UserSettings.main_occupation %>").fadeIn('fast');
     });
   });
 });

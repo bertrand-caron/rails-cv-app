@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= Settings['name'] %> - <%= yield(:title) %></title>
+  <title><%= UserSettings.full_name %> - <%= yield(:title) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,11 +9,9 @@
 <body>
 
   <%= render 'layouts/header' %>
-  <!-- Breadcrumbs -->
   <div class="container">
-    <div style="margin-top:25px;display:inline-block">
-      <%= render_breadcrumbs('',{:active_class => 'active'}) %>
-    </div>
+    <%= render 'layouts/notice' %>
+    <%= render 'layouts/breadcrumbs' %>
 
     <%= yield %>
 

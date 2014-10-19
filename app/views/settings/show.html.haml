@@ -1,0 +1,8 @@
+- content_for :title, 'Settings'
+%h1 Settings
+- UserSettings.all.each do |setting|
+  %p
+    %h2= setting.var.humanize
+    = setting.value.to_s
+%form{action: '/settings/edit'}
+  %button.btn.btn-primary.btn-lg Edit

@@ -50,3 +50,4 @@ gem 'yaml_db', :github => 'turgu1/yaml_db'
 gem 'haml'
 gem 'premailer-rails'
 gem 'nokogiri'
+gem "rails-settings-cached", "0.4.1"

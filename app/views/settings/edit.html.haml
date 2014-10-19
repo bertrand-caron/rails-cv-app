@@ -1,0 +1,8 @@
+- content_for :title, 'Settings'
+%h1 Settings
+= form_tag nil, action: '/settings/edit', method: 'put' do
+  - UserSettings.all.each do |setting|
+    %p
+      = label_tag setting.var, setting.var.humanize
+      = text_field_tag setting.var, setting.value.to_s, class: 'form-control'
+  %button.btn.btn-primary.btn-lg Save

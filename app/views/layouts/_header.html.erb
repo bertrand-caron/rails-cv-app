@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/"><%= Settings['name'] + " - " + Settings['page-title'] %></a>
+      <a class="navbar-brand" href="/"><%= UserSettings.full_name + " - " + UserSettings.page_title %></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -37,6 +37,7 @@
       <% if signed_in? %>
       <ul class="nav navbar-nav" style='float:right'>
         <li><p class='navbar-text'>Signed in as <%= link_to current_user.name, current_user%></p></li>
+        <li><%=link_to "Settings", settings_path%></li>
         <li><%=link_to "Sign Out", signout_path, method: "delete"%></li>
       </ul>
       <% end %>

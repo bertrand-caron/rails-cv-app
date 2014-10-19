@@ -80,6 +80,12 @@ Then install all the necessary gems:
     # Exit the rails console
     irb(main):001:0> exit
 
+### Initialize User Settings
+
+    # Run the rake tasks
+    bundle exec rake settings:init
+
+
 ### Precompile assets
 
     # Precompile the assets, as needed for production environment

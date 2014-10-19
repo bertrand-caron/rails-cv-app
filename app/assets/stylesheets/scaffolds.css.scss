@@ -49,8 +49,8 @@ div {
   }
 }
 
-#notice {
-  color: green;
+.alert:empty {
+	display:none;
 }
 
 .field_with_errors {

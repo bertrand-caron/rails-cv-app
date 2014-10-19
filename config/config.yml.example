@@ -1,21 +1,7 @@
 # The present YAML file is loaded as Settings in config/initializers/load_config.rb
 
-name: "John Doe"
-
-# Title of the website, as displayed in the navbar
-page-title: "Curriculum Vitae"
-
-# CV Title
-cv-title: "Web Developer"
-
-# Alternate CV title displayed when hovering over CV title. Comment out to disable this effect.
-cv-title-alt: "Secret Agent ?"
-
 # Disclaimer displayed at the bottom of the page, in the footer
 disclaimer: "Powered by <a href='http://bcaron.me' >B.Caron</a>"  
-
-# Email receiving the messages sent via the Contact Form
-email: admin@john-doe.me
 
 social-media:
   github: john-doe # Github username
