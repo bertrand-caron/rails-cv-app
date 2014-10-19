@@ -15,7 +15,7 @@ namespace 'git' do
     puts `git fetch --all`
     puts ''
 
-    puts "Merging from gitlab's oring/master"
+    puts "Merging from gitlab's origin/master"
     puts `git merge origin/master`
     puts ''
 

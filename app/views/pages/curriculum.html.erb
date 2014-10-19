@@ -3,13 +3,13 @@
 
   <div align="center" style="color:#888" class="cv-name-header">
     <h1 style="margin-bottom:10px;font-size:450%"><span style="color:#F09819"><%= UserSettings.full_name %></span> | <span id="demo" style="white-space:pre"><%=UserSettings.main_occupation%></span></h1>
-    <p><%=Settings['address']%></p>
+    <p><%=UserSettings.address%></p>
     <p>
-        <i class="fa fa-mobile" style="font-size:22px"></i> <%=Settings['mobile-phone']%>
-       • <i class="fa fa-info-circle" style="font-size:15px"></i> <%=Settings['infos']%></p>
+        <i class="fa fa-mobile" style="font-size:22px"></i> <%=UserSettings.mobile_phone%>
+       • <i class="fa fa-info-circle" style="font-size:15px"></i> <%=UserSettings.infos%></p>
     <p>
-        <i class="fa fa-stack-overflow" style="font-size:19px"></i> <a href="http://stackoverflow.com/users/<%=Settings['social-media']['stack-overflow-id']%>"><%=Settings['social-media']['stack-overflow-name']%></a>
-      • <i class="fa fa-github" style="font-size:22px"></i> <a href="https://github.com/<%=Settings['social-media']['github']%>"><%= Settings['social-media']['github']%></a>
+        <i class="fa fa-stack-overflow" style="font-size:19px"></i> <a href="http://stackoverflow.com/users/<%=UserSettings.stackoverflow_id%>"><%=UserSettings.stackoverflow_name%></a>
+      • <i class="fa fa-github" style="font-size:22px"></i> <a href="https://github.com/<%=UserSettings.github_name%>"><%= UserSettings.github_name%></a>
     </p>
   </div>
 

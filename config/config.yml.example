@@ -1,17 +1,9 @@
 # The present YAML file is loaded as Settings in config/initializers/load_config.rb
 
 # Disclaimer displayed at the bottom of the page, in the footer
-disclaimer: "Powered by <a href='http://bcaron.me' >B.Caron</a>"  
+disclaimer: "Powered by <a href='http://bcaron.me'>B.Caron</a>"  
 
-social-media:
-  github: john-doe # Github username
-  stack-overflow-id: 1234567 # Stack overflow ID; your profile link is http://stackoverflow.com/users/{StackOverflow_ID}/{StackOverflow_UserName}
-  stack-overflow-name: jdoe  # Stack overflow Name; your profile link is http://stackoverflow.com/users/{StackOverflow_ID}/{StackOverflow_Name}
-
-mobile-phone: "0 123 456 7 8"
-address: "61 Horsen Ferry Road, London S1"
-infos: "42 years old, can breath underwater"
-
+# Complete Domain Name
 domain-name: "cv.johndoe.me"
 
 # Display the 'Fork on Github' footer
