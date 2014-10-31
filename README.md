@@ -65,7 +65,7 @@ Then install all the necessary gems:
 
 ### Migrate database
     # Run the necessary database migrations
-    sudo -u cv -H bin/rake db:migrate RAILS_ENV=production
+    sudo -u cv -H rake db:migrate RAILS_ENV=production
 
 
 ### Create First User
@@ -73,7 +73,7 @@ Then install all the necessary gems:
     # Go to the CV rails app folder
     cd ~cv/cv
     # Open the rails console
-    rails console
+    RAILS_ENV=production rails console
     # Create your first user
     # 'irb(main):001:0>' is the console prompt
     irb(main):001:0> user=User.create!(:email=>'admin@local.host',:name=>'Admin',:password=>'foobar')
@@ -100,7 +100,7 @@ ant test it at localhost:3000.
 
 Sign in at `your_cv_app_url/signin` using the credentials your generated.
 
-Signing in grants you an additional button in the navbar, Models, giving you acces to
+Signing in grants you an additional button in the navbar, Models, giving you access to
 the different sections (Education, Internships, etc.).
 
 ### Set up Unicorn Server
