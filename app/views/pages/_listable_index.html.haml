@@ -1,7 +1,7 @@
 - content_for(:title, models_name) if @set_title
 
 -# This takes care of not displaying the empty sections to users which are not logged in
-- if not empty_section?(models_name) || signed_in?
+- if (not empty_section?(models_name) ) || signed_in?
   .listable-content
     %h2.listable-title
       %span{:onclick => "toggle_section(\"\##{models_name.tr(' ','_')}-content\",this)"}
@@ -15,7 +15,7 @@
       - if empty_section?(models_name)
         .listable-item
           %b NB
-          This section will not be displayed to users until you add at least one item.
+          This section will not be displayed to visitors until you add at least one item.
       %br
       - if signed_in?
         = button_to "Add #{models_name.singularize}", new_item_path, :class => "btn", :method => :get
