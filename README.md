@@ -89,7 +89,7 @@ Then install all the necessary gems:
 ### Precompile assets
 
     # Precompile the assets, as needed for production environment
-    sudo -u cv -H bundle exec rake assets:precompile ENV_RAILS=production
+    sudo -u cv -H bundle exec rake assets:precompile RAILS_ENV=production
 
 ### Test the App
 
