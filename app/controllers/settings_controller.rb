@@ -24,6 +24,6 @@ class SettingsController < ApplicationController
   private
 
     def settings_params
-      params.permit(:full_name,:page_title, :main_occupation, :alt_occupation, :contact_email, :mobile_phone, :address, :infos, :github_name, :stackoverflow_id, :stackoverflow_name)
+      params.permit(:full_name,:page_title, :main_occupation, :alt_occupation, :contact_email, :mobile_phone, :address, :infos, :github_name, :stackoverflow_id, :stackoverflow_name, :twitter_alias, :linkedIn_alias, :main_color, :secondary_color)
     end
 end

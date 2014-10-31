@@ -20,7 +20,7 @@
     %i.fa.fa-anchor{style: 'font-size:80px'}
     %h2{style: 'margin-top:2px'} Advanced interactivity
     %p
-      Forget about LinkedIn profiles, where you need to summon the spirit of the Internet to get something a simple as a bullet point(), let
+      Forget about LinkedIn profiles, where you need to summon the spirit of the Internet to get something as simple as a bullet point, let
       alone produce a link.
   %div{style: 'float:left;width:33%;padding:3%'}
     %i.fa.fa-certificate{style: 'font-size:80px'}
@@ -32,49 +32,62 @@
     %button.btn.btn-primary.btn-lg{style: 'clear:both;text-align:center;display:block', align: 'center'} Try the CMS in the Sandbox
   %div{style: 'clear:both;padding-top:30px'}
 #about-table{style: 'width:100%;background-color:#ddd;padding-top:15px;margin-top:0', align: 'center'}
-  %h1{style: 'padding-top:15px;margin-top:0;font-size:70px;line-height:75px;font-weight:300;color:#428bca'} Get set up now !
+  %h1{style: 'padding-top:15px;margin-top:0;font-size:70px;line-height:75px;font-weight:300;color:#428bca'} What are you looking for ?
   %div{style: 'width:100%;margin-bottom:50px', align: 'center'}
-    %div{style: 'float:left;width:50%'}
-      %h2 The Hard Way
-      .progress{style: 'width:100px'}
-        .progress-bar.progress-bar-danger{role: 'progressbar', :'aria-valuenow' => "1", :'aria-valuemin' => "0", :'aria-valuemax' => "100", style: 'width:80%'}
+    %div{style: 'float:left;width:50%;border-right:1px dashed #333'}
+      %h2 I can setup a Rails Application
+      %div
+        %span{style: 'line-height:20px'} Difficulty:
+        .progress{style: 'width:100px;display:inline-block;margin-bottom:0;margin-top:10px'}
+          .progress-bar.progress-bar-danger{role: 'progressbar', :'aria-valuenow' => "1", :'aria-valuemin' => "0", :'aria-valuemax' => "100", style: 'width:80%'}
       %p
         Are you a nerd with a web server at home running Nginx ?
-        Then just go ahead, fork te project and set up the Rails App on your gear.
-    %div{style: 'float:left;width:50%'}
-      %h2 The Easy Way
+        Then just go ahead, fork the project and set up the Rails App on your gear.
+      %table{style: 'margin:30px auto 30px auto;width:70%;box-shadow: 1px 1px 12px #000000'}
+        %thead
+          %tr
+            %th{style:'widh:30%'}
+              %h3{style: 'margin-left:15px'} What you'll need
+            %th{style:'widh:100px;text-align:center'}
+        %tbody
+          %tr
+            %td <i class="fa fa-certificate"></i> A registered domain name 
+            %td{style: 'text-align:center'} <i class="fa fa-check"></i>
+          %tr
+            %td <i class="icon-nginx"></i> A web server running on Nginx
+            %td{style: 'text-align:center'} <i class="fa fa-check"></i>
+          %tr
+            %td <i class="icon-ruby-on-rails"></i> Know how to set up a Rails App
+            %td{style: 'text-align:center'} <i class="fa fa-check"></i>
+      %form{action: 'https://github.com/bertrand-caron/cvapp'}
+        %button.btn.btn-info.btn-lg Fork on Github
+    %div{style: 'float:left;width:50%;'}
+      %h2 I'd rather have a profesional do it for me
       .progress{style: 'width:100px'}
         .progress-bar{role: 'progressbar', :'aria-valuenow' => "1", :'aria-valuemin' => "0", :'aria-valuemax' => "100", style: 'width:10%'}
-      %p
+      %p{style: 'text-decoration: line-through;'}
         If you don't know all this geeky stuff but are interested in having your
         Résumé set-up and handed out to you by a profesionnal Web Developer, check
-        out the hosting solutions below.
+        out the pricing below.
+      %p
+        For a reasonable hosting and configuration fee, ...
+      %table{style: 'margin:30px auto 30px auto;width:70%;box-shadow: 1px 1px 12px #000000;'}
+        %thead
+          %tr
+            %th{style:'widh:30%'}
+              %h3{style: 'margin-left:15px'} What you'll need
+            %th{style:'widh:100px;text-align:center'}
+        %tbody
+          %tr
+            %td <i class="fa fa-align-justify"></i> A paper version of your Résumé 
+            %td{style: 'text-align:center'} <i class="fa fa-check"></i>
+          %tr
+            %td{style: 'color:#EEE'} Nothing
+            %td
+          %tr
+            %td{style: 'color:#DDD'} Nothing
+            %td
+      %button.btn.btn-primary.btn-lg{onclick: "$('#about-pricing').show();$('html, body').animate({scrollTop: $('#about-pricing').offset().top},1000)"} View Pricing
     %div{style: 'clear:both'}
-  %table{style: 'margin:50px auto 0px auto;width:70%'}
-    %thead
-      %tr
-        %td{style:'width:30%'}
-        %td{style:'width:10%;text-align:center'}
-        %td{style:'width:10%'}
-    %tbody
-      %tr
-        %td <i class="fa fa-certificate"></i> Have a registered domain name 
-        %td{style: 'text-align:center'} <i class="fa fa-check"></i>
-        %td{style: 'text-align:center'} <i class="fa fa-times"></i>
-      %tr
-        %td <i class="icon-nginx"></i> Have a web server running on Nginx
-        %td{style: 'text-align:center'} <i class="fa fa-check"></i>
-        %td{style: 'text-align:center'} <i class="fa fa-times"></i>
-      %tr
-        %td <i class="icon-ruby-on-rails"></i> Know how to set up a Rails App
-        %td{style: 'text-align:center'} <i class="fa fa-check"></i>
-        %td{style: 'text-align:center'} <i class="fa fa-times"></i>
-      %tr
-        %td
-        %td{style: 'text-align:center'}
-          %form{action: 'https://github.com/bertrand-caron/cvapp'}
-            %button.btn.btn-info.btn-lg Fork on Github
-        %td{style: 'text-align:center'}
-          %button.btn.btn-primary.btn-lg{onclick: "$('#about-pricing').toggle();$('html, body').animate({scrollTop: $('#about-pricing').offset().top},1000)"} Hosting Plans
   %div{style: 'min-height:50px'}
 = render :file => 'pages/_pricing'

@@ -29,4 +29,12 @@ module ApplicationHelper
   def delete_tool_tag(model)
     link_to '<i class="fa fa-close"></i>'.html_safe, model, method: :delete, data: { confirm: 'Are you sure?' }
   end
+
+  def main_color_tag
+    "color:#" + ( UserSettings.main_color.to_s == '' ? "F09819" : UserSettings.main_color )
+  end
+
+  def secondary_color_tag
+    "color:#" + ( UserSettings.secondary_color.to_s == '' ? "F09819" : UserSettings.secondary_color )
+  end
 end

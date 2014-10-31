@@ -2,18 +2,31 @@
 <div style="margin:0 50px" id="curriculum-page">
 
   <div align="center" style="color:#888" class="cv-name-header">
-    <h1 style="margin-bottom:10px;font-size:450%"><span style="color:#F09819"><%= UserSettings.full_name %></span> | <span id="demo" style="white-space:pre"><%=UserSettings.main_occupation%></span></h1>
+    <h1 style="margin-bottom:10px;font-size:450%"><span style="<%=main_color_tag%>">
+      <%= UserSettings.full_name %></span> | <span id="demo" style="white-space:pre"><%=UserSettings.main_occupation%></span>
+    </h1>
     <p><%=UserSettings.address%></p>
     <p>
         <i class="fa fa-mobile" style="font-size:22px"></i> <%=UserSettings.mobile_phone%>
-       • <i class="fa fa-info-circle" style="font-size:15px"></i> <%=UserSettings.infos%></p>
+       • <i class="fa fa-info-circle" style="font-size:15px"></i> <%=UserSettings.infos%>
+    </p>
     <p>
+      <% if UserSettings.stackoverflow_id.to_s != '' && UserSettings.stackoverflow_name.to_s != '' %>
         <i class="fa fa-stack-overflow" style="font-size:19px"></i> <a href="http://stackoverflow.com/users/<%=UserSettings.stackoverflow_id%>"><%=UserSettings.stackoverflow_name%></a>
-      • <i class="fa fa-github" style="font-size:22px"></i> <a href="https://github.com/<%=UserSettings.github_name%>"><%= UserSettings.github_name%></a>
+      <% end %>
+      <% if UserSettings.github_name.to_s != '' %>
+        • <i class="fa fa-github" style="font-size:22px"></i> <a href="https://github.com/<%=UserSettings.github_name%>"><%= UserSettings.github_name%></a>
+      <% end %>
+      <% if UserSettings.twitter_alias.to_s != '' %>
+        • <i class="fa fa-twitter" style="font-size:22px"></i> <a href="https://twitter.com/<%=UserSettings.twitter_alias%>">@<%= UserSettings.twitter_alias%></a>
+      <% end %>
+      <% if UserSettings.linkedIn_alias.to_s != '' %>
+        • <i class="fa fa-linkedin" style="font-size:22px"></i> <a href="https://linkedin.com/<%=UserSettings.linkedIn_alias%>"><%= UserSettings.linkedIn_alias%></a>
+      <% end %>
     </p>
   </div>
 
-<% if UserSettings.alt_occupation %> <!-- FIXME -->
+<% if UserSettings.alt_occupation.to_s != '' %> <!-- FIXME -->
 <script>
 $(document).ready(function(){
   $("#demo").mouseover(function(){
@@ -29,6 +42,14 @@ $(document).ready(function(){
 });
 </script>
 <% end %>
+
+<% if UserSettings.main_color.to_s != '' %>
+<script>
+  $(document).ready(function(){
+    $('.container').find('.listable-title').css("color","#<%= UserSettings.main_color %>");
+  });
+</script>
+<% end %>
   
   <%= render :file => 'educations/index' %>
   <%= render :file => 'internships/index' %>
@@ -39,4 +60,4 @@ $(document).ready(function(){
   <br>
 </div>
 
-<%= render :partial => 'pages/email_widget' %>
+<%#= render :partial => 'pages/email_widget' %>
