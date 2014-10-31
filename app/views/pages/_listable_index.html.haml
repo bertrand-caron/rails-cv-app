@@ -1,15 +1,21 @@
 - content_for(:title, models_name) if @set_title
 
-.listable-content
-  %h2.listable-title
-    %span{:onclick => "toggle_section(\"\##{models_name.tr(' ','_')}-content\",this)"}
-      %i.fa.fa-caret-down
-    = models_name
-  %hr
-  %div{:id => "#{models_name.tr(' ','_')}-content"}
-    - listable_enum.each do |item|
-      .listable-item{:onmouseout => "hide_edit_tools(this)", :onmouseover => "show_edit_tools(this)"}
-        = render partial: "#{models_name.downcase.pluralize.tr(' ','_')}/item", locals: {item: item}
-    %br
-    - if signed_in?
-      = button_to "Add #{models_name.singularize}", new_item_path, :class => "btn", :method => :get
+-# This takes care of not displaying the empty sections to users which are not logged in
+- if not empty_section?(models_name) || signed_in?
+  .listable-content
+    %h2.listable-title
+      %span{:onclick => "toggle_section(\"\##{models_name.tr(' ','_')}-content\",this)"}
+        %i.fa.fa-caret-down
+      = models_name
+    %hr
+    %div{:id => "#{models_name.tr(' ','_')}-content"}
+      - listable_enum.each do |item|
+        .listable-item{:onmouseout => "hide_edit_tools(this)", :onmouseover => "show_edit_tools(this)"}
+          = render partial: "#{models_name.downcase.pluralize.tr(' ','_')}/item", locals: {item: item}
+      - if empty_section?(models_name)
+        .listable-item
+          %b NB
+          This section will not be displayed to users until you add at least one item.
+      %br
+      - if signed_in?
+        = button_to "Add #{models_name.singularize}", new_item_path, :class => "btn", :method => :get
