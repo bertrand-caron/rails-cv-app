@@ -18,4 +18,4 @@ use-piwik: false
 display-about-page: true
 
 # Name of the service for starting/stoping/restarting the App
-service_name: "cv"
+service-name: "cv"
