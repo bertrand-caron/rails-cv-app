@@ -13,7 +13,7 @@
         .listable-item{:onmouseout => "hide_edit_tools(this)", :onmouseover => "show_edit_tools(this)"}
           = render partial: "#{models_name.downcase.pluralize.tr(' ','_')}/item", locals: {item: item}
       - if empty_section?(models_name)
-        .listable-item
+        .listable-comment
           %b NB
           This section will not be displayed to visitors until you add at least one item.
       %br
