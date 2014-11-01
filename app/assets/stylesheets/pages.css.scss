@@ -210,3 +210,11 @@ h2 .fa:hover{color:#c97c0d;}
 		text-align:right;
 	}
 }
+
+.social-icon {
+	display:inline;
+}
+#social-icons li:nth-child(n+2):before {
+	content: "•";
+	margin: 0px 5px;
+}

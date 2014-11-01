@@ -31,10 +31,14 @@ module ApplicationHelper
   end
 
   def main_color_tag
-    "color:#" + ( UserSettings.main_color.to_s == '' ? "F09819" : UserSettings.main_color )
+    "color:#" + ( has_setting?(:main_color) ? UserSettings.main_color : "F09819" )
   end
 
   def secondary_color_tag
-    "color:#" + ( UserSettings.secondary_color.to_s == '' ? "F09819" : UserSettings.secondary_color )
+    "color:#" + ( has_setting?(:secondary_color) ? UserSettings.secondary_color : "428BCA" )
+  end
+
+  def has_setting?(setting)
+    UserSettings.send(setting).to_s != ''
   end
 end

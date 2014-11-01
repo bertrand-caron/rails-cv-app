@@ -7,26 +7,26 @@
     </h1>
     <p><%=UserSettings.address%></p>
     <p>
-        <i class="fa fa-mobile" style="font-size:22px"></i> <%=UserSettings.mobile_phone%>
-       • <i class="fa fa-info-circle" style="font-size:15px"></i> <%=UserSettings.infos%>
+        <i class="fa fa-mobile" style="font-size:26px"></i> <%=UserSettings.mobile_phone%>
+       • <i class="fa fa-info-circle" style="font-size:19px"></i> <%=UserSettings.infos%>
     </p>
-    <p>
-      <% if UserSettings.stackoverflow_id.to_s != '' && UserSettings.stackoverflow_name.to_s != '' %>
-        <i class="fa fa-stack-overflow" style="font-size:19px"></i> <a href="http://stackoverflow.com/users/<%=UserSettings.stackoverflow_id%>"><%=UserSettings.stackoverflow_name%></a>
+    <p><ul id='social-icons'>
+      <% if has_setting?(:stackoverflow_id) && has_setting?(:stackoverflow_name) %>
+        <li class='social-icon'><i class="fa fa-stack-overflow" style="font-size:19px"></i> <a href="http://stackoverflow.com/users/<%=UserSettings.stackoverflow_id%>"><%=UserSettings.stackoverflow_name%></a></li>
       <% end %>
-      <% if UserSettings.github_name.to_s != '' %>
-        • <i class="fa fa-github" style="font-size:22px"></i> <a href="https://github.com/<%=UserSettings.github_name%>"><%= UserSettings.github_name%></a>
+      <% if has_setting?(:github_name) %>
+        <li class='social-icon'><i class="fa fa-github" style="font-size:22px"></i> <a href="https://github.com/<%=UserSettings.github_name%>"><%= UserSettings.github_name%></a></li>
       <% end %>
-      <% if UserSettings.twitter_alias.to_s != '' %>
-        • <i class="fa fa-twitter" style="font-size:22px"></i> <a href="https://twitter.com/<%=UserSettings.twitter_alias%>">@<%= UserSettings.twitter_alias%></a>
+      <% if has_setting?(:twitter_alias) %>
+        <li class='social-icon'><i class="fa fa-twitter" style="font-size:22px"></i> <a href="https://twitter.com/<%=UserSettings.twitter_alias%>">@<%= UserSettings.twitter_alias%></a></li>
       <% end %>
-      <% if UserSettings.linkedIn_alias.to_s != '' %>
-        • <i class="fa fa-linkedin" style="font-size:22px"></i> <a href="https://linkedin.com/in/<%=UserSettings.linkedIn_alias%>"><%= UserSettings.linkedIn_alias%></a>
+      <% if has_setting?(:linkedIn_alias) %>
+        <li class='social-icon'><i class="fa fa-linkedin-square" style="font-size:22px"></i> <a href="https://linkedin.com/in/<%=UserSettings.linkedIn_alias%>"><%= UserSettings.linkedIn_alias%></a></li>
       <% end %>
-    </p>
+    </ul></p>
   </div>
 
-<% if UserSettings.alt_occupation.to_s != '' %> <!-- FIXME -->
+<% if has_setting?(:alt_occupation) %> <!-- FIXME -->
 <script>
 $(document).ready(function(){
   $("#demo").mouseover(function(){
@@ -43,7 +43,7 @@ $(document).ready(function(){
 </script>
 <% end %>
 
-<% if UserSettings.main_color.to_s != '' %>
+<% if has_setting?(:main_color) %>
 <script>
   $(document).ready(function(){
     $('.container').find('.listable-title').css("color","#<%= UserSettings.main_color %>");
