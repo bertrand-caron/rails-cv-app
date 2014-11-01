@@ -16,3 +16,6 @@ use-piwik: false
 
 # Display the 'promotional' About page in the navbar
 display-about-page: true
+
+# Name of the service for starting/stoping/restarting the App
+service_name: "cv"

@@ -46,7 +46,7 @@ namespace 'git' do
     puts ''
 
     puts "Restarting Unicorn Server"
-    puts `sudo service cv restart`
+    puts `sudo service #{Settings['service-name']} restart`
     puts ''
   end
 
