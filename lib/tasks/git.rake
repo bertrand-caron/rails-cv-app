@@ -33,6 +33,10 @@ namespace 'git' do
 
   desc "Install new gems, recompile assets, run migration and restart unicorn"
   task :prep_server => :environment do
+    puts "Updating new User Settings"
+    Rake::Task['settings:missing'].invoke
+    puts ''
+
     puts "Running 'bundle install'"
     puts `bundle install`
     puts ''

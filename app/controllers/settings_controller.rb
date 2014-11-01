@@ -24,7 +24,8 @@ class SettingsController < ApplicationController
       :linkedIn_alias => "Your LinkedIn page, without the 'https://www.linkedin.com/in/' part. Ex: 'johndoe'. Leave empty to disable.",
       :twitter_alias => "Your Twitter alias, without the @. Ex: 'John_Doe'. Leave empty to disable.",
       :main_color => "Hexadecimal color (without the pound '#' symbol) used for your Name, as well as for the titles of the sections. Ex: 'F09819'",
-      :secondary_color => "Hexadecimal color (without the pound '#' symbol) used for your for the titles of the items. Ex: '428BCA'"
+      :secondary_color => "Hexadecimal color (without the pound '#' symbol) used for your for the titles of the items. Ex: '428BCA'",
+      :profile => "A General Description of yourself and what your are looking for. May span several lines if necessary."
     }
   end
 
@@ -41,6 +42,6 @@ class SettingsController < ApplicationController
   private
 
     def settings_params
-      params.permit(:full_name,:page_title, :main_occupation, :alt_occupation, :contact_email, :mobile_phone, :address, :infos, :github_name, :stackoverflow_id, :stackoverflow_name, :twitter_alias, :linkedIn_alias, :main_color, :secondary_color)
+      params.permit(:full_name,:page_title, :main_occupation, :alt_occupation, :contact_email, :mobile_phone, :address, :infos, :github_name, :stackoverflow_id, :stackoverflow_name, :twitter_alias, :linkedIn_alias, :main_color, :secondary_color, :profile)
     end
 end

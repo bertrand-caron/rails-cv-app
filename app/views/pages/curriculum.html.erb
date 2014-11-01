@@ -1,4 +1,23 @@
 <% content_for(:title, "Curriculum Vitae") %>
+
+<% if has_setting?(:main_color) %>
+<style>
+.listable-title{color:#<%= UserSettings.main_color %>}
+h2{color:#<%= UserSettings.main_color %>}
+h2 .fa-caret-down:hover{color:#<%= Paleta::Color.new(:hex, UserSettings.main_color).darken(9).hex %>;}
+h2 .fa-caret-right:hover{color:#<%= Paleta::Color.new(:hex, UserSettings.main_color).darken(9).hex %>;}
+</style>
+<% end %>
+
+<% if has_setting?(:secondary_color) %>
+<style>
+.listable-item .line--left-content h3{color:#<%= UserSettings.secondary_color %>}
+.listable-item a{color:#<%= UserSettings.secondary_color %>}
+.first-line--programming-skill {color:#<%= UserSettings.secondary_color %>}
+.profile{background-color:#<%= Paleta::Color.new(:hex, UserSettings.secondary_color).lighten(45).hex %>}
+</style>
+<% end %>
+
 <div style="margin:0 50px" id="curriculum-page">
 
   <div align="center" style="color:#888" class="cv-name-header">
@@ -26,6 +45,12 @@
     </ul></p>
   </div>
 
+  <div class='profile' style='margin:0 0 0 50px;padding:10px;border-radius:10px;display:inline-block' align='center'>
+    <h2 style='display:inline-block;vertical-align:bottom;margin:0 5px'>Profile</h2>
+    <p style='font-size:22px;line-height:30px;vertical-align:bottom;display:inline-block;margin-bottom:0'><%= UserSettings.profile %></p>
+    <div style='clear:both'></div>
+  </div>
+
 <% if has_setting?(:alt_occupation) %> <!-- FIXME -->
 <script>
 $(document).ready(function(){
@@ -43,22 +68,6 @@ $(document).ready(function(){
 </script>
 <% end %>
 
-<% if has_setting?(:main_color) %>
-<style>
-.listable-title{color:#<%= UserSettings.main_color %>}
-h2 .fa-caret-down:hover{color:#<%= Paleta::Color.new(:hex, UserSettings.main_color).darken(9).hex %>;}
-h2 .fa-caret-right:hover{color:#<%= Paleta::Color.new(:hex, UserSettings.main_color).darken(9).hex %>;}
-</style>
-<% end %>
-
-<% if has_setting?(:secondary_color) %>
-<style>
-.listable-item .line--left-content h3{color:#<%= UserSettings.secondary_color %>}
-.listable-item a{color:#<%= UserSettings.secondary_color %>}
-.first-line--programming-skill {color:#<%= UserSettings.secondary_color %>}
-</style>
-<% end %>
-  
   <%= render :file => 'educations/index' %>
   <%= render :file => 'internships/index' %>
   <%= render :file => 'programming_skills/index' %>
