@@ -5,4 +5,5 @@
     %p
       = label_tag setting.var, setting.var.humanize
       = text_field_tag setting.var, setting.value.to_s, class: 'form-control'
+      %span.help-block= @help_hash[setting.var.to_sym].to_s
   %button.btn.btn-primary.btn-lg Save
