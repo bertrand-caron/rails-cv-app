@@ -14,7 +14,7 @@ h2 .fa-caret-right:hover{color:#<%= Paleta::Color.new(:hex, UserSettings.main_co
 .listable-item .line--left-content h3{color:#<%= UserSettings.secondary_color %>}
 .listable-item a{color:#<%= UserSettings.secondary_color %>}
 .first-line--programming-skill {color:#<%= UserSettings.secondary_color %>}
-.profile{background-color:#<%= Paleta::Color.new(:hex, UserSettings.secondary_color).lighten(45).hex %>}
+.profile{background-color:#<%= UserSettings.main_color %>}
 </style>
 <% end %>
 
@@ -46,8 +46,8 @@ h2 .fa-caret-right:hover{color:#<%= Paleta::Color.new(:hex, UserSettings.main_co
   </div>
 
   <div class='profile' style='margin:0 0 0 50px;padding:10px;border-radius:10px;display:inline-block' align='center'>
-    <h2 style='display:inline-block;vertical-align:bottom;margin:0 5px'>Profile</h2>
-    <p style='font-size:22px;line-height:30px;vertical-align:bottom;display:inline-block;margin-bottom:0'><%= UserSettings.profile %></p>
+    <h2 style='display:inline-block;vertical-align:bottom;margin:0 5px;color:white'>Profile</h2>
+    <p style='font-size:22px;line-height:30px;vertical-align:bottom;display:inline-block;margin-bottom:0;color:white'><%= UserSettings.profile %></p>
     <div style='clear:both'></div>
   </div>
 
