@@ -51,3 +51,4 @@ gem 'haml'
 gem 'premailer-rails'
 gem 'nokogiri'
 gem "rails-settings-cached", "0.4.1"
+gem 'paleta'
