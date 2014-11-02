@@ -222,3 +222,11 @@ h2 .fa:hover{color:#c97c0d;}
 	}
 }
 
+
+@media print {
+	.nav {display:none}
+}
+
+@media handheld {
+
+}
