@@ -19,3 +19,6 @@ display-about-page: true
 
 # Name of the service for starting/stoping/restarting the App
 service-name: "cv"
+
+# Google Analytics ID (Ex: 'UA-12345678-1'). Empty string to disable
+google-analytics-id: ""
