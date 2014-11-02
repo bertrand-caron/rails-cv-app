@@ -52,3 +52,5 @@ gem 'premailer-rails'
 gem 'nokogiri'
 gem "rails-settings-cached", "0.4.1"
 gem 'paleta'
+
+gem 'sitemap_generator', :github => 'kjvarga/sitemap_generator'

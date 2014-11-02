@@ -41,4 +41,12 @@ module ApplicationHelper
   def has_setting?(setting)
     UserSettings.send(setting).to_s != ''
   end
+
+  def meta_description_tag
+    tag(:meta, {:name => 'description', :content => UserSettings.profile})
+  end
+
+  def meta_keywords_tag
+    tag(:meta, {:name => 'keywords', :content => "#{UserSettings.full_name} #{UserSettings.page_title} #{UserSettings.main_occupation}".gsub(/ /,',') })
+  end
 end

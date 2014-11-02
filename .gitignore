@@ -20,6 +20,7 @@ config/secrets.yml
 config/piwik.yml
 config/config.yml
 config/unicorn.rb
+config/sitemap.rb
 
 ## Environment normalisation:
 /.bundle

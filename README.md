@@ -149,5 +149,21 @@ Make sure to edit the config file to match your setup:
 
     sudo service nginx restart
 
+# Extras
+
+## Generate a sitemap
+
+    # Copy the example sitemap
+    cp config/sitemap.rb.example config/sitemap.rb
+
+    # If you already set up your domain-name correctly in config/config.yml, you have nothing else to do
+    # Else, do it now !
+    editor config/config.yml
+
+    # Then, add the necessary page to your sitemap in config/sitemap.yml
+    editor config/sitemap.yml
+
+    # Finally, refresh the sitemap and ping search engines
+    RAILS_ENV=production rake sitemap:refresh
 
 **Enjoy!**
