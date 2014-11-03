@@ -2,14 +2,19 @@
 
 <div style="margin:0 50px" id="curriculum-page">
 
-  <div align="center" class="cv-name-header grey">
-    <h1 style="margin-bottom:10px;font-size:450%"><span style="<%=main_color_tag%>">
-      <%= UserSettings.full_name %></span> <span class='grey'>|</span> <span class="grey" id="demo" style="white-space:pre"><%=UserSettings.main_occupation%></span>
+  <div align="center" class="cv-name-header grey" itemscope itemtype="http://data-vocabulary.org/Person">
+    <h1 style="margin-bottom:10px;font-size:450%">
+       <span style="<%=main_color_tag%>" itemprop="name"><%= UserSettings.full_name %></span> 
+       <span class='grey'>|</span>
+       <span class="grey" id="demo" style="white-space:pre" itemprop='title'><%=UserSettings.main_occupation%></span>
     </h1>
     <p><%=UserSettings.address%></p>
     <p>
-        <i class="fa fa-mobile" style="font-size:26px"></i> <%=UserSettings.mobile_phone%>
-       • <i class="fa fa-info-circle" style="font-size:19px"></i> <%=UserSettings.infos%>
+      <ul id='social-icons'>
+        <li class='social-icon'><i class="fa fa-mobile" style="font-size:26px"></i> <%=UserSettings.mobile_phone%></li>
+        <li class='social-icon'><i class="fa fa-book" style="font-size:22px;margin-right:5px"></i><a href="<%= Settings['domain-name']%>" itemprop='url'><%= Settings['domain-name']%></a></li>
+        <li class='social-icon'><i class="fa fa-info-circle" style="font-size:19px"></i> <%=UserSettings.infos%></li>
+      </ul>
     </p>
     <div>
       <ul id='social-icons'>
@@ -31,7 +36,7 @@
 
   <div class='profile' style='margin:0 0 0 50px;padding:10px;border-radius:10px;display:inline-block' align='center'>
     <h2 style='display:inline-block;vertical-align:bottom;margin:0 5px;color:white'>Profile</h2>
-    <p style='font-size:22px;line-height:30px;vertical-align:bottom;display:inline-block;margin-bottom:0;color:white'><%= UserSettings.profile %></p>
+    <p style='font-size:22px;line-height:30px;vertical-align:bottom;display:inline-block;margin-bottom:0;color:white'><%= raw UserSettings.profile_section %></p>
     <div style='clear:both'></div>
   </div>
 

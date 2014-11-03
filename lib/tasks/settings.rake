@@ -18,7 +18,7 @@ namespace 'settings' do
     u.linkedIn_alias = 'johndoe'
     u.main_color = 'f09819'
     u.secondary_color = '428bca'
-    u.profile = 'Licensed to kill Secret Agent looking for trouble'
+    u.profile_section = 'Licensed to kill Secret Agent looking for trouble'
   end
 
   desc 'Initializes missing UserSettings and leaves other untouched' 
@@ -39,6 +39,6 @@ namespace 'settings' do
     u.linkedIn_alias = 'johndoe' unless u.linkedIn_alias
     u.main_color = 'f09819' unless u.main_color
     u.secondary_color = '428bca' unless u.secondary_color
-    u.profile = 'Licensed to kill Secret Agent looking for trouble' unless u.profile
+    u.profile_section = 'Licensed to kill Secret Agent looking for trouble' unless u.profile_section
   end
 end

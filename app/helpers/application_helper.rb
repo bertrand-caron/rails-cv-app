@@ -43,7 +43,7 @@ module ApplicationHelper
   end
 
   def meta_description_tag
-    tag(:meta, {:name => 'description', :content => UserSettings.profile})
+    tag(:meta, {:name => 'description', :content => strip_tags(UserSettings.profile_section)})
   end
 
   def meta_keywords_tag

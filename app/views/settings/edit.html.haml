@@ -4,6 +4,9 @@
   - UserSettings.all.each do |setting|
     %p
       = label_tag setting.var, setting.var.humanize
-      = text_field_tag setting.var, setting.value.to_s, class: 'form-control'
+      - if not /_section$/.match(setting.var)
+        = text_field_tag setting.var, setting.value.to_s, class: 'form-control'
+      - else
+        = text_area nil, nil,:value => setting.value.to_s, :class => 'form-control', :rows => '4', :id => setting.var, :name => setting.var
       %span.help-block= @help_hash[setting.var.to_sym].to_s
   %button.btn.btn-primary.btn-lg Save
