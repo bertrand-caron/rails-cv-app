@@ -1,8 +1,7 @@
 <%= form_for(@software) do |f| %>
   <% if @software.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@software.errors.count, "error") %> prohibited this software from being saved:</h2>
-
+    <div class="panel panel-danger">
+      <div class='panel-heading'><%= pluralize(@software.errors.count, "error") %> prohibited this software from being saved:</div>
       <ul>
       <% @software.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,16 +11,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <div><%= f.label :name %></div>
     <%= f.text_field :name, class: "form-control", placeholder: 'Ex: Rails Cannon' %>
   </div>
   <div class="field">
-    <%= f.label :github_link %><br>
+    <div><%= f.label :github_link %></div>
     <%= f.text_field :github_link, class: "form-control", placeholder: 'Ex: https://github.com/john-doe/rails-cannon' %>
   </div>
   <%= render :partial => 'pages/hyperlink_form_field', locals: {:f => f} %>
   <div class="field">
-    <%= f.label :description %><br>
+    <div><%= f.label :description %></div>
     <%= f.text_area :description, class: "form-control", rows: "4" %>
   </div>
   <div class="actions">

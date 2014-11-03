@@ -230,3 +230,18 @@ h2 .fa:hover{color:#c97c0d;}
 @media handheld {
 
 }
+
+.has-error label {
+	color:#a94442;
+}
+
+.has-error + p {
+	color:#a94442;
+}
+
+.panel-danger {
+	background-color:#f9f0f0;
+	ul {
+		margin-top:10px;
+	}
+}

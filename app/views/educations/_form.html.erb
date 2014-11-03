@@ -1,8 +1,7 @@
 <%= form_for(@education) do |f| %>
   <% if @education.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@education.errors.count, "error") %> prohibited this education from being saved:</h2>
-
+    <div class="panel panel-danger">
+      <div class='panel-heading'><%= pluralize(@education.errors.count, "error") %> prohibited this education from being saved:</div>
       <ul>
       <% @education.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,19 +11,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :institution %><br>
+    <div><%= f.label :institution %></div>
     <%= f.text_field :institution, class: "form-control", placeholder: "Ex: University of Sao Paulo, Brazil" %>
   </div>
   <div class="field">
-    <%= f.label :institution_location %><br>
+    <div><%= f.label :institution_location %></div>
     <%= f.text_field :institution_location, class: "form-control", placeholder: "Ex: Paris (France)" %>
   </div>
   <div class="field">
-    <%= f.label :degree %><br>
+    <div><%= f.label :degree %></div>
     <%= f.text_field :degree, class: "form-control", placeholder: "Ex: Bachelor of Science in Physics" %>
   </div>
   <div class="field">
-    <%= f.label :year %><br>
+    <div><%= f.label :year %></div>
     <%= f.text_field :year, class: "form-control", placeholder: "Ex: 2011-2013" %>
   </div>
   <%= render :partial => 'pages/description_form_field', :locals => {:f => f} %>

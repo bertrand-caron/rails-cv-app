@@ -1,6 +1,5 @@
 .field
-  = f.label :description
-  %br
+  %div= f.label :description
   = f.text_area :description, class: "form-control", rows: "4", placeholder: "Item description.\nMay span several lines, include bullets points, etc. Use '<br>' for a line break."
   %p.help-block 
     %b Syntax

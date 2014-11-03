@@ -1,8 +1,7 @@
 <%= form_for(@award) do |f| %>
   <% if @award.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@award.errors.count, "error") %> prohibited this award from being saved:</h2>
-
+    <div class="panel panel-danger">
+      <div class='panel-heading'><%= pluralize(@award.errors.count, "error") %> prohibited this award from being saved:</div>
       <ul>
       <% @award.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,16 +11,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <div><%= f.label :title %></div>
     <%= f.text_field :title, class: "form-control", placeholder: 'Ex: Best Australian Researcher Fellowship' %>
   </div>
   <div class="field">
-    <%= f.label :location %><br>
+    <div><%= f.label :location %></div>
     <%= f.text_field :location, class: "form-control", placeholder: 'Ex: Wee Waa (Australia)' %>
   </div>
   <%= render :partial => 'pages/description_form_field', locals: {:f => f} %>
   <div class="field">
-    <%= f.label :time %><br>
+    <div><%= f.label :time %></div>
     <%= f.text_field :time, class: "form-control", placeholder: 'Ex: April 2014' %>
   </div>
   <%= render :partial => 'pages/rank_form_field', locals: {:f => f} %>

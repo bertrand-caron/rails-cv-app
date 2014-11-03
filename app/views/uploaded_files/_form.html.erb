@@ -1,8 +1,7 @@
 <%= form_for(@uploaded_file) do |f| %>
   <% if @uploaded_file.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@uploaded_file.errors.count, "error") %> prohibited this uploaded_file from being saved:</h2>
-
+    <div class="panel panel-danger">
+      <div class='panel-heading'><%= pluralize(@uploaded_file.errors.count, "error") %> prohibited this uploaded_file from being saved:</div>
       <ul>
       <% @uploaded_file.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,7 +11,7 @@
   <% end %>
 
   <div class="field">
-    <%#= f.label :name %><br>
+    <div><%#= f.label :name %></div>
     <%#= f.text_field :name %>
     <%= f.file_field :content %>
   </div>
