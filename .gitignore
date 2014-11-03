@@ -6,6 +6,7 @@ capybara-*.html
 /db/*.sqlite3
 /db/*.yml
 /public/system
+/public/sitemap.xml.gz
 /tmp/cache
 /tmp/pids
 /coverage/
