@@ -7,10 +7,13 @@
   <%= csrf_meta_tags %>
   <%= meta_description_tag %>
   <%= meta_keywords_tag %>
+  <%= render 'layouts/custom_style' %>
   <%= render 'layouts/google_analytics' if Settings['google-analytics-id'].to_s != '' %>
 </head>
 <body>
+
   <%= render 'layouts/navbar' %>
+
   <div class="container" style='width:100%;padding:0;margin:0'>
     <%= render 'layouts/notice' %>
     <%= yield %>

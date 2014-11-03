@@ -7,16 +7,14 @@ body {
   line-height: 18px;
 }
 
-#curriculum-page {
-	h1,h2 {
-		font-weight:300;
-	}
-	h1 {
-		font-size:45px;
-	}
-	h2 {
-		font-size:40px;
-	}
+h1,h2 {
+	font-weight:300;
+}
+h1 {
+	font-size:45px;
+}
+h2 {
+	font-size:40px;
 }
 
 p, ol, ul, td {
@@ -57,4 +55,8 @@ div {
   padding: 2px;
   background-color: red;
   display: table;
+}
+
+.grey{
+	color:#888;
 }
