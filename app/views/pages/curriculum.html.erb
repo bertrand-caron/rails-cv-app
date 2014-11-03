@@ -32,13 +32,13 @@
       <% end %>
       </ul>
     </div>
+    <div class='profile' style='margin:0 0 0 50px;padding:10px;border-radius:10px;display:inline-block' align='center'>
+      <h2 style='display:inline-block;vertical-align:bottom;margin:0 5px;color:white'>Profile</h2>
+      <p style='font-size:22px;line-height:30px;vertical-align:bottom;display:inline-block;margin-bottom:0;color:white'><%= raw UserSettings.profile_section %></p>
+      <div style='clear:both'></div>
+    </div>
   </div>
 
-  <div class='profile' style='margin:0 0 0 50px;padding:10px;border-radius:10px;display:inline-block' align='center'>
-    <h2 style='display:inline-block;vertical-align:bottom;margin:0 5px;color:white'>Profile</h2>
-    <p style='font-size:22px;line-height:30px;vertical-align:bottom;display:inline-block;margin-bottom:0;color:white'><%= raw UserSettings.profile_section %></p>
-    <div style='clear:both'></div>
-  </div>
 
 <% if has_setting?(:alt_occupation) %> <!-- FIXME -->
 <script>
