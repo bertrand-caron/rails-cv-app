@@ -35,7 +35,6 @@
         %p
           %strong Rank:
           = @internship.rank
-= link_to 'Edit', edit_internship_path(@internship)
-|
-- else
-= link_to 'Back', internships_path
+    = link_to 'Edit', edit_internship_path(@internship)
+    |
+  = link_to 'Back', internships_path
