@@ -22,5 +22,6 @@ module Research
     config.action_mailer.delivery_method = :sendmail
     config.action_controller.page_cache_directory = "#{Rails.root.to_s}/public/deploy"
     config.action_view.field_error_proc = Proc.new { |html_tag, instance|"<div class=\"has-error\">#{html_tag}</div>".html_safe}
+    config.autoload_paths += Dir["#{Rails.root}/lib/modules"]
   end
 end
