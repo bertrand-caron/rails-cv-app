@@ -3,6 +3,11 @@
 %p
   %strong Name:
   = @uploaded_file.name
+%p
+  %strong Link:
+  %code= "https://#{Settings['domain-name']}/uploads/#{@uploaded_file.name}"
+  %br
+  %span Copy this link and paste it in your Referee's edit page for instance.
 - if signed_in?
   = link_to 'Edit', edit_uploaded_file_path(@uploaded_file)
   |
