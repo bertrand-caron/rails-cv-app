@@ -1,0 +1,13 @@
+- if has_setting?(:main_color)
+  :css
+    .listable-title{color:##{UserSettings.main_color}}
+    h1{color:##{UserSettings.main_color}}
+    h2{color:##{UserSettings.main_color}}
+    h2 .fa-caret-down:hover{color:##{Paleta::Color.new(:hex, UserSettings.main_color).darken(9).hex};}
+    h2 .fa-caret-right:hover{color:##{Paleta::Color.new(:hex, UserSettings.main_color).darken(9).hex};}
+- if has_setting?(:secondary_color)
+  :css
+    .listable-item .line--left-content h3{color:##{UserSettings.secondary_color}}
+    .listable-item a{color:##{UserSettings.secondary_color}}
+    .first-line--programming-skill {color:##{UserSettings.secondary_color}}
+    .profile{background-color:##{UserSettings.main_color}}

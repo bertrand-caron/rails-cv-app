@@ -1,0 +1,19 @@
+- content_for(:title, 'Uploaded Files') if @set_title
+%h1 Available Files
+%hr/
+%table
+  %thead
+    %tr
+      %th Name
+      %th{:colspan => "3"}
+  %tbody
+    - @uploaded_files.each do |uploaded_file|
+      %tr
+        %td= uploaded_file.name
+        %td= link_to 'Show', uploaded_file
+        %td= link_to 'Edit', edit_uploaded_file_path(uploaded_file)
+        %td= link_to 'Destroy', uploaded_file, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+- if signed_in?
+  = button_to 'Upload new file', new_uploaded_file_path, :class => "btn", :method => :get
+%br/

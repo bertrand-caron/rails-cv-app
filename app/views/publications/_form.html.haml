@@ -1,0 +1,45 @@
+= form_for(@publication) do |f|
+  - if @publication.errors.any?
+    .panel.panel-danger
+      .panel-heading
+        = pluralize(@publication.errors.count, "error")
+        prohibited this publication from being saved:
+      %ul
+        - @publication.errors.full_messages.each do |message|
+          %li= message
+  .field
+    %div= f.label :title
+    = f.text_field :title, class: "form-control", placeholder: 'Ex: Application and Research of Smalltalk Harnessing Based on Game-Theoretic Symmetries'
+    %p
+      %b Tip
+      For better rendering, try to keep it approximately as long as this help text is wide (10-12 words).
+    %p
+  .field
+    %div= f.label :journal
+    = f.text_field :journal, class: "form-control", placeholder: 'Ex: Nanoscopic Drug Invention Today'
+    %p
+      %b Tip
+      For better rendering, don't be afraid to use (official) abbreviations for long names.
+  .field
+    %div= f.label :authors
+    = f.text_area :authors, class: "form-control", rows: "1", placeholder: 'Ex: J. Doe, H. Bond, C. Ramirez'
+    %p
+      %b Tip
+      For better rendering, try to keep the author list under one line (using
+      %i et al.
+      if necessary).
+  .field
+    %div= f.label :details
+    = f.text_area :details, class: "form-control", rows: "1", placeholder: '(Optionnal) Ex: Submitted April 2014, revised August 2014'
+    %p.block-help
+      %b Optionnal
+      Add publishing details that will be displayed next to the authors.
+  .field
+    %div= f.label :abstract
+    = f.text_area :abstract, class: "form-control", rows: "4", placeholder: 'Ex: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas.'
+    %p
+      %b Tip
+      There is no word limits for the abstract (although the Journal you published it in must have one).
+  = render :partial => 'pages/rank_form_field', locals: {:f => f}
+  .actions
+    = f.submit "Add Publication", class: "btn btn-primary"

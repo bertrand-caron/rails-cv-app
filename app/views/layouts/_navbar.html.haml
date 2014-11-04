@@ -1,0 +1,52 @@
+%nav.navbar.navbar-default{:role => "navigation", :style => "margin-bottom:0"}
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "/"}= UserSettings.full_name + " - " + UserSettings.page_title
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          %a{:href => "/contact"} Contact
+        - if Settings['display-about-page']
+          %li
+            %a{:href => "/about"} About
+        - if signed_in?
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              Models
+              %span.caret
+            %ul.dropdown-menu{:role => "menu"}
+              %li
+                %a{:href => "/education"} Education
+              %li
+                %a{:href => "/internships"} Internships
+              %li
+                %a{:href => "/programming_skills"} Programming Skills
+              %li
+                %a{:href => "/awards"} Awards
+              %li
+                %a{:href => "/publications"} Publications
+              %li
+                %a{:href => "/referees"} Referees
+              %li
+                %a{:href => "/softwares"} Softwares
+              %li.divider
+              %li
+                %a{:href => "/uploaded_files"} Files
+              %li
+                %a{:href => "/users"} Users
+      - if signed_in?
+        %ul.nav.navbar-nav{:style => "float:right"}
+          %li
+            %p.navbar-text
+              Signed in as #{link_to current_user.name, current_user}
+          %li= link_to "Settings", settings_path
+          %li= link_to "Sign Out", signout_path, method: "delete"
+    / /.navbar-collapse
+  / /.container-fluid

@@ -1,0 +1,17 @@
+- content_for :title, controller_name.capitalize + ": " +  @award.title
+%p#notice= notice
+%p
+  %strong Title:
+  = @award.title
+%p
+  %strong Location:
+  = @award.location
+%p
+  %strong Description:
+  = @award.description
+%p
+  %strong Time:
+  = @award.time
+= link_to 'Edit', edit_award_path(@award)
+|
+\#{link_to 'Back', awards_path}

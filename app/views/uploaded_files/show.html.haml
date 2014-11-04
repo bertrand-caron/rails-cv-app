@@ -1,0 +1,9 @@
+- content_for :title, controller_name.humanize + ": " +  @uploaded_file.name
+%p#notice= notice
+%p
+  %strong Name:
+  = @uploaded_file.name
+- if signed_in?
+  = link_to 'Edit', edit_uploaded_file_path(@uploaded_file)
+  |
+= link_to 'Back', uploaded_files_path

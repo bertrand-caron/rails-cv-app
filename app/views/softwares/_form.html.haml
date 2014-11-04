@@ -1,0 +1,21 @@
+= form_for(@software) do |f|
+  - if @software.errors.any?
+    .panel.panel-danger
+      .panel-heading
+        = pluralize(@software.errors.count, "error")
+        prohibited this software from being saved:
+      %ul
+        - @software.errors.full_messages.each do |message|
+          %li= message
+  .field
+    %div= f.label :name
+    = f.text_field :name, class: "form-control", placeholder: 'Ex: Rails Cannon'
+  .field
+    %div= f.label :github_link
+    = f.text_field :github_link, class: "form-control", placeholder: 'Ex: https://github.com/john-doe/rails-cannon'
+  = render :partial => 'pages/hyperlink_form_field', locals: {:f => f}
+  .field
+    %div= f.label :description
+    = f.text_area :description, class: "form-control", rows: "4"
+  .actions
+    = f.submit "Add Software", class: "btn btn-primary"

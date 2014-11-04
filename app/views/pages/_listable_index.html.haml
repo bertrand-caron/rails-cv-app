@@ -6,7 +6,12 @@
     %h2.listable-title
       %span{:onclick => "toggle_section(\"\##{models_name.tr(' ','_')}-content\",this)"}
         %i.fa.fa-caret-down
-      = models_name
+      - if signed_in?
+        %span#idContentEditable{:contenteditable => "true", :style => "font-size:inherit", :oninput => "alert('Content changed to: '+$(this).html())"}= models_name
+        -# Disable linebreak for contenteditable elements (breaks formatting)
+        %script $("#idContentEditable").keypress(function(e){ return e.which != 13; });
+      - else
+        = models_name
     %hr
     %div{:id => "#{models_name.tr(' ','_')}-content"}
       - listable_enum.each do |item|

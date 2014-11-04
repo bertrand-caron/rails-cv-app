@@ -1,0 +1,44 @@
+= form_for(@internship) do |f|
+  - if @internship.errors.any?
+    .panel.panel-danger
+      .panel-heading
+        = pluralize(@internship.errors.count, "error")
+        prohibited this internship from being saved:
+      %ul
+        - @internship.errors.full_messages.each do |message|
+          %li= message
+  .field
+    %div= f.label :title
+    = f.text_field :title, class: "form-control", placeholder: 'Ex: The Influence of Probabilistic Methodologies on Networking'
+    %p.help-block
+      %b Tip
+      For better rendering, try to keep the title a little less than on-line long.
+  = render :partial => 'pages/hyperlink_form_field', :locals => {:f => f}
+  = render :partial => 'pages/description_form_field', :locals => {:f => f}
+  .field
+    %div= f.label :report_path
+    = f.text_field :report_path, class: "form-control", placeholder: "Ex: /uploads/IBPC-2012.pdf"
+    %p.help-block
+      %b Optionnal
+      If you uploaded a file (Ex: Report), you can have a link to it displayed a the bottom of the item.
+  .field
+    %div= f.label :laboratory
+    = f.text_field :laboratory, class: "form-control", placeholder: "Laboratory Acronym (Laboratory Full Name)"
+  .field
+    %div= f.label :location
+    = f.text_field :location, class: "form-control", placeholder: "City (Country)"
+  .field
+    %div= f.label :duration
+    = f.text_field :duration, class: "form-control", placeholder: "Ex: Feb 2011-July 2011"
+  = render :partial => 'pages/rank_form_field', :locals => {:f => f}
+  .field.field-referee
+    %div= f.label :referee_id
+    = f.select :referee_id, @referee_hash, {}, class: "form-control"
+    %p.help-block
+      %b Optionnal
+      If you added your supervisor for this position as a
+      = succeed "," do
+        %a{:href => "/referees"} referee
+      select it here. If you didn't, you can always add it later.
+  .actions
+    = f.submit "Add Internship", class: "btn btn-primary"

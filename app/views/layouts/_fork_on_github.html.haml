@@ -1,0 +1,21 @@
+%hr{:style => "clear:both"}/
+- if Settings['display-footer']
+  .jumbotron{:align => "center", :style => "margin-left:100px;margin-right:100px;padding-bottom:10px"}
+    %span{:style => "font-family: 'Open Sans', sans-serif;font-size:56px;font-weight: 300;"} Want one like mine ?
+    %br/
+    #div-btn-soon{:style => "display:inline-block;margin-left:20px;margin-top:25px;margin-bottom:25px;"}
+      %button#btn-soon.btn.btn-primary{:style => "margin:0;font-size:26px;width:220px"} Fork on Github
+    %br/
+    %p{:style => "font-family: 'Open Sans', sans-serif;font-size:26px;font-weight: 300;"}
+      © #{raw Settings['disclaimer']}
+  :javascript
+    $(document).ready(function(){
+      $("#btn-soon").mouseover(function(){
+        $(this).attr("disabled", true);
+        $(this).html('Coming Soon');
+      });
+      $("#div-btn-soon").mouseout(function(){
+        $("#btn-soon").attr("disabled", false);
+        $("#btn-soon").html('Fork on Github');
+      });
+    });

@@ -1,0 +1,23 @@
+- content_for(:title, 'Softwares') if @set_title
+%h2 Softwares
+%hr/
+%table
+  %thead
+    %tr
+      %th Name
+      %th Github link
+      %th Description
+      %th{:colspan => "3"}
+  %tbody
+    - @softwares.each do |software|
+      %tr
+        %td= software.name
+        %td= software.github_link
+        %td= software.description
+        %td= link_to 'Show', software
+        %td= link_to 'Edit', edit_software_path(software)
+        %td= link_to 'Destroy', software, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+- if signed_in?
+  = button_to 'Add Software', new_software_path, :class => "btn", :method => :get
+%br/

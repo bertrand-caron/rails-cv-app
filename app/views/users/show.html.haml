@@ -1,0 +1,12 @@
+- content_for :title, controller_name.capitalize + ": " +  @user.name
+%p#notice= notice
+%p
+  %strong Name:
+  = @user.name
+%p
+  %strong Email:
+  = @user.email
+- if signed_in?
+  = link_to 'Edit', edit_user_path(@user)
+  |
+= link_to 'Back', users_path

@@ -1,0 +1,34 @@
+- content_for :title, controller_name.capitalize + ": " +  @referee.name
+%p#notice= notice
+%h2= @referee.name
+%hr/
+%div{:style => "float:right"}
+  %img{:src => @referee.thumbnail_img, :style => "margin-bottom:20px;max-height:200px;border-radius:50%"}/
+%p
+  %strong Email:
+  = @referee.email
+%p
+  %strong Title:
+  = @referee.title
+%p
+  %strong Personal Page:
+  = @referee.personal_page
+- if signed_in?
+  %br/
+  .panel.panel-info{:style => "clear:both"}
+    .panel-heading
+      Admin Settings
+    .panel-body
+      %p
+        %strong Rank:
+        = @referee.rank
+      %p
+        %strong Gender:
+        = @referee.gender
+      %p
+        %strong Thumbnail Image Link:
+        = @referee.thumbnail_img
+  = link_to 'Edit', edit_referee_path(@referee)
+  |
+  \#{link_to 'Destroy', @referee, method: :delete, data: { confirm: 'Are you sure?' }} |
+= link_to 'Back', referees_path

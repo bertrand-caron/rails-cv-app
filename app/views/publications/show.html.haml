@@ -1,0 +1,28 @@
+- content_for :title, controller_name.capitalize + ": " +  @publication.title
+%p#notice= notice
+%h2= @publication.title
+%hr/
+%p
+  %strong Journal:
+  = @publication.journal
+%p
+  %strong Authors:
+  = @publication.authors
+%p
+  %strong Details:
+  = @publication.details
+%p
+  %strong Abstract:
+  = @publication.abstract
+- if signed_in?
+  .panel.panel-info
+    .panel-heading
+      Admin Settings
+    .panel-body
+      %p
+        %strong Rank:
+        = @publication.rank
+  = link_to 'Edit', edit_publication_path(@publication)
+  |
+- else
+= link_to 'Back', publications_path

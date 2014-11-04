@@ -1,0 +1,14 @@
+= form_for(@uploaded_file) do |f|
+  - if @uploaded_file.errors.any?
+    .panel.panel-danger
+      .panel-heading
+        = pluralize(@uploaded_file.errors.count, "error")
+        prohibited this uploaded_file from being saved:
+      %ul
+        - @uploaded_file.errors.full_messages.each do |message|
+          %li= message
+  .field
+    %div/
+  = f.file_field :content
+  .actions
+    = f.submit

@@ -1,0 +1,41 @@
+- content_for :title, controller_name.capitalize + ": " +  @internship.title
+%p#notice= notice
+%h2
+  Internship: #{@internship.title}
+%hr/
+%div{:style => "margin:0 0 0 50px"}
+  %p
+    %strong Description:
+    %br/
+    = raw @internship.description
+  %p
+    %strong Location:
+    = @internship.location
+  %p
+    %strong Laboratory:
+    = @internship.laboratory
+  %p
+    %strong Duration:
+    = @internship.duration
+  - if signed_in?
+    %br/
+    .panel.panel-info
+      .panel-heading
+        Admin Settings
+      .panel-body
+        %p
+          %strong Referee Id:
+          = @internship.referee_id
+        %p
+          %strong Hyperlink:
+          \/internships/#{@internship.hyperlink}
+        %p
+          %strong Report path:
+          = @internship.report_path
+        %p
+          %strong Rank:
+          = @internship.rank
+= link_to 'Edit', edit_internship_path(@internship)
+|
+- else
+= link_to 'Back', internships_path

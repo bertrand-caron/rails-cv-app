@@ -1,0 +1,7 @@
+= content_for :title, "Edit #{@software.name}"
+%div{:style => "margin:0 100px"}
+  %h1 Editing Software
+  = render 'form'
+  = link_to 'Show', @software
+  |
+  \#{link_to 'Back', softwares_path}

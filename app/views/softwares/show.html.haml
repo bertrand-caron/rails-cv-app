@@ -1,0 +1,19 @@
+- content_for :title, controller_name.capitalize + ": " +  @software.name
+%p#notice= notice
+%h2= @software.name
+%hr{:style => "margin-top:0"}/
+%div{:style => "margin: 0 50px"}
+  %p
+    %strong Gitlab link:
+    %img{:height => "25", :src => "/assets/gitlab-logo-white.png"}/
+    = link_to @software.github_link, @software.github_link
+  %p
+    %strong Custom Hyperlink:
+    = @software.hyperlink
+  %p
+    %strong Description:
+    = raw @software.description
+  - if signed_in?
+    = link_to 'Edit', edit_software_path(@software)
+    |
+  = link_to 'Back', softwares_path

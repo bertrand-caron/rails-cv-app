@@ -1,0 +1,29 @@
+- content_for :title, controller_name.capitalize.singularize + ": " +  @education.institution
+%p#notice= notice
+%p
+  %strong Institution:
+  = @education.institution
+%p
+  %strong Institution location:
+  = @education.institution_location
+%p
+  %strong Degree:
+  = @education.degree
+%p
+  %strong Year:
+  = @education.year
+%p
+  %strong Description:
+  = @education.description
+- if signed_in?
+  %br/
+  .panel.panel-info
+    .panel-heading
+      Admin Settings
+    .panel-body
+      %p
+        %strong Rank:
+        = @education.rank
+  = link_to 'Edit', edit_education_path(@education)
+  |
+= link_to 'Back', educations_path

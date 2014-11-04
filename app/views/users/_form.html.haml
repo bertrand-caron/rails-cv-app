@@ -1,0 +1,23 @@
+= form_for(@user) do |f|
+  - if @user.errors.any?
+    .panel.panel-danger
+      .panel-heading
+        = pluralize(@user.errors.count, "error")
+        prohibited this user from being saved:
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li= message
+  .field
+    %div= f.label :name
+    = f.text_field :name, class: "form-control", placeholder: 'Ex: James Bond'
+  .field
+    %div= f.label :email
+    = f.text_field :email, class: "form-control", placeholder: 'Ex: james-bond@m16.co.uk'
+  .field
+    %div= f.label :password
+    = f.password_field :password, class: "form-control", placeholder: '******'
+  .field
+    %div= f.label :password_confirmation
+    = f.password_field :password_confirmation, class: "form-control", placeholder: '*******'
+  .actions
+    = f.submit "Add User", :class => "btn btn-primary"

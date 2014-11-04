@@ -1,0 +1,7 @@
+= content_for :title, "Edit #{@programming_skill.title}"
+%div{:style => "margin:0 100px"}
+  %h1 Editing Programming Skill
+  = render 'form'
+  = link_to 'Show', @programming_skill
+  |
+  \#{link_to 'Back', programming_skills_path}

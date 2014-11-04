@@ -1,0 +1,39 @@
+= form_for(@referee) do |f|
+  - if @referee.errors.any?
+    .panel.panel-danger
+      .panel-heading
+        = pluralize(@referee.errors.count, "error")
+        prohibited this referee from being saved:
+      %ul
+        - @referee.errors.full_messages.each do |message|
+          %li= message
+  .field
+    %div= f.label :name
+    = f.text_field :name, class: "form-control", placeholder: 'Ex: John Doe'
+  .field
+    %div= f.label :email
+    = f.text_field :email, class: "form-control", placeholder: 'Ex: john.doe@cornell.edu'
+  .field
+    %div= f.label :title
+    = f.text_field :title, class: "form-control", placeholder: "Ex: Lead Software Developer at Google"
+  .field
+    %div= f.label :personal_page
+    = f.text_field :personal_page, class: "form-control", placeholder: '(Optionnal) Ex: www.john-doe.net'
+    %p.help-block
+      %b Optional
+      Link to your referee's personnal page, LinkedIn profile or whatever relevant website.
+  .field
+    %div= f.label :thumbnail_img
+    = f.text_field :thumbnail_img, class: "form-control", placeholder: '(Optionnal) Ex: http://i.imgur.com/johnDoe.png'
+    %p.help-block
+      %b Optional
+      Link to a photo of your referee. For better results, provide reasonable-quality, square portraits.
+  .field.field-gender{:style => ""}
+    %div= f.label :gender
+    = f.select :gender, [ ['Male',0], ['Female', 1]], {}, { :class => "form-control", :style => ''}
+    %p.help-block
+      %b Required
+      Simply used to customized pronouns.
+  = render :partial => 'pages/rank_form_field', :locals => {:f => f}
+  .actions
+    = f.submit "Add Referee", class: "btn btn-primary"

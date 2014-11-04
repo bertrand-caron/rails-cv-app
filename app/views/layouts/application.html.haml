@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title
+      = UserSettings.full_name
+      \- #{yield(:title)}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = meta_description_tag
+    = meta_keywords_tag
+    = render 'layouts/custom_style'
+  %body
+    = render 'layouts/navbar'
+    .container
+      = render 'layouts/notice'
+      = render 'layouts/breadcrumbs'
+      = yield
+      = render 'layouts/footer'

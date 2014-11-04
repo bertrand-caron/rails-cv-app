@@ -1,0 +1,64 @@
+- content_for(:title, "Curriculum Vitae")
+#curriculum-page{:style => "margin:0 50px"}
+  .cv-name-header.grey{:align => "center", :itemscope => "", :itemtype => "http://data-vocabulary.org/Person"}
+    %h1{:style => "margin-bottom:10px;font-size:450%"}
+      %span{:itemprop => "name", :style => main_color_tag}= UserSettings.full_name
+      %span.grey |
+      %span#demo.grey{:itemprop => "title", :style => "white-space:pre"}= UserSettings.main_occupation
+    %p= UserSettings.address
+    %p
+    %ul#social-icons
+      %li.social-icon
+        %i.fa.fa-mobile{:style => "font-size:26px"}
+        = UserSettings.mobile_phone
+      %li.social-icon
+        %i.fa.fa-book{:style => "font-size:22px;margin-right:5px"}
+        %a{:href => Settings['domain-name'], :itemprop => "url"}= Settings['domain-name']
+      %li.social-icon
+        %i.fa.fa-info-circle{:style => "font-size:19px"}
+        = UserSettings.infos
+    %div
+      %ul#social-icons
+        - if has_setting?(:stackoverflow_id) && has_setting?(:stackoverflow_name)
+          %li.social-icon
+            %i.fa.fa-stack-overflow{:style => "font-size:19px"}
+            %a{:href => "http://stackoverflow.com/users/#{UserSettings.stackoverflow_id}"}= UserSettings.stackoverflow_name
+        - if has_setting?(:github_name)
+          %li.social-icon
+            %i.fa.fa-github{:style => "font-size:22px"}
+            %a{:href => "https://github.com/#{UserSettings.github_name}"}= UserSettings.github_name
+        - if has_setting?(:twitter_alias)
+          %li.social-icon
+            %i.fa.fa-twitter{:style => "font-size:22px"}
+            %a{:href => "https://twitter.com/#{UserSettings.twitter_alias}"}
+              @#{UserSettings.twitter_alias}
+        - if has_setting?(:linkedIn_alias)
+          %li.social-icon
+            %i.fa.fa-linkedin-square{:style => "font-size:22px"}
+            %a{:href => "https://linkedin.com/in/#{UserSettings.linkedIn_alias}"}= UserSettings.linkedIn_alias
+    .profile{:align => "center", :style => "margin:0 0 0 50px;padding:10px;border-radius:10px;display:inline-block"}
+      %h2{:style => "display:inline-block;vertical-align:bottom;margin:0 5px;color:white"} Profile
+      %p{:style => "font-size:22px;line-height:30px;vertical-align:bottom;display:inline-block;margin-bottom:0;color:white"}= raw UserSettings.profile_section
+      %div{:style => "clear:both"}
+  - if has_setting?(:alt_occupation)
+    / FIXME
+    :javascript
+      $(document).ready(function(){
+        $("#demo").mouseover(function(){
+          $(this).fadeOut('fast',function(){
+          $(this).html("#{UserSettings.alt_occupation}").fadeIn('fast');
+          });
+        });
+        $("#demo").mouseout(function(){
+          $(this).fadeOut('fast',function(){
+          $(this).html("#{UserSettings.main_occupation}").fadeIn('fast');
+          });
+        });
+      });
+  = render :file => 'educations/index'
+  = render :file => 'internships/index'
+  = render :file => 'programming_skills/index'
+  = render :file => 'awards/index'
+  = render :file => 'publications/index'
+  = render :file => 'referees/index'
+  %br/
