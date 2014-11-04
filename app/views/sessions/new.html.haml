@@ -1,0 +1,10 @@
+= content_for :title, "Sign In"
+%h1 Sign in
+= form_for(:session, url: sessions_path) do |f|
+  .signin-field
+    = f.label :email
+    = f.text_field :email, class: 'form-control'
+  .signin-field
+    = f.label :password
+    = f.password_field :password, class: 'form-control'
+  .signin-field= f.submit "Sign in", class: "btn btn-large btn-primary"
