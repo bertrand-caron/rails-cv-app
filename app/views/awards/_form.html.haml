@@ -1,0 +1,22 @@
+= form_for(@award) do |f|
+  - if @award.errors.any?
+    .panel.panel-danger
+      .panel-heading
+        = pluralize(@award.errors.count, "error")
+        prohibited this award from being saved:
+      %ul
+        - @award.errors.full_messages.each do |message|
+          %li= message
+  .field
+    %div= f.label :title
+    = f.text_field :title, class: "form-control", placeholder: 'Ex: Best Australian Researcher Fellowship'
+  .field
+    %div= f.label :location
+    = f.text_field :location, class: "form-control", placeholder: 'Ex: Wee Waa (Australia)'
+  = render :partial => 'pages/description_form_field', locals: {:f => f}
+  .field
+    %div= f.label :time
+    = f.text_field :time, class: "form-control", placeholder: 'Ex: April 2014'
+  = render :partial => 'pages/rank_form_field', locals: {:f => f}
+  .actions
+    = f.submit "Add Award", class: "btn btn-primary"
