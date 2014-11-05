@@ -35,6 +35,10 @@ class UploadedFilesController < ApplicationController
     # Set the file name to the remote one, if not set by :name form field
     @uploaded_file.name = uploaded_io.original_filename if @uploaded_file.name == ''
 
+    # Just to be sure, replace every whitespace with a '-'
+    @uploaded_file.name.gsub!(/ /,'-')
+
+    # Then write to file
     File.open( uploaded_file_absolute_path(@uploaded_file.name), 'wb') do |file|
       file.write(uploaded_io.read)
     end
