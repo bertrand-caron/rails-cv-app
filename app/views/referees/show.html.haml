@@ -30,5 +30,6 @@
         = @referee.thumbnail_img
   = link_to 'Edit', edit_referee_path(@referee)
   |
-  \#{link_to 'Destroy', @referee, method: :delete, data: { confirm: 'Are you sure?' }} |
+  =link_to 'Destroy', @referee, method: :delete, data: { confirm: 'Are you sure?' }
+  |
 = link_to 'Back', referees_path

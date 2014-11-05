@@ -8,7 +8,14 @@
         - @uploaded_file.errors.full_messages.each do |message|
           %li= message
   .field
-    %div/
-  = f.file_field :content
+    %div= f.label  :name
+    = f.text_field :name, class: 'form-control', style: 'width:40%'
+    %p.help-block
+      %b Optionnal
+      Provide a name for the file (don't forget the extensions!); Otherwise will default to the file's name.<br>
+      Whitespaces are not available here. Use dashes ('-','_') or commas ('.') instead.
+  .field
+    %div= f.label  :content
+    %div= f.file_field :content
   .actions
-    = f.submit
+    = f.submit "Upload File", class: 'btn btn-primary'

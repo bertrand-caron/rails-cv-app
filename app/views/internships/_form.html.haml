@@ -21,6 +21,7 @@
     %p.help-block
       %b Optionnal
       If you uploaded a file (Ex: Report), you can have a link to it displayed a the bottom of the item.
+    =render 'pages/add_file_field'
   .field
     %div= f.label :laboratory
     = f.text_field :laboratory, class: "form-control", placeholder: "Laboratory Acronym (Laboratory Full Name)"

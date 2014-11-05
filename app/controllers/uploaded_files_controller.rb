@@ -30,12 +30,14 @@ class UploadedFilesController < ApplicationController
   # POST /uploaded_files.json
   def create
     @uploaded_file = UploadedFile.new(uploaded_file_params)
-
     uploaded_io = params[:uploaded_file][:content]
-    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+
+    # Set the file name to the remote one, if not set by :name form field
+    @uploaded_file.name = uploaded_io.original_filename if @uploaded_file.name == ''
+
+    File.open( uploaded_file_absolute_path(@uploaded_file.name), 'wb') do |file|
       file.write(uploaded_io.read)
     end
-    @uploaded_file.name = uploaded_io.original_filename
 
     respond_to do |format|
       if @uploaded_file.save
@@ -52,8 +54,12 @@ class UploadedFilesController < ApplicationController
   # PATCH/PUT /uploaded_files/1.json
   def update
     respond_to do |format|
+      old_name = @uploaded_file.name
       if @uploaded_file.update(uploaded_file_params)
-        format.html { redirect_to @uploaded_file, notice: 'Uploaded file was successfully updated.' }
+        format.html do
+          File.rename( uploaded_file_absolute_path(old_name), uploaded_file_absolute_path(@uploaded_file.name) ) if old_name != @uploaded_file.name
+          redirect_to @uploaded_file, notice: 'Uploaded file was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @uploaded_file }
       else
         format.html { render :edit }
@@ -65,7 +71,7 @@ class UploadedFilesController < ApplicationController
   # DELETE /uploaded_files/1
   # DELETE /uploaded_files/1.json
   def destroy
-    path_to_file = Rails.root.join('public', 'uploads', @uploaded_file.name)
+    path_to_file = uploaded_file_absolute_path(@uploaded_file.name)
     File.delete(path_to_file) if File.exist?(path_to_file)
     @uploaded_file.destroy
     respond_to do |format|
@@ -84,5 +90,9 @@ class UploadedFilesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def uploaded_file_params
       params.require(:uploaded_file).permit(:name)
+    end
+
+    def uploaded_file_absolute_path(path)
+      Rails.root.join('public', 'uploads', path)
     end
 end
