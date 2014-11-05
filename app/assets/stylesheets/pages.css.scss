@@ -73,10 +73,10 @@ h2 .fa:hover{color:#c97c0d;}
 
 	.third-line {
 		width:100%;
-	}
-
-	.bottom-line{
-		font-size:9px;
+		font-size:15px;
+		ul {
+			font-size:13px;
+		}
 	}
 
 	.line--left-content{
@@ -94,6 +94,21 @@ h2 .fa:hover{color:#c97c0d;}
 	
 	.line--right-content, .third-line {
 		padding-right:10px;
+	}
+
+	.bottom-links {
+		font-size:11px;
+		max-width:80%;
+		display:inline-block;
+		ul {
+			list-style-type:none;
+			font-size:inherit;
+			margin:0;
+			padding:0;
+		}
+		a {
+			font-weight:600;
+		}
 	}
 
 }

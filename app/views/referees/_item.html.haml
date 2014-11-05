@@ -8,8 +8,8 @@
     .edit-tools= edit_tool_tag edit_referee_path(item)
     .edit-tools= delete_tool_tag item
   %p{:style => "margin-bottom:0"}= item.title
-  %div{:style => "font-size:9px;float:left;width:80%"}
-    %ul{:style => "list-style-type:none;font-size:9px;margin:0;padding:0;"}
+  .bottom-links
+    %ul
       %li
         %a{:href => "mailto:#{item.email}"}
           Contact #{item.gender_pronoun(:object)}
