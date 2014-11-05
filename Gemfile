@@ -58,3 +58,7 @@ gem 'sitemap_generator', :github => 'kjvarga/sitemap_generator'
 group :production do
   gem 'exception_notification'
 end
+
+group :development, :test do
+  gem 'html2haml'
+end
