@@ -29,6 +29,14 @@
       %b Optional
       Link to a photo of your referee. For better results, provide reasonable-quality, square portraits.
     =render 'pages/add_file_field'
+  .field
+    %div= f.label :letter_path
+    = f.text_field :letter_path, class: "form-control", placeholder: '(Optionnal) Ex: http://i.imgur.com/referee_letter.pdf'
+    %p.help-block
+      %b Optional
+      If you have a referee's letter to show, upload it and put the link above.
+    =render 'pages/add_file_field'
+
   .field.field-gender{:style => ""}
     %div= f.label :gender
     = f.select :gender, [ ['Male',0], ['Female', 1]], {}, { :class => "form-control", :style => ''}

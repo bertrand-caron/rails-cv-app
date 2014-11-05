@@ -12,10 +12,13 @@
     %ul{:style => "list-style-type:none;font-size:9px;margin:0;padding:0;"}
       %li
         %a{:href => "mailto:#{item.email}"}
-          Contact #{item.gender == 0 && "him" || "her"}
+          Contact #{item.gender_pronoun(:object)}
       - if item.personal_page.present?
         %li
           %a{:href => item.personal_page} Browse Personnal page
+      - if item.letter_path.present?
+        %li
+          %a{:href => item.letter_path} What #{item.gender_pronoun(:subject)} wrote about me
 %div{:align => "right", :clear => "both", :style => "padding-top:0"}
   %img{:style => "border-radius:50%", :height => "62", :src => item.thumbnail_img}/
 %div{style: 'clear:both'}

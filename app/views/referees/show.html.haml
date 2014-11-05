@@ -27,7 +27,10 @@
         = @referee.gender
       %p
         %strong Thumbnail Image Link:
-        = @referee.thumbnail_img
+        %kbd= @referee.thumbnail_img
+      %p
+        %strong Referee's Letter Path:
+        %kbd= @referee.letter_path
   = link_to 'Edit', edit_referee_path(@referee)
   |
   =link_to 'Destroy', @referee, method: :delete, data: { confirm: 'Are you sure?' }
