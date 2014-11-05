@@ -79,4 +79,12 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  #Send errors to admin@bcaron.me
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :email_prefix => "[CV Rails App Error] ",
+      :sender_address => %{"CV App Notifier" <notifier@#{Settings['domain-name']}>},
+      :exception_recipients => %w{admin@bcaron.me}
+    }
 end
