@@ -13,8 +13,9 @@
       %li
         %a{:href => "mailto:#{item.email}"}
           Contact #{item.gender == 0 && "him" || "her"}
-      %li
-        %a{:href => item.personal_page} Browse Personnal page
+      - if item.personal_page.present?
+        %li
+          %a{:href => item.personal_page} Browse Personnal page
 %div{:align => "right", :clear => "both", :style => "padding-top:0"}
   %img{:style => "border-radius:50%", :height => "62", :src => item.thumbnail_img}/
 %div{style: 'clear:both'}
