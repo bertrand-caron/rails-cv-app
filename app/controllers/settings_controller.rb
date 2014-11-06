@@ -25,7 +25,8 @@ class SettingsController < ApplicationController
       :twitter_alias => "Your Twitter alias, without the @. Ex: 'John_Doe'. Leave empty to disable.",
       :main_color => "Hexadecimal color (without the pound '#' symbol) used for your Name, as well as for the titles of the sections. Ex: 'F09819'",
       :secondary_color => "Hexadecimal color (without the pound '#' symbol) used for your for the titles of the items. Ex: '428BCA'",
-      :profile_section => "A General Description of yourself and what your are looking for. May span several lines if necessary."
+      :profile_section => "A General Description of yourself and what your are looking for. May span several lines if necessary.",
+      :profile_picture => "A link to the profile picture you would like to use. A square picture would render far better than any other formats."
     }
   end
 
@@ -42,6 +43,6 @@ class SettingsController < ApplicationController
   private
 
     def settings_params
-      params.permit(:full_name,:page_title, :main_occupation, :alt_occupation, :contact_email, :mobile_phone, :address, :infos, :github_name, :stackoverflow_id, :stackoverflow_name, :twitter_alias, :linkedIn_alias, :main_color, :secondary_color, :profile_section)
+      params.permit(:full_name,:page_title, :main_occupation, :alt_occupation, :contact_email, :mobile_phone, :address, :infos, :github_name, :stackoverflow_id, :stackoverflow_name, :twitter_alias, :linkedIn_alias, :main_color, :secondary_color, :profile_section, :profile_picture)
     end
 end

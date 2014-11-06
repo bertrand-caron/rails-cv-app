@@ -1,6 +1,8 @@
 - content_for(:title, "Curriculum Vitae")
 #curriculum-page{:style => "margin:0 50px"}
   .cv-name-header.grey{:align => "center", :itemscope => "", :itemtype => "http://data-vocabulary.org/Person"}
+    -if has_setting?(:profile_picture)
+      %img{src: "#{UserSettings.profile_picture}", style: 'border-radius:50%;margin-top:25px', height: '300px'}
     %h1{:style => "margin-bottom:10px;font-size:450%"}
       %span{:itemprop => "name", :style => main_color_tag}= UserSettings.full_name
       %span.grey |

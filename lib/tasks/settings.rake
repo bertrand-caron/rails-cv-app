@@ -19,6 +19,7 @@ namespace 'settings' do
     u.main_color = 'f09819'
     u.secondary_color = '428bca'
     u.profile_section = 'Licensed to kill Secret Agent looking for trouble'
+    u.profile_picture = ''
   end
 
   desc 'Initializes missing UserSettings and leaves other untouched' 
@@ -40,5 +41,6 @@ namespace 'settings' do
     u.main_color = 'f09819' unless u.main_color
     u.secondary_color = '428bca' unless u.secondary_color
     u.profile_section = 'Licensed to kill Secret Agent looking for trouble' unless u.profile_section
+    u.profile_picture = '' unless u.profile_picture
   end
 end
