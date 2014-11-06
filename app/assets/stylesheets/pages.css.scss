@@ -260,3 +260,15 @@ h2 .fa:hover{color:#c97c0d;}
 		margin-top:10px;
 	}
 }
+
+.listable-item .third-line .inline-list {
+	padding-left:0;
+	font-size:inherit;
+	li {
+		display:inline-block;
+		margin-left: 5px;
+	}
+	li::before {
+		content: '•';
+	}
+}
