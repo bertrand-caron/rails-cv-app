@@ -1,0 +1,10 @@
+.first-line
+  .line--left-content
+    %h3
+      - if signed_in?
+        = link_to item.name, item
+      - else
+        = item.name
+    - if signed_in?
+      .edit-tools= edit_tool_tag edit_software_path(item)
+      .edit-tools= delete_tool_tag item

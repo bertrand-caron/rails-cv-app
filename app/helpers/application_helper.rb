@@ -49,4 +49,16 @@ module ApplicationHelper
   def meta_keywords_tag
     tag(:meta, {:name => 'keywords', :content => "#{UserSettings.full_name} #{UserSettings.page_title} #{UserSettings.main_occupation}".gsub(/ /,',') })
   end
+
+  def pretty_name_for(model_name)
+    if model_name == 'educations'
+      'Education'
+    else
+      model_name.tr('_',' ').titleize
+    end
+  end
+
+  def model_name_for(pretty_name)
+    pretty_name.downcase.pluralize.tr(' ','_')
+  end
 end

@@ -22,20 +22,9 @@
               Models
               %span.caret
             %ul.dropdown-menu{:role => "menu"}
-              %li
-                %a{:href => "/education"} Education
-              %li
-                %a{:href => "/internships"} Internships
-              %li
-                %a{:href => "/programming_skills"} Programming Skills
-              %li
-                %a{:href => "/awards"} Awards
-              %li
-                %a{:href => "/publications"} Publications
-              %li
-                %a{:href => "/referees"} Referees
-              %li
-                %a{:href => "/softwares"} Softwares
+              - AVAILABLE_SECTIONS.each do |model_name|
+                %li
+                  %a{:href => "/#{model_name}"} #{pretty_name_for(model_name)}
               %li.divider
               %li
                 %a{:href => "/uploaded_files"} Files
