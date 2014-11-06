@@ -81,7 +81,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #Send errors to admin@bcaron.me
-  if Settings['send-email-500-error']['enabled']
+  if Settings['send-email-500-error'].try?(['enabled'])
     config.middleware.use ExceptionNotification::Rack,
       :email => {
         :email_prefix => "[CV Rails App Error] ",
