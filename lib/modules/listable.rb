@@ -1,3 +1,4 @@
+# Describe Models that have a :rank attribute
 module Listable
   extend ActiveSupport::Concern
 
