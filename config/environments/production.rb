@@ -81,10 +81,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #Send errors to admin@bcaron.me
-  config.middleware.use ExceptionNotification::Rack,
-    :email => {
-      :email_prefix => "[CV Rails App Error] ",
-      :sender_address => %{"CV App Notifier" <notifier@#{Settings['domain-name']}>},
-      :exception_recipients => %w{admin@bcaron.me}
-    }
+  if Settings['send-email-500-error']['enabled']
+    config.middleware.use ExceptionNotification::Rack,
+      :email => {
+        :email_prefix => "[CV Rails App Error] ",
+        :sender_address => %{"CV App Notifier" <#{Settings['send-email-500-error']['email']}>},
+        :exception_recipients => %w{admin@bcaron.me}
+      }
+  end
 end

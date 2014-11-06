@@ -22,3 +22,8 @@ service-name: "cv"
 
 # Google Analytics ID (Ex: 'UA-12345678-1'). Empty string to disable
 google-analytics-id: ""
+
+# Enable Email Notifications for 500 Errors
+send-email-500-error:
+  enabled: false
+  email: 'admin@local.host'
