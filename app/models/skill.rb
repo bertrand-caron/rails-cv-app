@@ -2,6 +2,7 @@ class Skill < ActiveRecord::Base
   include Listable
   include Descriptable
   validates :level, presence:true, inclusion: { in: 0..5, message: 'is not an integer between 0 and 5' }
+  validates :skill_type, presence:true, allow_blank: false
 
   #Outputs the 5-star ranking of a skill with font-awesome stars
   def star_tag
