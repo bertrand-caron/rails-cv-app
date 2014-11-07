@@ -4,6 +4,6 @@
   %span{:style => "margin-left:20px;font-size:18px;height:30px"}
     = star_tag item
     - if signed_in?
-      .edit-tools{:style => "padding-left:10px"}= edit_tool_tag edit_programming_skill_path(item)
+      .edit-tools{:style => "padding-left:10px"}= edit_tool_tag edit_skill_path(item)
       .edit-tools{:style => "padding-left:2px"}= delete_tool_tag item
 %p{:align=> "right", :style => "padding-top:7px;margin-bottom:8px"}= raw item.description

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :skills
+
   get 'settings', to: 'settings#show'
   get 'settings/edit', to: 'settings#edit'
   put 'settings/edit', to: 'settings#update'

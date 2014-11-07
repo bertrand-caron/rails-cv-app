@@ -1,0 +1,3 @@
+- listable_enum.each do |item|
+  .listable-item{:onmouseout => "hide_edit_tools(this)", :onmouseover => "show_edit_tools(this)"}
+    = render partial: "#{model_name_for(pretty_model_name)}/item", locals: {item: item}

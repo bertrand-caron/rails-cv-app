@@ -1,0 +1,1 @@
+= render partial: 'pages/listable_index', locals: {:pretty_model_name => 'Skills', :skill_types => Skill.pluck("DISTINCT skill_type"), :new_item_path => new_skill_path}

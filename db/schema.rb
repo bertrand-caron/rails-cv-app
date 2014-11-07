@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105125230) do
+ActiveRecord::Schema.define(version: 20141106210426) do
 
   create_table "awards", force: true do |t|
     t.string   "title"
@@ -102,6 +102,19 @@ ActiveRecord::Schema.define(version: 20141105125230) do
   end
 
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true
+
+  create_table "skills", force: true do |t|
+    t.string   "title"
+    t.string   "skill_type"
+    t.text     "description"
+    t.text     "details"
+    t.string   "hyperlink"
+    t.integer  "rank"
+    t.integer  "level"
+    t.string   "icon"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "softwares", force: true do |t|
     t.string   "name"

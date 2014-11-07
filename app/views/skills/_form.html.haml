@@ -1,0 +1,52 @@
+= form_for(@skill) do |f|
+  - if @skill.errors.any?
+    .panel.panel-danger
+      .panel-heading
+        = pluralize(@skill.errors.count, "error")
+        prohibited this skill from being saved:
+      %ul
+        - @skill.errors.full_messages.each do |message|
+          %li= message
+  .field
+    %div= f.label :title
+    = f.text_field :title, class: "form-control", placeholder: 'Ex: Ruby on Rails'
+  .field{:style => "width:150px"}
+    %div= f.label :skill_type
+    = f.select :skill_type, @skill_types, {}, { :class => "form-control"}
+    %div{style:''} Or choose a new type
+    = f.text_field :skill_type_new, class: 'form-control'
+  .field
+    %div= f.label :description
+    = f.text_area :description, class: "form-control", rows: "1", placeholder: 'Ex: Designing Web Applications: Twitter, Instagram, Facebook'
+    %p.help-block
+      %b Tip
+      For better rendering, the skill description should be a one-liner. Use the 'Details' field below to provide further information.
+  .field
+    %div= f.label :details
+    = f.text_area :details, class: "form-control", rows: "10"
+    %p.help-block
+      %b Syntax
+      This section acceps
+      = succeed "," do
+        %a{:href => ""} Markdown
+      a simple yet powerful for structuring information.
+      If you don't know Markdown already, you should really have a look at it.
+      Otherwise, just use plain HTML, or worse, unformatted text.
+  = render :partial => 'pages/hyperlink_form_field', :locals => {:f => f}
+  .field
+    %div= f.label :icon
+    = f.text_field :icon, class: "form-control", placeholder: '(Optionnal) Ex: \'raspberrypi\''
+    %p.help-block
+      %b Optionnal
+      If set, will display an icon as given in the
+      %a{:href => "http://mfizz.com/oss/font-mfizz"} Font-mfizz
+      library, without the 'icon-*'
+      Search it for an icon you like.
+  = render :partial => 'pages/rank_form_field', :locals => {:f => f}
+  .field.field-ranking{:style => ""}
+    %div= f.label :level
+    = f.number_field :level, class: "form-control", min: '0', max: '5', value: '3'
+    %p.help-block Rank your skill on a scale from 0 to 5. Try to use the bigger span possible in your skills to avoid looking delusional.
+    %p
+  .actions
+    = f.submit "Add Skill", class: "btn btn-primary"

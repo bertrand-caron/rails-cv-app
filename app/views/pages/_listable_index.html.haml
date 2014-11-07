@@ -14,9 +14,11 @@
         = pretty_model_name
     %hr
     %div{:id => "#{pretty_model_name.tr(' ','_')}-content"}
-      - listable_enum.each do |item|
-        .listable-item{:onmouseout => "hide_edit_tools(this)", :onmouseover => "show_edit_tools(this)"}
-          = render partial: "#{model_name_for(pretty_model_name)}/item", locals: {item: item}
+      -# Skills have a slightly different rendering, so we need to fork to relevant partial here
+      - if defined? skill_types
+        = render partial: 'pages/listable_index_skills', locals: {skill_types: skill_types}
+      - else
+        = render partial: 'pages/listable_index_others', locals: {listable_enum: listable_enum, pretty_model_name: pretty_model_name}
       - if empty_section?(pretty_model_name)
         .listable-comment
           %b NB

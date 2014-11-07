@@ -1,0 +1,39 @@
+- content_for :title, controller_name.humanize + ": " +  @skill.title
+%p#notice= notice
+%div{:style => "margin:0 75px"}
+  %h1
+    = @skill.title
+    = "Programming Language" if @skill.skill_type == 0
+  %hr/
+  %div{:style => "margin-left:50px"}
+    %p
+      %strong Description:
+      = raw @skill.description
+    %hr/
+    %h3 Details
+    .markdown-jumbotron{:style => "background:#EEEEEE;border-radius:10px;padding:10px; margin-top:10px"}
+      = markdown(@skill.details)
+    - if signed_in?
+      %br/
+      .panel.panel-info
+        .panel-heading
+          Admin Settings
+        .panel-body
+          %p
+            %strong Skill Type:
+            = @skill.skill_type
+          %p
+            %strong Hyperlink:
+            = @skill.hyperlink
+          %p
+            %strong Icon:
+            = @skill.icon
+          %p
+            %strong Rank:
+            = @skill.rank
+    %p
+      %strong Ranking:
+      = star_tag @skill
+= link_to 'Edit', edit_skill_path(@skill)
+|
+\#{link_to 'Back', skills_path}
