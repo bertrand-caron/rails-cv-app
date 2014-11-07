@@ -1,5 +1,5 @@
 .first-line--programming-skill
-  = content_tag 'i', nil,:class => "icon-#{item.icon}"
+  = icon_tag_for item.icon
   = link_to item.title, item
   %span{:style => "margin-left:20px;font-size:18px;height:30px"}
     = star_tag item

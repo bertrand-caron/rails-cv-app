@@ -39,9 +39,11 @@
     %p.help-block
       %b Optionnal
       If set, will display an icon as given in the
-      %a{:href => "http://mfizz.com/oss/font-mfizz"} Font-mfizz
-      library, without the 'icon-*'
-      Search it for an icon you like.
+      %a{:href => "http://mfizz.com/oss/font-mfizz#Icons", target: '_blank'} Font-mfizz
+      or
+      %a{:href => "http://fortawesome.github.io/Font-Awesome/icons/", target: '_blank'} Font-Awesome
+      icon libraries.
+      Search it for an icon you like and set the field to its value (either 'fa-example' for font awesome, or 'icon-example' for font-mfizz).
   = render :partial => 'pages/rank_form_field', :locals => {:f => f}
   .field.field-ranking{:style => ""}
     %div= f.label :level
