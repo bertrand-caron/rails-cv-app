@@ -86,7 +86,7 @@ class InternshipsController < ApplicationController
     end
 
     def set_referee_hash
-      @referee_hash = Hash[Referee.all.map{|i| i.name}.zip(Referee.all.map{|i| i.id})].merge(:None =>0)
+      @referee_hash = {:None => 0}.merge(Hash[Referee.all.map{|i| i.name}.zip(Referee.all.map{|i| i.id})])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

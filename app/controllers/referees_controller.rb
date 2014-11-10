@@ -76,7 +76,7 @@ class RefereesController < ApplicationController
     end
 
     def set_files_hash
-      @files_hash = Hash[UploadedFile.all.map{|i| i.name}.zip(UploadedFile.all.map{|i| i.id})].merge(:None =>0)
+      @files_hash = {:None => 0}.merge(Hash[UploadedFile.all.map{|i| i.name}.zip(UploadedFile.all.map{|i| i.id})])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
