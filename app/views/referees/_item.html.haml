@@ -1,4 +1,4 @@
-%div{:style => "width:80%;float:left", onmouseenter: 'trigger_img_popover(this, "toggle")', onmouseleave: 'trigger_img_popover(this,"toggle")'}
+%div{:style => "width:80%;float:left", onmouseenter: "#{%q(trigger_img_popover(this, 'toggle')) if item.comment}", onmouseleave: "#{%q(trigger_img_popover(this,'toggle')) if item.comment}"}
   %h3{:id => item.name.gsub(" ",""), :style => "margin-bottom:0;padding-top:10px;display:inline;color:#428bca"}
     - if signed_in?
       = link_to item.name, item
@@ -20,6 +20,5 @@
         %li
           %a{:href => item.uploaded_file.absolute_url} What #{item.gender_pronoun(:subject)} wrote about me
 %div{:align => "right", :clear => "both", :style => "padding-top:0"}
-  - if item.comment
-    %img{:style => "border-radius:50%", :height => "62", :src => item.thumbnail_img, :'data-content' => "#{item.comment}", :'data-title' => "What  #{item.gender_pronoun(:subject)} says about me", :'data-placement' => 'left' , :onmouseover => "$(this).popover('toggle')", :onmouseout => "$(this).popover('toggle')"}/
+  %img{:style => "border-radius:50%", :height => "62", :src => item.thumbnail_img, :'data-content' => "#{item.comment}", :'data-title' => "What  #{item.gender_pronoun(:subject)} says about me", :'data-placement' => 'left' , :onmouseover => "$(this).popover('toggle')", :onmouseout => "$(this).popover('toggle')"}/
 %div{style: 'clear:both'}
