@@ -14,7 +14,7 @@
   = @education.year
 %p
   %strong Description:
-  = @education.description
+  = raw @education.description
 - if signed_in?
   %br/
   .panel.panel-info
