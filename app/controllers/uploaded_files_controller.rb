@@ -93,7 +93,7 @@ class UploadedFilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def uploaded_file_params
-      params.require(:uploaded_file).permit(:name)
+      params.require(:uploaded_file).permit(:name, :extract)
     end
 
     def uploaded_file_absolute_path(path)

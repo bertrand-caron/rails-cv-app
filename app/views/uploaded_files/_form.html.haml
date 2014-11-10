@@ -9,11 +9,18 @@
           %li= message
   .field
     %div= f.label  :name
-    = f.text_field :name, class: 'form-control', style: 'width:40%'
+    = f.text_field :name, class: 'form-control', style: 'width:40%', placeholder: "Don't forget file extension ! Ex: 'Profile_picture.jpeg'"
     %p.help-block
       %b Optionnal
       Provide a name for the file (don't forget the extensions!); Otherwise will default to the file's name.<br>
       Whitespaces are not available here. Use dashes ('-','_') or commas ('.') instead.
+  .field
+    %div= f.label  :extract
+    = f.text_field :extract, class: 'form-control', placeholder: "Ex: 'John Doe is a tremendours everyday asset [...]'"
+    %p.help-block
+      %b Optionnal
+      For text-containing files (for instance, Referee's letters), pick an extract that could be displayed elsewhere as 
+      a preview to the file.
   .field
     %div= f.label  :content
     %div= f.file_field :content
