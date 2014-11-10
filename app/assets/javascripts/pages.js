@@ -27,9 +27,6 @@ function click_subscribe_button(){
 	}
 };
 
-function show_img_popover(x){
-	$(x).next("div").children().first().popover("show")
-};
-function hide_img_popover(x){
-	$(x).next("div").children().first().popover("hide")
+function trigger_img_popover(x, action){
+	$(x).next("div").children().first().popover(action)
 };
