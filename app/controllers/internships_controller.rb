@@ -2,6 +2,7 @@ class InternshipsController < ApplicationController
   add_breadcrumb "Internships", :internships_path
   before_action :set_internship, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:show, :edit, :update, :new, :create, :destroy]
+  before_action :set_referee_hash, only: [:new, :edit]
 
   # GET /internships
   # GET /internships.json
@@ -19,13 +20,11 @@ class InternshipsController < ApplicationController
   def new
     @internship = Internship.new
     @internship.rank = Internship.count + 1
-    @referee_hash = Hash[Referee.all.map{|i| i.name}.zip(Referee.all.map{|i| i.id})]
     add_breadcrumb "New", new_internship_path
   end
 
   # GET /internships/1/edit
   def edit
-    @referee_hash = Hash[Referee.all.map{|i| i.name}.zip(Referee.all.map{|i| i.id})]
     add_breadcrumb "Edit", edit_internship_path
   end
 
@@ -84,6 +83,10 @@ class InternshipsController < ApplicationController
         end
       end
       add_breadcrumb @internship.title, @internship
+    end
+
+    def set_referee_hash
+      @referee_hash = Hash[Referee.all.map{|i| i.name}.zip(Referee.all.map{|i| i.id})].merge(:None =>0)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
