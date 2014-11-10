@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110103533) do
+ActiveRecord::Schema.define(version: 20141110105042) do
 
   create_table "awards", force: true do |t|
     t.string   "title"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20141110103533) do
     t.integer  "gender"
     t.integer  "rank"
     t.string   "thumbnail_img"
-    t.string   "letter_path"
+    t.integer  "uploaded_file_id"
   end
 
   create_table "settings", force: true do |t|

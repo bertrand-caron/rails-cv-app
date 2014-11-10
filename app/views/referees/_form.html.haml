@@ -30,11 +30,12 @@
       Link to a photo of your referee. For better results, provide reasonable-quality, square portraits.
     =render 'pages/add_file_field'
   .field
-    %div= f.label :letter_path
-    = f.text_field :letter_path, class: "form-control", placeholder: '(Optionnal) Ex: http://i.imgur.com/referee_letter.pdf'
+    %div= f.label :uploaded_file_id
+    = f.select :uploaded_file_id, @files_hash, {}, class: "form-control"
     %p.help-block
-      %b Optional
-      If you have a referee's letter to show, upload it and put the link above.
+      %b Optionnal
+      If you have a Referee's letter, choose it in the list. If you provide an extract for this file (for instance, a particularly nice sentence about yourself),
+      if will be displayed next to your referee's picture when you hover above it with your mouse.
     =render 'pages/add_file_field'
 
   .field.field-gender{:style => ""}

@@ -2,6 +2,7 @@ class RefereesController < ApplicationController
   add_breadcrumb "Referees", :referees_path
   before_action :set_referee, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:show, :edit, :update, :new, :create, :destroy]
+  before_action :set_files_hash, only: [:new, :edit]
 
   # GET /referees
   # GET /referees.json
@@ -74,8 +75,12 @@ class RefereesController < ApplicationController
       add_breadcrumb @referee.name, @referee
     end
 
+    def set_files_hash
+      @files_hash = Hash[UploadedFile.all.map{|i| i.name}.zip(UploadedFile.all.map{|i| i.id})].merge(:None =>0)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def referee_params
-      params.require(:referee).permit(:name, :email, :title, :personal_page, :gender, :rank, :thumbnail_img, :letter_path)
+      params.require(:referee).permit(:name, :email, :title, :personal_page, :gender, :rank, :thumbnail_img, :uploaded_file_id)
     end
 end

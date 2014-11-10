@@ -39,7 +39,7 @@ class UploadedFilesController < ApplicationController
     @uploaded_file.name.gsub!(/ /,'-')
 
     # Then write to file
-    File.open( uploaded_file_absolute_path(@uploaded_file.name), 'wb') do |file|
+    File.open( @uploaded_file.absolute_path, 'wb') do |file|
       file.write(uploaded_io.read)
     end
 
@@ -61,7 +61,7 @@ class UploadedFilesController < ApplicationController
       old_name = @uploaded_file.name
       if @uploaded_file.update(uploaded_file_params)
         format.html do
-          File.rename( uploaded_file_absolute_path(old_name), uploaded_file_absolute_path(@uploaded_file.name) ) if old_name != @uploaded_file.name
+          File.rename( absolute_path_for(old_name), @uploaded_file.absolute_path ) if old_name != @uploaded_file.name
           redirect_to @uploaded_file, notice: 'Uploaded file was successfully updated.'
         end
         format.json { render :show, status: :ok, location: @uploaded_file }
@@ -75,7 +75,7 @@ class UploadedFilesController < ApplicationController
   # DELETE /uploaded_files/1
   # DELETE /uploaded_files/1.json
   def destroy
-    path_to_file = uploaded_file_absolute_path(@uploaded_file.name)
+    path_to_file = @uploaded_file.absolute_path
     File.delete(path_to_file) if File.exist?(path_to_file)
     @uploaded_file.destroy
     respond_to do |format|
@@ -96,7 +96,8 @@ class UploadedFilesController < ApplicationController
       params.require(:uploaded_file).permit(:name, :extract)
     end
 
-    def uploaded_file_absolute_path(path)
-      Rails.root.join('public', 'uploads', path)
+    def absolute_path_for(file_name)
+      Rails.root.join('public', 'uploads', file_name)
     end
+
 end

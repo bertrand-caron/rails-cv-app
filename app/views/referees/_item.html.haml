@@ -16,9 +16,10 @@
       - if item.personal_page.present?
         %li
           %a{:href => item.personal_page} Browse Personnal page
-      - if item.letter_path.present?
+      - if item.uploaded_file_id.present?
         %li
-          %a{:href => item.letter_path} What #{item.gender_pronoun(:subject)} wrote about me
+          %a{:href => item.uploaded_file.absolute_url} What #{item.gender_pronoun(:subject)} wrote about me
 %div{:align => "right", :clear => "both", :style => "padding-top:0"}
-  %img{:style => "border-radius:50%", :height => "62", :src => item.thumbnail_img, :'data-content' => 'She rocks !', :'data-title' => "What  #{item.gender_pronoun(:subject)} says about me", :'data-placement' => 'left' , :onmouseover => "$(this).popover('toggle')", :onmouseout => "$(this).popover('toggle')"}/
+  - if item.comment
+    %img{:style => "border-radius:50%", :height => "62", :src => item.thumbnail_img, :'data-content' => "#{item.comment}", :'data-title' => "What  #{item.gender_pronoun(:subject)} says about me", :'data-placement' => 'left' , :onmouseover => "$(this).popover('toggle')", :onmouseout => "$(this).popover('toggle')"}/
 %div{style: 'clear:both'}

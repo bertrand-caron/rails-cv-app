@@ -30,7 +30,13 @@
         %kbd= @referee.thumbnail_img
       %p
         %strong Referee's Letter Path:
-        %kbd= @referee.letter_path
+        %kbd= @referee.uploaded_file.absolute_url
+      %p
+        %strong Referee's Report:
+        = @referee.uploaded_file.name
+      %p
+        %strong Referee's Report Comment:
+        = @referee.comment
   = link_to 'Edit', edit_referee_path(@referee)
   |
   =link_to 'Destroy', @referee, method: :delete, data: { confirm: 'Are you sure?' }
