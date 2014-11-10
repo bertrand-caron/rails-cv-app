@@ -59,11 +59,17 @@ h2 .fa:hover{color:#c97c0d;}
 	border-radius:10px;
 	padding:20px;
 
-	> div > h3 {
+	h3 {
 		display:inline;
 		font-size:23px;
 		font-weight:300;
 		line-height:30px;
+	}
+
+	.popover > h3 {
+		display:block;
+		font-size:14px;
+		line-height: 18px;
 	}
 
 	.first-line, .second-line{
