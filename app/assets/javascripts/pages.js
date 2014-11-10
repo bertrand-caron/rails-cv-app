@@ -26,3 +26,10 @@ function click_subscribe_button(){
 		$('#cancel-button').show('slow');
 	}
 };
+
+function show_img_popover(x){
+	$(x).next("div").children().first().popover("show")
+};
+function hide_img_popover(x){
+	$(x).next("div").children().first().popover("hide")
+};

@@ -1,4 +1,4 @@
-%div{:style => "width:80%;float:left"}
+%div{:style => "width:80%;float:left", onmouseover: 'show_img_popover(this)', onmouseout: 'hide_img_popover(this)'}
   %h3{:id => item.name.gsub(" ",""), :style => "margin-bottom:0;padding-top:10px;display:inline;color:#428bca"}
     - if signed_in?
       = link_to item.name, item
@@ -20,5 +20,5 @@
         %li
           %a{:href => item.letter_path} What #{item.gender_pronoun(:subject)} wrote about me
 %div{:align => "right", :clear => "both", :style => "padding-top:0"}
-  %img{:style => "border-radius:50%", :height => "62", :src => item.thumbnail_img}/
+  %img{:style => "border-radius:50%", :height => "62", :src => item.thumbnail_img, :'data-content' => 'She rocks !', :'data-title' => "What  #{item.gender_pronoun(:subject)} says about me", :'data-placement' => 'left' , :onmouseover => "$(this).popover('toggle')", :onmouseout => "$(this).popover('toggle')"}/
 %div{style: 'clear:both'}
