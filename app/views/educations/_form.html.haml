@@ -19,7 +19,7 @@
   .field
     %div= f.label :year
     = f.text_field :year, class: "form-control", placeholder: "Ex: 2011-2013"
-  = render :partial => 'pages/description_form_field', :locals => {:f => f}
+  = render :partial => 'pages/description_form_field', :locals => {:f => f, :item => @education}
   = render :partial => 'pages/rank_form_field', :locals => {:f => f}
   .actions
-    = f.submit "Add Education", class: "btn btn-primary"
+    = f.submit nil, class: "btn btn-primary"
