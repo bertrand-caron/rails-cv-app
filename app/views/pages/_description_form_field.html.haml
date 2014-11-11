@@ -1,7 +1,16 @@
 .field
   %div= f.label :description
-  = f.text_area :description, class: "form-control", rows: "9", placeholder: "Item description.\nMay span several lines, include bullets points, etc. Use '<br>' for a line break."
+  = f.text_area :description, class: "form-control", rows: "9", placeholder: "Item description.\nMay span several lines, include bullets points, etc. Use '<br>' for a line break.", onfocusout: %Q(ajax_preview_description("#{item.class.name.downcase}"))
   %p.help-block 
     %b Syntax
     :escaped
       HTML tags are allowed here, such as <br> for a line break. Your HTML will be validated and unmatched tags will be completed. Furthermore, Javascript (<script></script>) will be stripped out for security reasons.
+  %div.listable-item{style: 'margin-bottom:15px'}
+    %div.third-line
+      %div#preview{style: 'background-color:#EEE;padding:10px;border-radius:10px'}
+  %div{align: 'center'}
+    %button#preview-btn.btn.btn-info{type: 'button', onclick: %Q(ajax_preview_description("#{item.class.name.downcase}")) } Preview
+%script
+  $(document).ready(function(){
+  $('#preview-btn').click();
+  });

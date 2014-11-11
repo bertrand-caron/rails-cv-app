@@ -30,3 +30,13 @@ function click_subscribe_button(){
 function trigger_img_popover(x, action){
 	$(x).next("div").children().first().popover(action)
 };
+
+function ajax_preview_description(model_name){
+	$.ajax({
+		url: "/helpers/html_renderer",
+		data: "content=" + $('#' + model_name + '_description').val(),
+		datatype: 'html'
+	}).done(function(html,status){
+		$('#preview').html(html);
+	}); 
+}

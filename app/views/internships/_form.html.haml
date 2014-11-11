@@ -14,7 +14,7 @@
       %b Tip
       For better rendering, try to keep the title a little less than on-line long.
   = render :partial => 'pages/hyperlink_form_field', :locals => {:f => f}
-  = render :partial => 'pages/description_form_field', :locals => {:f => f}
+  = render :partial => 'pages/description_form_field', :locals => {:f => f, :item => @internship}
   .field
     %div= f.label :report_path
     = f.text_field :report_path, class: "form-control", placeholder: "Ex: /uploads/IBPC-2012.pdf"

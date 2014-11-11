@@ -8,13 +8,17 @@ module Descriptable
   end
 
   protected
-    def fix_and_filter_desc_html
+    def filtered_html(html_content)
       # Cast the Nokogiri Document
       html_doc = Nokogiri::HTML.fragment(self.description)
       # Remove all scripts
       html_doc.xpath('script').remove
-      # Save the filtered and corrected version
-      self.description = html_doc.to_html
+      # Returned filtered and fixed html
+      html_doc.to_html
+    end
+
+    def fix_and_filter_desc_html
+      self.description = self.filtered_html(description)
     end
 
 end

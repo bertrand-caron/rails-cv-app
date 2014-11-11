@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :skills
 
+  get 'helpers/html_renderer', to: 'helpers#html_renderer'
+
   get 'settings', to: 'settings#show'
   get 'settings/edit', to: 'settings#edit'
   put 'settings/edit', to: 'settings#update'
