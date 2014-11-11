@@ -34,7 +34,10 @@ function trigger_img_popover(x, action){
 function ajax_preview_description(model_name){
 	$.ajax({
 		url: "/helpers/html_renderer",
-		data: "content=" + $('#' + model_name + '_description').val(),
+		data: {
+			content: $('#' + model_name + '_description').val()
+		},
+		method: 'POST',
 		datatype: 'html'
 	}).done(function(html,status){
 		$('#preview').html(html);

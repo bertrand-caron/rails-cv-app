@@ -1,6 +1,7 @@
 class HelpersController < ApplicationController
   before_action :signed_in_user
 
+  #POST /helpers/html_renderer[:content]
   def html_renderer
     # Cast the Nokogiri Document
     html_doc = Nokogiri::HTML.fragment params[:content]
