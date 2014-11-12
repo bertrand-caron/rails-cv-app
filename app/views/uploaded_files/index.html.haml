@@ -1,7 +1,7 @@
 - content_for(:title, 'Uploaded Files') if @set_title
 %h1 Available Files
 %hr/
-%table
+%table#Files-content
   %thead
     %tr
       %th Name
@@ -10,7 +10,8 @@
     - @uploaded_files.each do |uploaded_file|
       %tr
         %td= uploaded_file.name
-        %td= link_to 'Show', uploaded_file
+        %td= link_to 'Show Model', uploaded_file
+        %td= link_to 'View File', uploaded_file.relative_url
         %td= link_to 'Edit', edit_uploaded_file_path(uploaded_file)
         %td= link_to 'Destroy', uploaded_file, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
