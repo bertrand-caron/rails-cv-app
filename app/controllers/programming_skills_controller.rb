@@ -34,7 +34,7 @@ class ProgrammingSkillsController < ApplicationController
 
     respond_to do |format|
       if @programming_skill.save
-        format.html { redirect_to @programming_skill, notice: 'Programming skill was successfully created.' }
+        format.html { redirect_to programming_skills_path, notice: 'Programming skill was successfully created.' }
         format.json { render :show, status: :created, location: @programming_skill }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class ProgrammingSkillsController < ApplicationController
   def update
     respond_to do |format|
       if @programming_skill.update(programming_skill_params)
-        format.html { redirect_to @programming_skill, notice: 'Programming skill was successfully updated.' }
+        format.html { redirect_to programming_skills_path, notice: 'Programming skill was successfully updated.' }
         format.json { render :show, status: :ok, location: @programming_skill }
       else
         format.html { render :edit }

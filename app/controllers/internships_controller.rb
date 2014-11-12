@@ -35,7 +35,7 @@ class InternshipsController < ApplicationController
 
     respond_to do |format|
       if @internship.save
-        format.html { redirect_to @internship, notice: 'Internship was successfully created.' }
+        format.html { redirect_to internships_path, notice: 'Internship was successfully created.' }
         format.json { render :show, status: :created, location: @internship }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class InternshipsController < ApplicationController
   def update
     respond_to do |format|
       if @internship.update(internship_params)
-        format.html { redirect_to @internship, notice: 'Internship was successfully updated.' }
+        format.html { redirect_to internships_path, notice: 'Internship was successfully updated.' }
         format.json { render :show, status: :ok, location: @internship }
       else
         format.html { render :edit }

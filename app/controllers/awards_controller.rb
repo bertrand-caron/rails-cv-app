@@ -34,7 +34,7 @@ class AwardsController < ApplicationController
 
     respond_to do |format|
       if @award.save
-        format.html { redirect_to @award, notice: 'Award was successfully created.' }
+        format.html { redirect_to awards_path, notice: 'Award was successfully created.' }
         format.json { render :show, status: :created, location: @award }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class AwardsController < ApplicationController
   def update
     respond_to do |format|
       if @award.update(award_params)
-        format.html { redirect_to @award, notice: 'Award was successfully updated.' }
+        format.html { redirect_to awards_path, notice: 'Award was successfully updated.' }
         format.json { render :show, status: :ok, location: @award }
       else
         format.html { render :edit }
