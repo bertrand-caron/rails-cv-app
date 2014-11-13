@@ -1,7 +1,7 @@
 class UploadedFilesController < ApplicationController
   add_breadcrumb "Files", :uploaded_files_path
   before_action :set_uploaded_file, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:index, :edit, :update, :new, :create, :destroy]
+  before_action :signed_in_user, only: [:show, :index, :edit, :update, :new, :create, :destroy]
 
   # GET /uploaded_files
   # GET /uploaded_files.json

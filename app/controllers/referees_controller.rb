@@ -1,7 +1,7 @@
 class RefereesController < ApplicationController
   add_breadcrumb "Referees", :referees_path
   before_action :set_referee, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:show, :edit, :update, :new, :create, :destroy]
+  before_action :signed_in_user, only: [:show, :index, :edit, :update, :new, :create, :destroy]
   before_action :set_files_hash, only: [:new, :edit]
 
   # GET /referees

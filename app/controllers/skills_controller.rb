@@ -1,7 +1,7 @@
 class SkillsController < ApplicationController
   add_breadcrumb "Skills", :skills_path
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
+  before_action :signed_in_user, only: [:show, :index, :edit, :update, :new, :create, :destroy]
   before_action :set_skill_types, only: [:new, :edit, :index]
 
   # GET /skills

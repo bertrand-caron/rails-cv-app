@@ -1,7 +1,7 @@
 class InternshipsController < ApplicationController
   add_breadcrumb "Internships", :internships_path
   before_action :set_internship, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:show, :edit, :update, :new, :create, :destroy]
+  before_action :signed_in_user, only: [:show, :index, :edit, :update, :new, :create, :destroy]
   before_action :set_referee_hash, only: [:new, :edit]
 
   # GET /internships

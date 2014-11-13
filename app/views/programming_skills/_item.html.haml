@@ -1,6 +1,9 @@
 .first-line--programming-skill
   = icon_tag_for item.icon
-  = link_to item.title, item
+  - if signed_in?
+    = link_to item.title, item
+  - else
+    = item.title
   %span{:style => "margin-left:20px;font-size:18px;height:30px"}
     = star_tag item
     - if signed_in?

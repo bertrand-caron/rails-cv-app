@@ -1,7 +1,7 @@
 class ProgrammingSkillsController < ApplicationController
   add_breadcrumb "Programming Skills", :programming_skills_path
   before_action :set_programming_skill, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
+  before_action :signed_in_user, only: [:show, :index, :edit, :update, :new, :create, :destroy]
 
   # GET /programming_skills
   # GET /programming_skills.json
