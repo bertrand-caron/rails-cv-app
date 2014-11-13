@@ -54,6 +54,7 @@ gem "rails-settings-cached", "0.4.1"
 gem 'paleta'
 
 gem 'sitemap_generator', :github => 'kjvarga/sitemap_generator'
+gem "wysiwyg-rails"
 
 group :production do
   gem 'exception_notification'

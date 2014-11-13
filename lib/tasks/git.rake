@@ -37,8 +37,8 @@ namespace 'git' do
     Rake::Task['settings:missing'].invoke
     puts ''
 
-    puts "Running 'bundle install'"
-    puts `bundle install`
+    puts "Running 'sudo bundle install'"
+    puts `sudo bundle install`
     puts ''
 
     puts "Recompiling assets"

@@ -279,3 +279,36 @@ h2 .fa:hover{color:#c97c0d;}
 		content: '●';
 	}
 }
+
+// Froala custom styling
+
+div.froala-element.not-msie.f-basic {
+	border-radius: 0 0 10px 10px;
+	border-color: #CCC;
+}
+
+div.froala-editor.f-basic {
+	border-radius:10px 10px 0 0;
+	border-top-width: 2px;
+	border-color: #CCC;
+}
+
+.froala-editor button.fr-bttn i{
+	color:#777;
+}
+
+.froala-editor button.fr-bttn, .froala-editor button.fr-trigger i {
+	color:#777;
+}
+
+.froala-box .froala-editor .bttn-wrapper:not(.touch) button.fr-bttn:hover{
+	background:#cde2f4;
+}
+
+.froala-box .froala-editor .bttn-wrapper:not(.touch) button.fr-trigger:hover{
+	background:#cde2f4;
+}
+
+.froala-box .froala-editor .fr-trigger.active {
+	background:#cde2f4;
+}

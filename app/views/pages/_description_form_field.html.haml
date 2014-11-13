@@ -5,13 +5,17 @@
     %b Syntax
     :escaped
       HTML tags are allowed here, such as <br> for a line break. Your HTML will be validated and unmatched tags will be completed. Furthermore, Javascript (<script></script>) will be stripped out for security reasons.
-  .field{style: 'font-size:25px;margin-top:20px'} Description: Preview
-  %div.listable-item{style: 'margin-bottom:15px'}
-    %div.third-line
-      %div#preview{style: 'background-color:#EEE;padding:10px;border-radius:10px'}
-  %div{align: 'center'}
-    %button#preview-btn.btn.btn-info{type: 'button', onclick: %Q(ajax_preview_description("#{item.class.name.downcase}")) } Preview
-%script
-  $(document).ready(function(){
-  $('#preview-btn').click();
-  });
+  - if Settings['enable-html-editor']
+    %script
+      $(function() {$("##{item.class.name.downcase}_description").editable({inlineMode: false})});
+  - else
+    .field{style: 'font-size:25px;margin-top:20px'} Description: Preview
+    %div.listable-item{style: 'margin-bottom:15px'}
+      %div.third-line
+        %div#preview{style: 'background-color:#EEE;padding:10px;border-radius:10px'}
+    %div{align: 'center'}
+      %button#preview-btn.btn.btn-info{type: 'button', onclick: %Q(ajax_preview_description("#{item.class.name.downcase}")) } Preview
+    %script
+      $(document).ready(function(){
+      $('#preview-btn').click();
+      });

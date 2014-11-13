@@ -31,3 +31,6 @@ send-email-500-error:
 # Control which sections are displayed on the curriculum, and in which order.
 # Also controls which ones are displayed in the navbar.
 available-sections: 'educations internships programming_skills skills awards publications softwares referees'
+
+# Enable HTML editor (Not free for commercial use, see: https://editor.froala.com)
+enable-html-editor: true

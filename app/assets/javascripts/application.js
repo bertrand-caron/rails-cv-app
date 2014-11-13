@@ -17,3 +17,5 @@
 //= require_tree .
 //= require jquery.raty
 //= require jquery.raty.min
+//= require froala_editor.min.js
+//= require plugins/lists.min.js
