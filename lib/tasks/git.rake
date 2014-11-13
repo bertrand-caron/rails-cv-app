@@ -52,6 +52,10 @@ namespace 'git' do
     puts "Restarting Unicorn Server"
     puts `sudo service #{Settings['service-name']} restart`
     puts ''
+
+    puts "The following settings have been added from last pull. You might want to update your config/config.yml file to include them."
+    puts `git diff HEAD~1 config/config.yml.example | egrep '^\+'`
+    puts ''
   end
 
 end
