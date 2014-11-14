@@ -55,6 +55,7 @@ gem 'paleta'
 
 gem 'sitemap_generator', :github => 'kjvarga/sitemap_generator'
 gem "wysiwyg-rails"
+gem 'kaminari' # adds pagination to ActiveModels
 
 group :production do
   gem 'exception_notification'

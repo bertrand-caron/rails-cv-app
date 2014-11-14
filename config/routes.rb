@@ -33,6 +33,11 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+
+  namespace :api do
+    resources :awards, :educations, :internships, :skills, :referees, :programming_skills, :publications, :softwares
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

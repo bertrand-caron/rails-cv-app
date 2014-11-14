@@ -27,6 +27,9 @@ module SessionsHelper
   end
 
   def signed_in_user
-    redirect_to root_url, notice: "Please sign in." unless signed_in?
+    respond_to do |format|
+      format.html {redirect_to root_url, notice: "Please sign in." unless signed_in?}
+      format.json {render :text => '{"error": "API token not found."}' unless signed_in?}
+    end
   end
 end
