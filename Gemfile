@@ -29,11 +29,14 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Use unicorn as the app server
+#group :production do
+  # Use unicorn as the app server
 gem 'unicorn'
+gem 'actionpack-page_caching'
+#end
+
 gem 'redcarpet'
 gem 'font-awesome-rails'
-gem 'actionpack-page_caching'
 gem 'piwik_analytics', :github => 'bertrand-caron/piwik-ruby-tracking'
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 
@@ -63,4 +66,12 @@ end
 
 group :development, :test do
   gem 'html2haml'
+  # TDD
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'guard-rspec'
+  gem 'spring-commands-rspec'
 end
