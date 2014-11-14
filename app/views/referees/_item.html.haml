@@ -20,5 +20,5 @@
         %li
           %a{:href => item.uploaded_file.absolute_url} What #{item.gender_pronoun(:subject)} wrote about me
 %div{:align => "right", :clear => "both", :style => "padding-top:0"}
-  %img{:style => "border-radius:50%", :height => "62", :src => item.thumbnail_img, :'data-content' => "#{item.comment}", :'data-title' => "What  #{item.gender_pronoun(:subject)} says about me", :'data-placement' => 'left' , :onmouseover => "$(this).popover('toggle')", :onmouseout => "$(this).popover('toggle')"}/
+  %img{:style => "border-radius:50%", :height => "62", :src => item.thumbnail_img, :'data-content' => "#{item.comment}", :'data-title' => "What  #{item.gender_pronoun(:subject)} says about me", :'data-placement' => 'left' , :onmouseover => "#{%q($(this).popover('toggle')) if item.comment}", :onmouseout => "#{%q($(this).popover('toggle')) if item.comment}"}/
 %div{style: 'clear:both'}
