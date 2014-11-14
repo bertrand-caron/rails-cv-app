@@ -1,5 +1,5 @@
 class EducationsController < ApplicationController
-  add_breadcrumb "Education", :educations_path
+  add_breadcrumb 'Education', :educations_path
   before_action :set_education, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:show, :index, :edit, :update, :new, :create, :destroy]
 
@@ -19,12 +19,12 @@ class EducationsController < ApplicationController
   def new
     @education = Education.new
     @education.rank = Education.count + 1
-    add_breadcrumb "New", new_education_path
+    add_breadcrumb 'New', new_education_path
   end
 
   # GET /educations/1/edit
   def edit
-    add_breadcrumb "Edit", edit_education_path
+    add_breadcrumb 'Edit', edit_education_path
   end
 
   # POST /educations
@@ -68,14 +68,15 @@ class EducationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_education
-      @education = Education.find(params[:id])
-      add_breadcrumb @education.institution, @education
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def education_params
-      params.require(:education).permit(:institution, :institution_location, :degree, :year, :description, :rank)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_education
+    @education = Education.find(params[:id])
+    add_breadcrumb @education.institution, @education
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def education_params
+    params.require(:education).permit(:institution, :institution_location, :degree, :year, :description, :rank)
+  end
 end

@@ -10,6 +10,6 @@ describe User do
   it 'has a valid email'
   it 'does not allow duplicated emails' do
     first_user = FactoryGirl.create(:user)
-    expect(FactoryGirl.build(:user, email: first_user.email) ).not_to be_valid
+    expect(FactoryGirl.build(:user, email: first_user.email)).not_to be_valid
   end
 end

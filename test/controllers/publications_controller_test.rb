@@ -5,18 +5,18 @@ class PublicationsControllerTest < ActionController::TestCase
     @publication = publications(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:publications)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create publication" do
+  test 'should create publication' do
     assert_difference('Publication.count') do
       post :create, publication: { abstract: @publication.abstract, authors: @publication.authors, details: @publication.details, journal: @publication.journal, title: @publication.title }
     end
@@ -24,22 +24,22 @@ class PublicationsControllerTest < ActionController::TestCase
     assert_redirected_to publication_path(assigns(:publication))
   end
 
-  test "should show publication" do
+  test 'should show publication' do
     get :show, id: @publication
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, id: @publication
     assert_response :success
   end
 
-  test "should update publication" do
+  test 'should update publication' do
     patch :update, id: @publication, publication: { abstract: @publication.abstract, authors: @publication.authors, details: @publication.details, journal: @publication.journal, title: @publication.title }
     assert_redirected_to publication_path(assigns(:publication))
   end
 
-  test "should destroy publication" do
+  test 'should destroy publication' do
     assert_difference('Publication.count', -1) do
       delete :destroy, id: @publication
     end

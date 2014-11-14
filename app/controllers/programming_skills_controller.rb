@@ -1,5 +1,5 @@
 class ProgrammingSkillsController < ApplicationController
-  add_breadcrumb "Programming Skills", :programming_skills_path
+  add_breadcrumb 'Programming Skills', :programming_skills_path
   before_action :set_programming_skill, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:show, :index, :edit, :update, :new, :create, :destroy]
 
@@ -19,12 +19,12 @@ class ProgrammingSkillsController < ApplicationController
   def new
     @programming_skill = ProgrammingSkill.new
     @programming_skill.rank = ProgrammingSkill.count + 1
-    add_breadcrumb "New", new_programming_skill_path
+    add_breadcrumb 'New', new_programming_skill_path
   end
 
   # GET /programming_skills/1/edit
   def edit
-    add_breadcrumb "Edit", edit_programming_skill_path
+    add_breadcrumb 'Edit', edit_programming_skill_path
   end
 
   # POST /programming_skills
@@ -68,23 +68,24 @@ class ProgrammingSkillsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_programming_skill
-      begin
-        @programming_skill = ProgrammingSkill.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-        # If such an model can't be found, look for an model whos hyperlink matches the id
-        @programming_skill = ProgrammingSkill.find_by hyperlink: params[:id]
-        if not @programming_skill
-          # If the answer of the find_by request is nil, just dump everything and go back to the root
-          redirect_to '/'
-        end
-      end
-      add_breadcrumb @programming_skill.title, @programming_skill
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def programming_skill_params
-      params.require(:programming_skill).permit(:title, :skill_type, :description, :details, :hyperlink, :rank, :ranking, :icon)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_programming_skill
+    begin
+      @programming_skill = ProgrammingSkill.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      # If such an model can't be found, look for an model whos hyperlink matches the id
+      @programming_skill = ProgrammingSkill.find_by hyperlink: params[:id]
+      unless @programming_skill
+        # If the answer of the find_by request is nil, just dump everything and go back to the root
+        redirect_to '/'
+      end
     end
+    add_breadcrumb @programming_skill.title, @programming_skill
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def programming_skill_params
+    params.require(:programming_skill).permit(:title, :skill_type, :description, :details, :hyperlink, :rank, :ranking, :icon)
+  end
 end

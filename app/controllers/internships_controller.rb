@@ -1,5 +1,5 @@
 class InternshipsController < ApplicationController
-  add_breadcrumb "Internships", :internships_path
+  add_breadcrumb 'Internships', :internships_path
   before_action :set_internship, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:show, :index, :edit, :update, :new, :create, :destroy]
   before_action :set_referee_hash, only: [:new, :edit]
@@ -20,12 +20,12 @@ class InternshipsController < ApplicationController
   def new
     @internship = Internship.new
     @internship.rank = Internship.count + 1
-    add_breadcrumb "New", new_internship_path
+    add_breadcrumb 'New', new_internship_path
   end
 
   # GET /internships/1/edit
   def edit
-    add_breadcrumb "Edit", edit_internship_path
+    add_breadcrumb 'Edit', edit_internship_path
   end
 
   # POST /internships
@@ -69,29 +69,29 @@ class InternshipsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_internship
-      # First, look for the internship with the matching id
-      begin
-        @internship = Internship.find params[:id] 
-      rescue ActiveRecord::RecordNotFound
-        # If such an internship can't be found, look for an internship whos hyperlink matches the id
-        @internship = Internship.find_by hyperlink: params[:id]
-        if not @internship
-          # If the answer of the find_by request is nil, just dump everything and go back to the root
-          redirect_to '/'
-        end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_internship
+    # First, look for the internship with the matching id
+    begin
+      @internship = Internship.find params[:id]
+    rescue ActiveRecord::RecordNotFound
+      # If such an internship can't be found, look for an internship whos hyperlink matches the id
+      @internship = Internship.find_by hyperlink: params[:id]
+      unless @internship
+        # If the answer of the find_by request is nil, just dump everything and go back to the root
+        redirect_to '/'
       end
-      add_breadcrumb @internship.title, @internship
     end
+    add_breadcrumb @internship.title, @internship
+  end
 
-    def set_referee_hash
-      @referee_hash = {:None => 0}.merge(Hash[Referee.all.map{|i| i.name}.zip(Referee.all.map{|i| i.id})])
-    end
+  def set_referee_hash
+    @referee_hash = { None: 0 }.merge(Hash[Referee.all.map(&:name).zip(Referee.all.map(&:id))])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def internship_params
-      params.require(:internship).permit(:title, :hyperlink, :description, :report_path, :location, :laboratory, :duration, :rank, :referee_id)
-    end
-
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def internship_params
+    params.require(:internship).permit(:title, :hyperlink, :description, :report_path, :location, :laboratory, :duration, :rank, :referee_id)
+  end
 end

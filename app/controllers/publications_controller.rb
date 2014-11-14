@@ -1,5 +1,5 @@
 class PublicationsController < ApplicationController
-  add_breadcrumb "Publications", :publications_path
+  add_breadcrumb 'Publications', :publications_path
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:show, :index, :edit, :update, :new, :create, :destroy]
 
@@ -19,12 +19,12 @@ class PublicationsController < ApplicationController
   def new
     @publication = Publication.new
     @publication.rank = Publication.count + 1
-    add_breadcrumb "New", new_publication_path
+    add_breadcrumb 'New', new_publication_path
   end
 
   # GET /publications/1/edit
   def edit
-    add_breadcrumb "Edit",edit_publication_path 
+    add_breadcrumb 'Edit', edit_publication_path
   end
 
   # POST /publications
@@ -68,14 +68,15 @@ class PublicationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_publication
-      @publication = Publication.find(params[:id])
-      add_breadcrumb @publication.title, @publication
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def publication_params
-      params.require(:publication).permit(:title, :journal, :authors, :details, :abstract, :rank)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_publication
+    @publication = Publication.find(params[:id])
+    add_breadcrumb @publication.title, @publication
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def publication_params
+    params.require(:publication).permit(:title, :journal, :authors, :details, :abstract, :rank)
+  end
 end

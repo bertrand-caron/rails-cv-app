@@ -1,18 +1,18 @@
 require 'spec_helper'
 
 describe UsersController, type: :controller do
-  let(:user) {FactoryGirl.create(:user)}
+  let(:user) { FactoryGirl.create(:user) }
 
   describe 'GET #index' do
-    before(:each) { get :index}
+    before(:each) { get :index }
     context 'with logged in admin user' do
-      before {login(user)}
+      before { login(user) }
       it 'populates an array of users'
       it 'renders the :index template' do
         expect(response).to render_template(:index)
       end
       it 'displays a button for adding users' do
-      expect(response.body).to have_content('Add User')
+        expect(response.body).to have_content('Add User')
       end
     end
     context 'with lamdba user' do

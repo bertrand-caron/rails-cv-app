@@ -1,6 +1,5 @@
 module Api
   class AwardsController < Api::BaseController
-
     private
 
       def album_params
@@ -12,6 +11,5 @@ module Api
         # allowing us to filter by this
         params.permit(:title, :description)
       end
-
   end
 end

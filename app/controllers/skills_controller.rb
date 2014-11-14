@@ -1,5 +1,5 @@
 class SkillsController < ApplicationController
-  add_breadcrumb "Skills", :skills_path
+  add_breadcrumb 'Skills', :skills_path
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:show, :index, :edit, :update, :new, :create, :destroy]
   before_action :set_skill_types, only: [:new, :edit, :index]
@@ -20,12 +20,12 @@ class SkillsController < ApplicationController
   def new
     @skill = Skill.new
     @skill.rank = Skill.count + 1
-    add_breadcrumb "New", new_skill_path
+    add_breadcrumb 'New', new_skill_path
   end
 
   # GET /skills/1/edit
   def edit
-    add_breadcrumb "Edit", edit_skill_path
+    add_breadcrumb 'Edit', edit_skill_path
   end
 
   # POST /skills
@@ -69,27 +69,28 @@ class SkillsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_skill
-      begin
-        @skill = Skill.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-        # If such an model can't be found, look for an model whos hyperlink matches the id
-        @skill = Skill.find_by hyperlink: params[:id]
-        if not @skill
-          # If the answer of the find_by request is nil, just dump everything and go back to the root
-          redirect_to '/'
-        end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_skill
+    begin
+      @skill = Skill.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      # If such an model can't be found, look for an model whos hyperlink matches the id
+      @skill = Skill.find_by hyperlink: params[:id]
+      unless @skill
+        # If the answer of the find_by request is nil, just dump everything and go back to the root
+        redirect_to '/'
       end
-      add_breadcrumb @skill.title, @skill
     end
+    add_breadcrumb @skill.title, @skill
+  end
 
-    def set_skill_types
-      @skill_types = Skill.pluck("DISTINCT skill_type")
-    end
+  def set_skill_types
+    @skill_types = Skill.pluck('DISTINCT skill_type')
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def skill_params
-      params.require(:skill).permit(:title, :skill_type, :skill_type_new, :description, :details, :hyperlink, :rank, :level, :icon)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def skill_params
+    params.require(:skill).permit(:title, :skill_type, :skill_type_new, :description, :details, :hyperlink, :rank, :level, :icon)
+  end
 end

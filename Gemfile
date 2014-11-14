@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 # Use sqlite3 as the database for Active Record
@@ -29,15 +28,15 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-#group :production do
-  # Use unicorn as the app server
+# group :production do
+# Use unicorn as the app server
 gem 'unicorn'
 gem 'actionpack-page_caching'
-#end
+# end
 
 gem 'redcarpet'
 gem 'font-awesome-rails'
-gem 'piwik_analytics', :github => 'bertrand-caron/piwik-ruby-tracking'
+gem 'piwik_analytics', github: 'bertrand-caron/piwik-ruby-tracking'
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 
 # Use Capistrano for deployment
@@ -46,18 +45,18 @@ gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem "therubyracer"
-gem "less-rails"
+gem 'therubyracer'
+gem 'less-rails'
 gem 'twitter-bootstrap-rails', '~> 3.2.0'
-gem 'yaml_db', :github => 'turgu1/yaml_db'
+gem 'yaml_db', github: 'turgu1/yaml_db'
 gem 'haml'
 gem 'premailer-rails'
 gem 'nokogiri'
-gem "rails-settings-cached", "0.4.1"
+gem 'rails-settings-cached', '0.4.1'
 gem 'paleta'
 
-gem 'sitemap_generator', :github => 'kjvarga/sitemap_generator'
-gem "wysiwyg-rails"
+gem 'sitemap_generator', github: 'kjvarga/sitemap_generator'
+gem 'wysiwyg-rails'
 gem 'kaminari' # adds pagination to ActiveModels
 
 group :production do
@@ -74,4 +73,7 @@ group :development, :test do
   gem 'launchy'
   gem 'guard-rspec'
   gem 'spring-commands-rspec'
+  # Code Coverage
+  gem 'simplecov'
+  gem 'rubocop'
 end

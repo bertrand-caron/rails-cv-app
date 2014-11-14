@@ -1,5 +1,5 @@
 class UploadedFilesController < ApplicationController
-  add_breadcrumb "Files", :uploaded_files_path
+  add_breadcrumb 'Files', :uploaded_files_path
   before_action :set_uploaded_file, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:show, :index, :edit, :update, :new, :create, :destroy]
 
@@ -18,12 +18,12 @@ class UploadedFilesController < ApplicationController
   # GET /uploaded_files/new
   def new
     @uploaded_file = UploadedFile.new
-    add_breadcrumb "New", new_uploaded_file_path
+    add_breadcrumb 'New', new_uploaded_file_path
   end
 
   # GET /uploaded_files/1/edit
   def edit
-    add_breadcrumb "Edit", edit_uploaded_file_path
+    add_breadcrumb 'Edit', edit_uploaded_file_path
   end
 
   # POST /uploaded_files
@@ -36,10 +36,10 @@ class UploadedFilesController < ApplicationController
     @uploaded_file.name = uploaded_io.original_filename if @uploaded_file.name == ''
 
     # Just to be sure, replace every whitespace with a '-'
-    @uploaded_file.name.gsub!(/ /,'-')
+    @uploaded_file.name.gsub!(/ /, '-')
 
     # Then write to file
-    File.open( @uploaded_file.absolute_path, 'wb') do |file|
+    File.open(@uploaded_file.absolute_path, 'wb') do |file|
       file.write(uploaded_io.read)
     end
 
@@ -61,7 +61,7 @@ class UploadedFilesController < ApplicationController
       old_name = @uploaded_file.name
       if @uploaded_file.update(uploaded_file_params)
         format.html do
-          File.rename( absolute_path_for(old_name), @uploaded_file.absolute_path ) if old_name != @uploaded_file.name
+          File.rename(absolute_path_for(old_name), @uploaded_file.absolute_path) if old_name != @uploaded_file.name
           redirect_to @uploaded_file, notice: 'Uploaded file was successfully updated.'
         end
         format.json { render :show, status: :ok, location: @uploaded_file }
@@ -85,19 +85,19 @@ class UploadedFilesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_uploaded_file
-      @uploaded_file = UploadedFile.find(params[:id])
-      add_breadcrumb @uploaded_file.name, @uploaded_file
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def uploaded_file_params
-      params.require(:uploaded_file).permit(:name, :extract)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_uploaded_file
+    @uploaded_file = UploadedFile.find(params[:id])
+    add_breadcrumb @uploaded_file.name, @uploaded_file
+  end
 
-    def absolute_path_for(file_name)
-      Rails.root.join('public', 'uploads', file_name)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def uploaded_file_params
+    params.require(:uploaded_file).permit(:name, :extract)
+  end
 
+  def absolute_path_for(file_name)
+    Rails.root.join('public', 'uploads', file_name)
+  end
 end

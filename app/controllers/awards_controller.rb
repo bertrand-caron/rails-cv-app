@@ -1,5 +1,5 @@
 class AwardsController < ApplicationController
-  add_breadcrumb "Awards", :awards_path
+  add_breadcrumb 'Awards', :awards_path
   before_action :set_award, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:show, :index, :edit, :update, :new, :create, :destroy]
 
@@ -19,12 +19,12 @@ class AwardsController < ApplicationController
   def new
     @award = Award.new
     @award.rank = Award.count + 1
-    add_breadcrumb "New", new_award_path
+    add_breadcrumb 'New', new_award_path
   end
 
   # GET /awards/1/edit
   def edit
-    add_breadcrumb "Edit", edit_award_path
+    add_breadcrumb 'Edit', edit_award_path
   end
 
   # POST /awards
@@ -68,14 +68,15 @@ class AwardsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_award
-      @award = Award.find(params[:id])
-      add_breadcrumb @award.title, @award
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def award_params
-      params.require(:award).permit(:title, :location, :description, :time, :rank)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_award
+    @award = Award.find(params[:id])
+    add_breadcrumb @award.title, @award
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def award_params
+    params.require(:award).permit(:title, :location, :description, :time, :rank)
+  end
 end

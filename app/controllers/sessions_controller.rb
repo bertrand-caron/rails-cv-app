@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    add_breadcrumb "Sign In", signin_path
+    add_breadcrumb 'Sign In', signin_path
   end
 
   def create

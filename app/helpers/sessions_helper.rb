@@ -10,9 +10,7 @@ module SessionsHelper
     !current_user.nil?
   end
 
-  def current_user=(user)
-    @current_user = user
-  end
+  attr_writer :current_user
 
   def current_user
     remember_token = User.digest(cookies[:remember_token])
@@ -28,8 +26,8 @@ module SessionsHelper
 
   def signed_in_user
     respond_to do |format|
-      format.html {redirect_to root_url, notice: "Please sign in." unless signed_in?}
-      format.json {render :text => '{"error": "API token not found."}' unless signed_in?}
+      format.html { redirect_to root_url, notice: 'Please sign in.' unless signed_in? }
+      format.json { render text: '{"error": "API token not found."}' unless signed_in? }
     end
   end
 end

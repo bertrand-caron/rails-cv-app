@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :awards
 
-  resources :educations, :path => "education"
+  resources :educations, path: 'education'
   resources :users
   get '/educations', to: redirect('/education')
   root to: 'pages#curriculum'

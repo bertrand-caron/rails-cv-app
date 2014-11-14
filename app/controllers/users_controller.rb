@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  add_breadcrumb "Users", :users_path
+  add_breadcrumb 'Users', :users_path
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:show, :index, :edit, :update, :new, :create, :destroy]
 
@@ -18,12 +18,12 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    add_breadcrumb "New", new_user_path
+    add_breadcrumb 'New', new_user_path
   end
 
   # GET /users/1/edit
   def edit
-    add_breadcrumb "Edit", edit_user_path
+    add_breadcrumb 'Edit', edit_user_path
   end
 
   # POST /users
@@ -67,14 +67,15 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-      add_breadcrumb @user.name, @user
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+    add_breadcrumb @user.name, @user
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 end
