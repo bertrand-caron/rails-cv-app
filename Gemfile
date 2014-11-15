@@ -76,4 +76,7 @@ group :development, :test do
   # Code Coverage
   gem 'simplecov'
   gem 'rubocop'
+  # Code duplication
+  gem 'flay'
+  gem 'reek'
 end
