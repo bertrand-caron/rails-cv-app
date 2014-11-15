@@ -4,13 +4,13 @@ upstream cv {
 
 server {
   listen 80;
-  server_name   cv.YOUR_SERVER_FQDN;
+  server_name   YOUR_SERVER_FQDN;
   rewrite       ^ https://$server_name$request_uri? permanent;
 }
 
 server {
   listen *:443 ;
-  server_name cv.YOUR_SERVER_FQDN;
+  server_name YOUR_SERVER_FQDN;
   server_tokens off;
   root /home/cv/rails-cv-app/public;
 

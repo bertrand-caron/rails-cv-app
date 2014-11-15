@@ -8,7 +8,7 @@
 * This is the official installation guide to set up a production server.
 * The following steps have been known to work. Please use caution when you deviate from this guide. Make sure you don't violate any assumptions CV App makes about its environment. For example many people run into permission problems because they changed the location of directories or run services as the wrong user.
 * If you find a bug/error in this guide please submit an Issue on the Github page of the project.
-
+* The App assumes you will be using an encrypted session (HTTPS). To modify this behaviour, have a look at the section [Using HTTP over HTTPS][] of this file.
 ## Overview
 
 The following components will be set up:
@@ -21,9 +21,13 @@ The following components will be set up:
 1. Unicorn Server
 1. Nginx
 
+If you already have some experience with installing Rails Apps (for instance, `Gitlab`), you'll see it is fairly standard and should take less than 20 minutes.
+
+**Ok, let's get started.**
+
 ## 1. Packages / Dependencies
 
-First, update your environment.
+First, update your environment, just to be sure.
 
     # run as root!
     sudo apt-get update -y
@@ -80,7 +84,7 @@ Create a `cv` user for the CV App:
 
 ### Clone the Source
 
-    # Clone CV App repository
+    # Clone CV App repository from github
     git clone git@github.com:bertrand-caron/rails-cv-app.git
 
 ### Configure It
@@ -92,6 +96,8 @@ Create a `cv` user for the CV App:
     cp config/config.yml.example config/config.yml
 
     # Update config file
+    ## The mandatory fields are :
+    ### domain-name:
     editor config/config.yml
 
 ### Install Gems
@@ -119,7 +125,7 @@ Then install all the necessary gems:
 ### Init database and apply migrations
 
     # Run the necessary database migrations
-    sudo -u cv -H rake db:migrate RAILS_ENV=production
+    RAILS_ENV=production rake db:migrate
 
 ### Create First User manually
 
@@ -143,21 +149,21 @@ Then install all the necessary gems:
     # Precompile the assets, as needed for production environment
     bundle exec rake assets:precompile RAILS_ENV=production
 
+### Restart the CV App
+
+    # Restart the CV App
+    sudo service cv restart
+
 ### Test the App
 
-At the point, you should be able to fire the app locally on the computer you installed it on with `RAILS_ENV=production rails server`
+At this point, you should be able to fire the app locally on the computer you installed it on with `RAILS_ENV=production rails server`
 ant test it at `localhost:3000`.
 
-### Use your credentials to sign in and start adding items
 
-Sign in at `your_cv_app_url/signin` using the credentials your generated.
-
-Signing in grants you an additional button in the navbar, Models, giving you access to
-the different sections (Education, Internships, etc.).
 
 ## 6.Unicorn Server
 
-Copy the example config, and modify it if necessary (not necessary if you used the correct user and install path).
+Copy the example config, and modify it if necessary (not necessary if you used the correct user `cv` and install path `~cv/rails-cv-app`).
 
     # Copy the example config
     sudo -u cv -H cp config/unicorn.rb.example config/unicorn.rb
@@ -178,7 +184,7 @@ Make CV start on boot:
 
     sudo service cv start
 
-**Note:** If you are running into trouble at this point, Unicorn will most likely ask you to look at the content of `shared/log/unicorn.stderr.log`. Do it and see, google your error and post an Issue on the Github tracker if you can't get out of it.
+**Note:** If you are running into trouble at this point, Unicorn will most likely ask you to look at the content of `shared/log/unicorn.stderr.log`. Do it and see the content of the file, google your error and post an Issue on the Github tracker if you can't get out of it.
 
 ## 7.Nginx
 
@@ -197,6 +203,7 @@ Copy the example site config:
 
 Make sure to edit the config file to match your setup, especially your domain name:
 
+    # Replace YOUR_SERVER_FQDN with your domain name. Feel free to use subdomains if you want to (for instance cv.jdoe.me), but don't forget to set it properly in config/config.yml too ! 
     sudo editor /etc/nginx/sites-available/cv
 
 ### Restart Nginx
@@ -208,6 +215,21 @@ At this point, your CV App should be reachable at the domain name you provided.
 **Congratulations !**
 
 **Notes:** If you are having problems at this point, look at your nginx access (`less /var/log/nginx/cv_access.log `) and error (`less /var/log/nginx/cv_error.log `) logs for clues.
+
+# Using the Rails CV App
+
+## Use your credentials to sign in and start adding items
+
+Sign in at `your_cv_app_url/signin` using the credentials your generated.
+
+Signing in grants you an additional button in the navbar, `Models`, giving you access to the different sections (Education, Internships, etc.).
+
+## Customise the Settings
+
+There are two sites of settings inside the App : 
+
+* The Global/Developer settings that are located inside the `config/config.yml` YAML file. These are important values (server name, available sections, enabled plugins, etc.) that are not meant to be fiddled with, which are not modifiable in the front-end and that require the app to be restarted (with `sudo service cv restart`) when changed.
+* The User Settings that are meant to be highly dynamic (Name, Address, Theme Colors, etc.) that do not need the app to be restarted when they are changed. These are located under the `Settings` tab of the main navbar.
 
 # Extras
 
@@ -226,14 +248,7 @@ At this point, your CV App should be reachable at the domain name you provided.
     # Finally, refresh the sitemap and ping search engines
     RAILS_ENV=production rake sitemap:refresh
 
-## Customizing the App
-
-There are two sites of settings inside the App : 
-
-* The Global/Developer settings that are located inside the `config/config.yml` YAML file. These are important values (server name, available sections, enabled plugins, etc.) that are not meant to be fiddled with, which are not modifiable in the front-end and that require the app to be restarted (with `sudo service cv restart`) when changed.
-* The User Settings that are meant to be highly dynamic (Name, Address, Theme Colors, etc.) that do not need the app to be restarted when they are changed. These are located under the 'Settings' tab of the main navbar.
-
-## Use Piwik Tracking instead of Google Analytics
+## Using Piwik Tracking instead of Google Analytics
 
     # If you plan on using piwik, copy the following file
     cp config/piwik.yml.example config/piwik.yml
@@ -241,7 +256,13 @@ There are two sites of settings inside the App :
     # And update it with your settings
     editor config/piwik.yml
 
-# Updating Rails CV App
+## Using HTTP over HTTPS
+
+The App was written with HTTPS in mind, and as such I don't provide an option for switching it off.
+
+The Nginx file provided actually redirects all the unencrypted traffic (HTTP) to HTTPS. If you nevertheless want to bypass this by modifying the Nginx file, you may want to run `egrep -R 'https' app/ lib/ config/` to start looking for hard-coded HTTPS protocol and URLs.
+
+# Updating the Rails CV App
 
 ## Philosophy
 
