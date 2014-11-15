@@ -9,11 +9,17 @@ capybara-*.html
 /public/sitemap.xml.gz
 /tmp/cache
 /tmp/pids
+/tmp/validation
 /coverage/
 /spec/tmp
 **.orig
 rerun.txt
 pickle-email-*.html
+
+# Code coverage and smells reports
+public/rubocop.html
+public/coverage/*
+.rubocop.yml
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb

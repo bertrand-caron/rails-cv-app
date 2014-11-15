@@ -1,5 +1,5 @@
 upstream cv {
-  server unix:/home/cv/cv-app/tmp/sockets/cv.socket;
+  server unix:/home/cv/rails-cv-app/tmp/sockets/cv.socket;
 }
 
 server {
@@ -12,7 +12,7 @@ server {
   listen *:443 ;
   server_name cv.YOUR_SERVER_FQDN;
   server_tokens off;
-  root /home/cv/cv-app/public;
+  root /home/cv/rails-cv-app/public;
 
   # SSL
   # ============================================================================
