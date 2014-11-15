@@ -20,6 +20,7 @@ class SkillsController < ApplicationController
   def new
     @skill = Skill.new
     @skill.rank = Skill.count + 1
+    @skill.level = 3
     add_breadcrumb 'New', new_skill_path
   end
 

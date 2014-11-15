@@ -19,6 +19,7 @@ class ProgrammingSkillsController < ApplicationController
   def new
     @programming_skill = ProgrammingSkill.new
     @programming_skill.rank = ProgrammingSkill.count + 1
+    @programming_skill.ranking = 3
     add_breadcrumb 'New', new_programming_skill_path
   end
 

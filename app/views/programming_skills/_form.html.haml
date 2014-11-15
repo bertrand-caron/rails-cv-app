@@ -45,7 +45,7 @@
   = render :partial => 'pages/rank_form_field', :locals => {:f => f}
   .field.field-ranking{:style => ""}
     %div= f.label :ranking
-    = f.number_field :ranking, class: "form-control", min: '0', max: '5', value: '3'
+    = f.number_field :ranking, class: "form-control", min: '0', max: '5', value: "#{@programming_skill.ranking}"
     %p.help-block Rank your skill on a scale from 0 to 5. Try to use the bigger span possible in your skills to avoid looking delusional.
     %p
   .actions
