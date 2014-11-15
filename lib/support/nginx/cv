@@ -9,7 +9,7 @@ server {
 }
 
 server {
-  listen *:443 ;
+  listen *:443 ssl;
   server_name YOUR_SERVER_FQDN;
   server_tokens off;
   root /home/cv/rails-cv-app/public;
@@ -29,10 +29,16 @@ server {
 
   client_max_body_size 500M; # allows file uploads up to 500 megabytes
 
+  # Add Image Caching
+  location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
+    expires max;
+  }
+
   location / {
 
     # serve static files from defined root folder;.
     # @cv is a named location for the upstream fallback, see below
+    gzip_static on;
     try_files $uri $uri/index.html $uri.html @cv;
   }
 
