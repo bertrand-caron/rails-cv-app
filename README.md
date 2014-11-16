@@ -1,4 +1,12 @@
-# Rails CV App Installation
+# Rails CV App  - A Rails App for a neat-looking, easily customisable Curriculum Vitae
+
+## Screenshot
+
+![CV Demo Screenshot](http://cv-demo.bcaron.me/cv-demo.bcaron.me.png)
+
+## [First of all, try the Demo App !](https://cv-demo.bcaron.me)
+
+# Installation
 
 *Disclaimer: This guide was partly adapted from [Gitlab](https://github.com/gitlabhq/gitlabhq/blob/master/doc/install/installation.md)'s excellent install guide.*
 
@@ -192,7 +200,26 @@ Make CV start on boot:
 
 ### Installation
 
+    # Install Nginx    
     sudo apt-get install -y nginx
+
+### Generate SSL certificate
+
+Since the App uses HTTPS by default, you will need a SSL certificate. If you don't already use once for your hosted services, you will need to generate one. SSL Certificate deserve a tutorial on their own (Google is your friend), but for the time being, you can get by temporarily by issuing a self-signed certificate.
+
+To do so, run:
+
+    # First of all, install openssl
+    sudo apt-get install openssl
+
+    # Generate a directory for your certs
+    sudo mkdir /etc/nginx/certs
+    cd /etc/nginx/certs
+    
+    # Generate the certificate with openssl. Answer the questions asked by openssl as accurately as possible.
+    openssl req -x509 -newkey rsa:2048 -keyout rails-cv-app_privatekey.pem -out rails-cv-app_server.pem -days 1001 -nodes
+
+**Note:** Such a certificate will trigger warnings on modern browsers.
 
 ### Site Configuration
 
@@ -205,6 +232,8 @@ Make sure to edit the config file to match your setup, especially your domain na
 
     # Replace YOUR_SERVER_FQDN with your domain name. Feel free to use subdomains if you want to (for instance cv.jdoe.me), but don't forget to set it properly in config/config.yml too ! 
     sudo editor /etc/nginx/sites-available/cv
+
+**Note:** If you plan on using other SSL certificates that the one showed previously, be sure to update the `ssl_certificate` and `ssl_certificate_key` fields with your own values.
 
 ### Restart Nginx
 
@@ -288,8 +317,7 @@ What is does is quite trivial and can be found at `lib/tasks/git.rake`:
 
 ### Advanced: `git:merge`
 
-If you have done some non-trivial modifications to the App files that you would like to keep while still
-receiving the latest code update, you can either `git stash` to stash your local changed, `RAILS_ENV=production rake git:pull` to pull on the clean repository and then `git stash pop` once the code has been pulled, or use the `git:merge` rake task:
+If you have done some non-trivial modifications to the App files that you would like to keep while still receiving the latest code update, you can either run `git stash` to stash your local changed, then run `RAILS_ENV=production rake git:pull` to pull on the clean repository and finally `git stash pop` once the code has been pulled. The other solution is use the `git:merge` rake task like this:
 
     # Merge the origin/master changes
     RAILS_ENV=production rake git:merge

@@ -17,8 +17,8 @@ server {
   # SSL
   # ============================================================================
   ssl                   on;
-  ssl_certificate /etc/nginx/certs/bcaron_server.pem;
-  ssl_certificate_key /etc/nginx/certs/bcaron_privatekey.pem;
+  ssl_certificate /etc/nginx/certs/rails-cv-app_server.pem;
+  ssl_certificate_key /etc/nginx/certs/rails-cv-app_privatekey.pem;
   ssl_protocols         SSLv3 TLSv1;
 
   #Disables all weak ciphers
