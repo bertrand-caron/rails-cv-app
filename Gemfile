@@ -79,4 +79,6 @@ group :development, :test do
   # Code duplication
   gem 'flay'
   gem 'reek'
+  # Security
+  gem 'brakeman'
 end

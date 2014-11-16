@@ -1,6 +1,6 @@
 - skill_types.each do |skill_type|
   %h3= skill_type
   .listable-item
-    - Skill.where("skill_type='#{skill_type}'").each do |item|
+    - Skill.where(skill_type: skill_type).each do |item|
       %div{:onmouseout => "hide_edit_tools(this)", :onmouseover => "show_edit_tools(this)", style: 'clear:both'}
         = render partial: "skills/item", locals: {item: item}
