@@ -39,6 +39,11 @@ class UploadedFilesController < ApplicationController
     @uploaded_file.name.gsub!(/ /, '-')
 
     # Then write to file
+    # WARNING : File.open is definitely vulnerable to Path Traversal Attacks
+    # (https://www.owasp.org/index.php/Path_Traversal) 
+    # The following line should take care of it, by only taking the past part of the path (aka filename)
+    @uploaded_file.name = @uploaded_file.name.split(/\//)[-1]
+
     File.open(@uploaded_file.absolute_path, 'wb') do |file|
       file.write(uploaded_io.read)
     end

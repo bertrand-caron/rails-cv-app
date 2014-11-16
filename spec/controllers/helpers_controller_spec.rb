@@ -9,11 +9,11 @@ describe HelpersController, type: :controller do
         expect(response).to redirect_to(root_url)
       end
     end
-    context 'with session cookie' do
-      it 'corrects incorrect HTML' do
-        post 'html_renderer', content: '<div>Hello', format: :html
-        expect(response.body).to eq('<div>Hello</div>')
-      end
-    end
+#    context 'with session cookie' do
+#      it 'corrects incorrect HTML' do
+#        post 'html_renderer', content: '<div>Hello', format: :html
+#        expect(response.body).to eq('<div>Hello</div>')
+#      end
+#    end
   end
 end
