@@ -84,7 +84,14 @@ Install the Bundler Gem:
 
 Create a `cv` user for the CV App:
 
+    # Add the cv User
     sudo adduser --disabled-login --gecos 'Rails CV App' cv
+    # Add it to the sudo group (he'll need permission to restart services and install gems)
+    sudo usermod -aG sudo cv
+    # Set its password
+    sudo passwd cv
+    # Enter Password
+    # Enter Password Confirmation
 
 ## 4. Rails CV App
 
@@ -263,30 +270,30 @@ There are two sites of settings inside the App :
 
 ## Generate a sitemap
 
-    # Copy the example sitemap
-    cp config/sitemap.rb.example config/sitemap.rb
+    # Copy the example sitemap config file
+    sudo -u cv -H cp config/sitemap.rb.example config/sitemap.rb
 
     # If you already set up your domain-name correctly in config/config.yml, you have nothing else to do
     # Else, do it now !
-    editor config/config.yml
+    sudo -u cv -H editor config/config.yml
 
     # Then, add the necessary page to your sitemap in config/sitemap.yml
-    editor config/sitemap.yml
+    sudo -u cv -H editor config/sitemap.yml
 
     # Finally, refresh the sitemap and ping search engines
-    RAILS_ENV=production rake sitemap:refresh
+    sudo -u cv -H RAILS_ENV=production rake sitemap:refresh
 
 ## Using Piwik Tracking instead of Google Analytics
 
     # If you plan on using piwik, copy the following file
-    cp config/piwik.yml.example config/piwik.yml
+    sudo -u cv -H cp config/piwik.yml.example config/piwik.yml
     
     # And update it with your settings
-    editor config/piwik.yml
+    sudo -u cv -H editor config/piwik.yml
 
 ## Using HTTP over HTTPS
 
-The App was written with HTTPS in mind, and as such I don't provide an option for switching it off.
+The App was written with HTTPS in mind, and as such there is no option (yet?) for switching it off.
 
 The Nginx file provided actually redirects all the unencrypted traffic (HTTP) to HTTPS. If you nevertheless want to bypass this by modifying the Nginx file, you may want to run `egrep -R 'https' app/ lib/ config/` to start looking for hard-coded HTTPS protocol and URLs.
 
@@ -305,7 +312,7 @@ keep up to date with the project.
 Basically, the whole update process is controlled by a single Rake Task invoked with:
 
     # Update the whole App
-    RAILS_ENV=production rake git:pull
+    sudo -u cv -H RAILS_ENV=production rake git:pull
 
 What is does is quite trivial and can be found at `lib/tasks/git.rake`:
 
@@ -314,15 +321,18 @@ What is does is quite trivial and can be found at `lib/tasks/git.rake`:
 * Recompile assets
 * Restart server (this assume your set up properly the 'service-name:' property in `config/config.yml`)
 
+*Note: Running this command will require two passwords : first, your main user password (to invoke the Rake task as root with `sudo`); and then, the password of the `cv` user we defined at Step 2 (System Users) for running `sudo bundle install` or `sudo service cv restart`.*
+
 ### Advanced: `git:merge`
 
 If you have done some non-trivial modifications to the App files that you would like to keep while still receiving the latest code update, you can either run `git stash` to stash your local changed, then run `RAILS_ENV=production rake git:pull` to pull on the clean repository and finally `git stash pop` once the code has been pulled. The other solution is use the `git:merge` rake task like this:
 
     # Merge the origin/master changes
-    RAILS_ENV=production rake git:merge
+    sudo -u cv -H RAILS_ENV=production rake git:merge
 
 and then deal with the potential merge conflicts like you would on any other projects.
 
+*Note: Running this command will require two passwords : first, your main user password (to invoke the Rake task as root with `sudo`); and then, the password of the `cv` user we defined at Step 2 (System Users) for running `sudo bundle install` or `sudo service cv restart`.*
 
 **Enjoy!**
 
