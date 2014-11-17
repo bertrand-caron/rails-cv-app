@@ -25,4 +25,4 @@
           This section will not be displayed to visitors until you add at least one item.
       %br
       - if signed_in?
-        = button_to "Add #{pretty_model_name.singularize}", new_item_path, :class => "btn", :method => :get
+        = button_to "Add #{pretty_model_name.singularize}", new_item_path, :class => "btn btn-primary", :method => :get

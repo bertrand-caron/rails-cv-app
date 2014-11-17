@@ -29,7 +29,7 @@ The following components will be set up:
 1. Unicorn Server
 1. Nginx
 
-If you already have some experience with installing Rails Apps (for instance, `Gitlab`), you'll see it is fairly standard and should take less than 20 minutes.
+If you already have some experience with installing Rails Apps (for instance, `Gitlab`), you'll see it is fairly standard and should take less than 30 minutes.
 
 **Ok, let's get started.**
 
@@ -45,10 +45,11 @@ First, update your environment, just to be sure.
 
     # Install vim and set as default editor
     sudo apt-get install -y vim
+    sudo update-alternatives --set editor /usr/bin/vim.basic
 
 Install the required packages (needed to compile Ruby and native extensions to Ruby gems):
 
-    sudo apt-get install -y build-essential zlib1g-dev libyaml-dev libssl-dev libgdbm-dev libreadline-dev libncurses5-dev libffi-dev curl openssh-server redis-server checkinstall libxml2-dev libxslt-dev libcurl4-openssl-dev libicu-dev logrotate python-docutils pkg-config cmake
+    sudo apt-get install -y build-essential zlib1g-dev libyaml-dev libssl-dev libgdbm-dev libreadline-dev libncurses5-dev libffi-dev curl openssh-server redis-server checkinstall libxml2-dev libxslt-dev libcurl4-openssl-dev libicu-dev logrotate python-docutils pkg-config cmake libsqlite3-dev
 
 Make sure you have the right version of Git installed
 
@@ -73,6 +74,8 @@ Download Ruby and compile it:
     make
     sudo make install
 
+*Note: Downloading and then compiling Ruby is rather long (15 min total).*
+
 Install the Bundler Gem:
 
     sudo gem install bundler --no-ri --no-rdoc
@@ -81,7 +84,7 @@ Install the Bundler Gem:
 
 Create a `cv` user for the CV App:
 
-    sudo adduser --disabled-login --gecos 'CV App' cv
+    sudo adduser --disabled-login --gecos 'Rails CV App' cv
 
 ## 4. Rails CV App
 
@@ -93,7 +96,7 @@ Create a `cv` user for the CV App:
 ### Clone the Source
 
     # Clone CV App repository from github
-    git clone git@github.com:bertrand-caron/rails-cv-app.git
+    sudo -u cv -H git clone git@github.com:bertrand-caron/rails-cv-app.git
 
 ### Configure It
 
@@ -101,46 +104,43 @@ Create a `cv` user for the CV App:
     cd /home/cv/rails-cv-app
 
     # Copy the example config
-    cp config/config.yml.example config/config.yml
+    sudo -u cv -H cp config/config.yml.example config/config.yml
 
     # Update config file
     ## The mandatory fields are :
     ### domain-name:
-    editor config/config.yml
+    sudo -u cv -H editor config/config.yml
 
 ### Install Gems
 
-If the 'bundler' gem is not installed yet, do it:
-
-    # Install Bundler gem
-    gem install bundler
-
-Then install all the necessary gems:
+Install all the necessary gems system-wide:
 
     # Install Gems
     sudo bundle install
 
+*Note: If this is the first time deploying Rails App to your server, this step can be rather long (10-15min).*
+
 ### Set the secret key
 
     # Copy the template secrets.yml file
-    cp config/secrets.yml.example config/secrets.yml
+    sudo -u cv -H cp config/secrets.yml.example config/secrets.yml
 
     # Open the secret file, and enter a valid secret key as explained in the comments
-    editor config/secrets.yml
+    sudo -u cv -H editor config/secrets.yml
 
 ## 5.Database
 
 ### Init database and apply migrations
 
     # Run the necessary database migrations
-    RAILS_ENV=production rake db:migrate
+    sudo -u cv -H RAILS_ENV=production rake db:migrate
 
 ### Create First User manually
 
     # Go to the CV rails app folder
     cd ~cv/rails-cv-app
     # Open the rails console
-    RAILS_ENV=production rails console
+    sudo -u cv -H RAILS_ENV=production rails console
     # Create your first user
     # 'irb(main):001:0>' is the console prompt
     irb(main):001:0> user=User.create!(:email=>'admin@local.host',:name=>'Admin',:password=>'foobar')
@@ -150,24 +150,22 @@ Then install all the necessary gems:
 ### Initialise User Settings
 
     # Run the rake tasks
-    RAILS_ENV=production bundle exec rake settings:init
+    sudo -u cv -H RAILS_ENV=production bundle exec rake settings:init
 
 ### Precompile assets
 
     # Precompile the assets, as needed for production environment
-    bundle exec rake assets:precompile RAILS_ENV=production
-
-### Restart the CV App
-
-    # Restart the CV App
-    sudo service cv restart
-
-### Test the App
-
-At this point, you should be able to fire the app locally on the computer you installed it on with `RAILS_ENV=production rails server`
-ant test it at `localhost:3000`.
+    sudo -u cv -H RAILS_ENV=production bundle exec rake assets:precompile
 
 
+### Optional: Test the App on `localhost`
+
+**Warning: For this test to work, you'll need to temporarily set `force_ssl = false` in `config/environments/production.rb`. Don't forget to unset it at the end of this paragraph !**
+
+At this point, you should be able to fire the app locally on the computer you installed it on with `sudo -u cv -H RAILS_ENV=production rails server`
+ant test it on a web browser **running on the server machine** at `localhost:3000`. Hit 'Ctrl+c' to exit the WEBRick rails server.
+
+**Don't forget to unset it at the end of your local test by running `git checkout --  config/environments/production.rb` ! This is will all the changers made to this file.**
 
 ## 6.Unicorn Server
 
@@ -216,8 +214,9 @@ To do so, run:
     sudo mkdir /etc/nginx/certs
     cd /etc/nginx/certs
     
-    # Generate the certificate with openssl. Answer the questions asked by openssl as accurately as possible.
-    openssl req -x509 -newkey rsa:2048 -keyout rails-cv-app_privatekey.pem -out rails-cv-app_server.pem -days 1001 -nodes
+    # Generate the certificate with openssl. 
+    sudo openssl req -x509 -newkey rsa:2048 -keyout rails-cv-app_privatekey.pem -out rails-cv-app_server.pem -days 1001 -nodes
+    # Answer the questions asked by openssl as accurately as possible.
 
 **Note:** Such a certificate will trigger warnings on modern browsers.
 
