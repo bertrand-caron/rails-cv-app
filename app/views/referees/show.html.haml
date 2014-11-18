@@ -34,10 +34,11 @@
       %p
         %strong Referee's Report:
         = @referee.uploaded_file.try(:name)
-      %p
-        %strong Referee's Report Comment:
-        = @referee.comment
-        = link_to 'Edit comment', edit_uploaded_file_path(@referee.uploaded_file)
+      - if @referee.uploaded_file
+        %p
+          %strong Referee's Report Comment:
+          = @referee.comment
+          = link_to 'Edit comment', edit_uploaded_file_path(@referee.uploaded_file)
   = link_to 'Edit', edit_referee_path(@referee)
   |
   =link_to 'Destroy', @referee, method: :delete, data: { confirm: 'Are you sure?' }
