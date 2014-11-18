@@ -4,5 +4,6 @@ module Listable
 
   included do
     validates :rank, numericality: true
+    default_scope  { order(rank: :desc) }
   end
 end
