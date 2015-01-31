@@ -34,3 +34,6 @@ available-sections: 'educations internships programming_skills skills awards pub
 
 # Enable HTML editor (Not free for commercial use, see: https://editor.froala.com)
 enable-html-editor: true
+
+# Display a 'Fork me on Github' ribbon
+display-github-ribbon: true
