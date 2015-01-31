@@ -1,11 +1,11 @@
-= form_for(@internship) do |f|
-  - if @internship.errors.any?
+= form_for(@work_experience) do |f|
+  - if @work_experience.errors.any?
     .panel.panel-danger
       .panel-heading
-        = pluralize(@internship.errors.count, "error")
-        prohibited this internship from being saved:
+        = pluralize(@work_experience.errors.count, "error")
+        prohibited this work_experience from being saved:
       %ul
-        - @internship.errors.full_messages.each do |message|
+        - @work_experience.errors.full_messages.each do |message|
           %li= message
   .field
     %div= f.label :title
@@ -13,8 +13,8 @@
     %p.help-block
       %b Tip
       For better rendering, try to keep the title a little less than on-line long.
-  = render :partial => 'pages/hyperlink_form_field', :locals => {:f => f, :item => @internship}
-  = render :partial => 'pages/description_form_field', :locals => {:f => f, :item => @internship}
+  = render :partial => 'pages/hyperlink_form_field', :locals => {:f => f, :item => @work_experience}
+  = render :partial => 'pages/description_form_field', :locals => {:f => f, :item => @work_experience}
   .field
     %div= f.label :report_path
     = f.text_field :report_path, class: "form-control", placeholder: "Ex: /uploads/IBPC-2012.pdf"
@@ -23,8 +23,8 @@
       If you uploaded a file (Ex: Report), you can have a link to it displayed a the bottom of the item.
     =render 'pages/add_file_field'
   .field
-    %div= f.label :laboratory
-    = f.text_field :laboratory, class: "form-control", placeholder: "Laboratory Acronym (Laboratory Full Name)"
+    %div= f.label :company
+    = f.text_field :company, class: "form-control", placeholder: "Company Name"
   .field
     %div= f.label :location
     = f.text_field :location, class: "form-control", placeholder: "City (Country)"

@@ -30,7 +30,7 @@
       a simple yet powerful for structuring information.
       If you don't know Markdown already, you should really have a look at it.
       Otherwise, just use plain HTML, or worse, unformatted text.
-  = render :partial => 'pages/hyperlink_form_field', :locals => {:f => f}
+  = render :partial => 'pages/hyperlink_form_field', :locals => {:f => f, :item => @programming_skill}
   .field
     %div= f.label :icon
     = f.text_field :icon, class: "form-control", placeholder: '(Optionnal) Ex: \'raspberrypi\''

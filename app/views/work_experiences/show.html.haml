@@ -1,0 +1,40 @@
+- content_for :title, controller_name.capitalize + ": " +  @work_experience.title
+%p#notice= notice
+%h2
+  Work Experience: #{@work_experience.title}
+%hr/
+%div{:style => "margin:0 0 0 50px"}
+  %p
+    %strong Description:
+    %br/
+    = raw @work_experience.description
+  %p
+    %strong Location:
+    = @work_experience.location
+  %p
+    %strong Laboratory:
+    = @work_experience.company
+  %p
+    %strong Duration:
+    = @work_experience.duration
+  - if signed_in?
+    %br/
+    .panel.panel-info
+      .panel-heading
+        Admin Settings
+      .panel-body
+        %p
+          %strong Referee Id:
+          = @work_experience.referee_id
+        %p
+          %strong Hyperlink:
+          \/work_experiences/#{@work_experience.hyperlink}
+        %p
+          %strong Report path:
+          = @work_experience.report_path
+        %p
+          %strong Rank:
+          = @work_experience.rank
+    = link_to 'Edit', edit_work_experience_path(@work_experience)
+    |
+  = link_to 'Back', work_experiences_path

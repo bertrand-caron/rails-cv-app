@@ -1,0 +1,7 @@
+= content_for :title, "Edit #{@work_experience.title}"
+%div{:style => "margin:0 100px"}
+  %h1 Editing Work Experience
+  = render 'form'
+  = link_to 'Show', @work_experience
+  |
+  \#{link_to 'Back', work_experiences_path}

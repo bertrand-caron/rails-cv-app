@@ -3,4 +3,4 @@
   = f.text_field :hyperlink, class: "form-control", placeholder: "(Optionnal) Ex: 'MIT-2014'"
   %p.help-block
     %b Optionnal
-    Used to provide a better hyperlink than '/internships/12'. Improves your SEO as well as your site's lisibility.
+    = "Used to provide a better hyperlink than '/#{item.class.name.downcase}/12'. Improves your SEO as well as your site's lisibility."
