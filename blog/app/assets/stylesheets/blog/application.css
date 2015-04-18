@@ -12,10 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
 div.author-side {
-  float:left;
   width: 16.66667%;
   margin-left: 4.16667%;
   margin-right: 4.16667%;
@@ -23,4 +23,15 @@ div.author-side {
 
 ul.author-side-links li{
   list-style-type: none;
+}
+
+#index {
+}
+
+.article-date {
+  float:right;
+}
+
+#all-articles {
+  border-bottom: 1px solid #000;
 }

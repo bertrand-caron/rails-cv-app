@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.1.5"
   s.add_dependency "haml", "~> 4.0.6"
+  s.add_dependency "font-awesome-rails", "~> 4.3.0"
 
   s.add_development_dependency "sqlite3"
 end

@@ -1,10 +1,15 @@
 .author-side
-  %h2 Blog Title
+  %h2
+    =link_to "Blog Title", root_path
   %img
   %h2 Author
   %p Author biography.
   %ul.author-side-links
     %a
-      %li Email
+      %li
+        = fa_icon "envelope-square"
+        Email
     %a
-      %li Github
+      %li
+        = fa_icon "github-square"
+        Github
