@@ -8,7 +8,11 @@
 </head>
 <body>
 
-<%= yield %>
+
+<%= render file: 'layouts/blog/_article_author_side' %>
+<div id="index">
+  <%= yield %>
+</div>
 
 </body>
 </html>
