@@ -16,6 +16,7 @@
  */
 
 div.author-side {
+  position: absolute;
   width: 16.66667%;
   margin-left: 4.16667%;
   margin-right: 4.16667%;
@@ -30,6 +31,12 @@ ul.author-side-links li{
 }
 
 #index {
+  position:relative;
+  left: 25%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 100px;
+  width: 75%;
 }
 
 .article-date {
@@ -38,4 +45,8 @@ ul.author-side-links li{
 
 #all-articles {
   border-bottom: 1px solid #000;
+}
+
+#footer {
+  margin-top: 100px;
 }

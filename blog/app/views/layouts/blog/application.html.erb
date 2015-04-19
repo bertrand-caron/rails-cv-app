@@ -6,13 +6,15 @@
   <%= javascript_include_tag "blog/application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+  <%= render file: 'layouts/blog/_article_author_side' %>
 
+  <div id="index">
+    <%= yield %>
 
-<%= render file: 'layouts/blog/_article_author_side' %>
-<div id="index">
-  <%= yield %>
-</div>
-
+    <%= render file: 'layouts/blog/_footer' %>
+  </div>
 </body>
+
 </html>

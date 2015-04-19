@@ -8,8 +8,12 @@
     %a
       %li
         = fa_icon "envelope-square"
-        =link_to 'Email', "mailto:#{Blog::APP_CONFIG['author']['email']}"
+        = link_to 'Email', "mailto:#{Blog::APP_CONFIG['author']['email']}"
     %a
       %li
         = fa_icon "github-square"
         = link_to 'Github', "https://github.com/#{Blog::APP_CONFIG['author']['github']}"
+    %a
+      %li
+        = fa_icon "stack-overflow"
+        = link_to 'Stack Overflow', "http://stackoverflow.com/users/#{Blog::APP_CONFIG['author']['stack-overflow']}"
