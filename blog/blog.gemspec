@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "font-awesome-rails", "~> 4.3.0"
   s.add_dependency "twitter-bootstrap-rails", "~> 3.2.0"
   s.add_dependency "jquery-rails", "~> 4.0.3"
+  s.add_dependency "redcarpet", "~> 3.2.3"
 
   s.add_development_dependency "sqlite3"
 end
