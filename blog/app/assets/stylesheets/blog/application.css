@@ -21,6 +21,10 @@ div.author-side {
   margin-right: 4.16667%;
 }
 
+#author-img {
+  border-radius: 50%;
+}
+
 ul.author-side-links li{
   list-style-type: none;
 }
