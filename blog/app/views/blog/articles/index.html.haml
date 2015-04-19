@@ -4,4 +4,4 @@
   .article
     .article-date DD/MM/YYYY
     %h3= article.title
-    %p= truncate(article.body, length: 800, separator: ' '){link_to 'Continue Reading', article_path(article)}
+    %p= markdown(truncate(article.body, length: 800, separator: ' '){link_to 'Continue Reading', article_path(article)}, downgrade: 3)
