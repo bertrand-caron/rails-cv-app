@@ -8,9 +8,10 @@
 </head>
 
 <body>
-  <%= render file: 'layouts/blog/_article_author_side' %>
+  <%= render file: 'layouts/blog/_author_side' %>
 
   <div id="index">
+    <p id='blog-description'><%= Blog::APP_CONFIG['blog']['description'] %></p>
     <%= yield %>
 
     <%= render file: 'layouts/blog/_footer' %>

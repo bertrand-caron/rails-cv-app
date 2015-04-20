@@ -1,10 +1,10 @@
 .author-side
-  %h2
+  %h2#blog-title
     =link_to Blog::APP_CONFIG['blog']['title'], root_path
   = image_tag Blog::APP_CONFIG['author']['img'], id: 'author-img'
   %h2= Blog::APP_CONFIG['author']['name']
-  %p= Blog::APP_CONFIG['author']['biography']
-  %ul.author-side-links
+  %p.justified= Blog::APP_CONFIG['author']['biography']
+  %ul#author-side-links
     %a
       %li
         = fa_icon "envelope-square"
