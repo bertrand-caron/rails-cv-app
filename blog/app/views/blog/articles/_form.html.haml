@@ -1,0 +1,17 @@
+= form_for(@article) do |f|
+  - if @article.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@article.errors.count, "error")
+        prohibited this article from being saved:
+      %ul
+        - @article.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :body
+    = f.text_area :body, class: 'form-control', rows: 12
+  .actions
+    = f.submit nil, class: 'btn btn-primary'

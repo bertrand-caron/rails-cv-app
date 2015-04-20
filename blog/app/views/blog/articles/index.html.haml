@@ -3,5 +3,5 @@
 - @articles.each do |article|
   .article
     .article-date= article.created_at.strftime("%d %B %Y")
-    %h3= article.title
+    %h3= link_to article.title, article
     %p= markdown(truncate(article.body, length: 800, separator: ' '){link_to 'Continue Reading', article_path(article)}, downgrade: 3)
