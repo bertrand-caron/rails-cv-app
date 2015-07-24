@@ -150,4 +150,18 @@ ActiveRecord::Schema.define(version: 20150418061932) do
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
+  create_table "work_experiences", force: true do |t|
+    t.text     "title"
+    t.string   "hyperlink"
+    t.text     "description"
+    t.string   "report_path"
+    t.string   "location"
+    t.string   "duration"
+    t.integer  "rank"
+    t.integer  "referee_id"
+    t.string   "company"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end
