@@ -16,7 +16,8 @@
 * This is the official installation guide to set up a production server.
 * The following steps have been known to work. Please use caution when you deviate from this guide. Make sure you don't violate any assumptions CV App makes about its environment. For example many people run into permission problems because they changed the location of directories or run services as the wrong user.
 * If you find a bug/error in this guide please submit an Issue on the Github page of the project.
-* The App assumes you will be using an encrypted session (HTTPS). To modify this behaviour, have a look at the section [Using HTTP over HTTPS][] of this file.
+* The App assumes you will be using an encrypted session (HTTPS). To modify this behaviour, have a look at the section [Using HTTP over HTTPS](#using-http-over-https) of this file.
+
 ## Overview
 
 The following components will be set up:
