@@ -37,3 +37,6 @@ enable-html-editor: true
 
 # Display a 'Fork me on Github' ribbon
 display-github-ribbon: true
+
+# Use and link to a minimalistic blog engine where you can post
+use-blog-engine: true

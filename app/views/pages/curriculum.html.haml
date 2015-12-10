@@ -15,7 +15,7 @@
         = UserSettings.mobile_phone
       %li.social-icon
         %i.fa.fa-book{:style => "font-size:22px;margin-right:5px"}
-        %a{:href => Settings['domain-name'], :itemprop => "url"}= Settings['domain-name']
+        %a{:href => Settings['cv_or_blog_url'], :itemprop => "url"}= Settings['domain-name'] + (Settings['cv_or_blog_url'] != '/' ? Settings['cv_or_blog_url'] : '')
       %li.social-icon
         %i.fa.fa-info-circle{:style => "font-size:19px"}
         = UserSettings.infos
