@@ -43,3 +43,4 @@ config/sitemap.rb
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
+Gemfile.lock
