@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150418061932) do
 
-  create_table "awards", force: true do |t|
+  create_table "awards", force: :cascade do |t|
     t.string   "title"
     t.string   "location"
     t.text     "description"
@@ -23,14 +23,14 @@ ActiveRecord::Schema.define(version: 20150418061932) do
     t.integer  "rank"
   end
 
-  create_table "blog_articles", force: true do |t|
+  create_table "blog_articles", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "educations", force: true do |t|
+  create_table "educations", force: :cascade do |t|
     t.string   "institution"
     t.string   "institution_location"
     t.string   "degree"
@@ -41,14 +41,14 @@ ActiveRecord::Schema.define(version: 20150418061932) do
     t.integer  "rank"
   end
 
-  create_table "followers", force: true do |t|
+  create_table "followers", force: :cascade do |t|
     t.string   "email"
     t.datetime "reminder"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "internships", force: true do |t|
+  create_table "internships", force: :cascade do |t|
     t.text     "title"
     t.string   "hyperlink"
     t.text     "description"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20150418061932) do
     t.integer  "referee_id"
   end
 
-  create_table "programming_skills", force: true do |t|
+  create_table "programming_skills", force: :cascade do |t|
     t.string   "title"
     t.integer  "skill_type"
     t.text     "description"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20150418061932) do
     t.string   "icon"
   end
 
-  create_table "publications", force: true do |t|
+  create_table "publications", force: :cascade do |t|
     t.string   "title"
     t.string   "journal"
     t.text     "authors"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20150418061932) do
     t.integer  "rank"
   end
 
-  create_table "referees", force: true do |t|
+  create_table "referees", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.text     "title"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20150418061932) do
     t.integer  "uploaded_file_id"
   end
 
-  create_table "settings", force: true do |t|
+  create_table "settings", force: :cascade do |t|
     t.string   "var",                   null: false
     t.text     "value"
     t.integer  "thing_id"
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 20150418061932) do
 
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true
 
-  create_table "skills", force: true do |t|
+  create_table "skills", force: :cascade do |t|
     t.string   "title"
     t.string   "skill_type"
     t.text     "description"
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20150418061932) do
     t.datetime "updated_at"
   end
 
-  create_table "softwares", force: true do |t|
+  create_table "softwares", force: :cascade do |t|
     t.string   "name"
     t.string   "github_link"
     t.text     "description"
@@ -132,14 +132,14 @@ ActiveRecord::Schema.define(version: 20150418061932) do
     t.string   "hyperlink"
   end
 
-  create_table "uploaded_files", force: true do |t|
+  create_table "uploaded_files", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "extract"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(version: 20150418061932) do
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
-  create_table "work_experiences", force: true do |t|
+  create_table "work_experiences", force: :cascade do |t|
     t.text     "title"
     t.string   "hyperlink"
     t.text     "description"
