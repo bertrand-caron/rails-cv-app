@@ -38,7 +38,7 @@ gem 'actionpack-page_caching'
 # end
 
 gem 'redcarpet'
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', '~> 4.5.0'
 gem 'piwik_analytics', github: 'bertrand-caron/piwik-ruby-tracking'
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 
