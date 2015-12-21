@@ -1,8 +1,11 @@
 GIT
-  remote: git://github.com/turgu1/yaml_db.git
-  revision: bd632c7d64940665524af4441580e3c6e96ee359
+  remote: git://github.com/bertrand-caron/piwik-ruby-tracking.git
+  revision: 0a33656abd4f01009b54624ad17024fd72b41bab
   specs:
-    yaml_db (0.2.3)
+    piwik_analytics (1.0.3)
+      actionpack
+      activesupport
+      rails (>= 3.0.0)
 
 GIT
   remote: git://github.com/bmc/jquery-raty-rails.git
@@ -12,17 +15,22 @@ GIT
       rails (>= 3.2.3)
 
 GIT
-  remote: git://github.com/bertrand-caron/piwik-ruby-tracking.git
-  revision: 0a33656abd4f01009b54624ad17024fd72b41bab
+  remote: git://github.com/kjvarga/sitemap_generator.git
+  revision: 028251269d3996f82b366c805ca56e9150f2997f
   specs:
-    piwik_analytics (1.0.3)
-      actionpack
-      activesupport
-      rails (>= 3.0.0)
+    sitemap_generator (5.1.0)
+      builder
+
+GIT
+  remote: git://github.com/turgu1/yaml_db.git
+  revision: bd632c7d64940665524af4441580e3c6e96ee359
+  specs:
+    yaml_db (0.2.3)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    abstract_type (0.0.7)
     actionmailer (4.1.5)
       actionpack (= 4.1.5)
       actionview (= 4.1.5)
@@ -51,9 +59,43 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    adamantium (0.2.0)
+      ice_nine (~> 0.11.0)
+      memoizable (~> 0.4.0)
+    addressable (2.4.0)
     arel (5.0.1.20140414130214)
+    ast (2.2.0)
+    astrolabe (1.3.1)
+      parser (~> 2.2)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.7)
+    brakeman (3.1.3)
+      erubis (~> 2.6)
+      fastercsv (~> 1.5)
+      haml (>= 3.0, < 5.0)
+      highline (>= 1.6.20, < 2.0)
+      multi_json (~> 1.2)
+      ruby2ruby (>= 2.1.1, < 2.3.0)
+      ruby_parser (~> 3.7.0)
+      safe_yaml (>= 1.0)
+      sass (~> 3.0)
+      slim (>= 1.3.6, < 4.0)
+      terminal-table (~> 1.4)
     builder (3.2.2)
+    capybara (2.5.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    codeclimate-engine-rb (0.1.0)
+      virtus (~> 1.0)
+    coderay (1.1.0)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -62,12 +104,62 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     commonjs (0.2.7)
+    concord (0.1.5)
+      adamantium (~> 0.2.0)
+      equalizer (~> 0.0.9)
+    css_parser (1.3.7)
+      addressable
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
+    diff-lcs (1.2.5)
+    docile (1.1.5)
+    equalizer (0.0.11)
     erubis (2.7.0)
+    exception_notification (4.1.2)
+      actionmailer (~> 4.0)
+      activesupport (~> 4.0)
     execjs (2.2.1)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
+    faker (1.6.1)
+      i18n (~> 0.5)
+    fastercsv (1.5.5)
+    ffi (1.9.10)
+    flay (2.6.1)
+      ruby_parser (~> 3.0)
+      sexp_processor (~> 4.0)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
+    formatador (0.2.5)
+    guard (2.13.0)
+      formatador (>= 0.2.4)
+      listen (>= 2.7, <= 4.0)
+      lumberjack (~> 1.0)
+      nenv (~> 0.1)
+      notiffany (~> 0.0)
+      pry (>= 0.9.12)
+      shellany (~> 0.0)
+      thor (>= 0.18.1)
+    guard-compat (1.2.1)
+    guard-rspec (4.6.4)
+      guard (~> 2.1)
+      guard-compat (~> 1.1)
+      rspec (>= 2.99.0, < 4.0)
+    haml (4.0.7)
+      tilt
+    highline (1.7.8)
     hike (1.2.3)
+    html2haml (2.0.0)
+      erubis (~> 2.7.0)
+      haml (~> 4.0.0)
+      nokogiri (~> 1.6.0)
+      ruby_parser (~> 3.5)
+    htmlentities (4.3.4)
     i18n (0.6.11)
+    ice_nine (0.11.1)
     jbuilder (2.1.3)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -75,20 +167,55 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.9.2)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     less (2.5.1)
       commonjs (~> 0.2.7)
     less-rails (2.5.0)
       actionpack (>= 3.1)
       less (~> 2.5.0)
     libv8 (3.16.14.3)
+    listen (3.0.5)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+    lumberjack (1.0.9)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memoizable (0.4.2)
+      thread_safe (~> 0.3, >= 0.3.1)
+    method_source (0.8.2)
     mime-types (1.25.1)
+    mini_portile2 (2.0.0)
     minitest (5.4.1)
     multi_json (1.10.1)
+    nenv (0.2.0)
+    nokogiri (1.6.7.1)
+      mini_portile2 (~> 2.0.0.rc2)
+    notiffany (0.0.8)
+      nenv (~> 0.1)
+      shellany (~> 0.0)
+    paleta (0.3.0)
+    parser (2.2.3.0)
+      ast (>= 1.1, < 3.0)
     polyglot (0.3.5)
+    powerpack (0.1.1)
+    premailer (1.8.6)
+      css_parser (>= 1.3.6)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.8.2)
+      actionmailer (>= 3, < 5)
+      premailer (~> 1.7, >= 1.7.9)
+    private_attr (1.1.0)
+    procto (0.0.2)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -102,17 +229,64 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.5)
       sprockets-rails (~> 2.0)
+    rails-settings-cached (0.4.1)
+      rails (>= 4.0.0)
     railties (4.1.5)
       actionpack (= 4.1.5)
       activesupport (= 4.1.5)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    rainbow (2.0.0)
     raindrops (0.13.0)
     rake (10.3.2)
+    rb-fsevent (0.9.6)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
     redcarpet (3.1.2)
+    reek (3.7.1)
+      codeclimate-engine-rb (~> 0.1.0)
+      parser (~> 2.2, >= 2.2.2.5)
+      private_attr (~> 1.1)
+      rainbow (~> 2.0)
+      unparser (~> 0.2.2)
     ref (1.0.5)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.1)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-rails (3.4.0)
+      actionpack (>= 3.0, < 4.3)
+      activesupport (>= 3.0, < 4.3)
+      railties (>= 3.0, < 4.3)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
+    rubocop (0.35.1)
+      astrolabe (~> 1.3)
+      parser (>= 2.2.3.0, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.7)
+      tins (<= 1.6.0)
+    ruby-progressbar (1.7.5)
+    ruby2ruby (2.2.0)
+      ruby_parser (~> 3.1)
+      sexp_processor (~> 4.0)
+    ruby_parser (3.7.2)
+      sexp_processor (~> 4.1)
+    safe_yaml (1.0.4)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -122,7 +296,20 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sexp_processor (4.6.0)
+    shellany (0.0.1)
+    simplecov (0.11.1)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
+    slim (3.0.6)
+      temple (~> 0.7.3)
+      tilt (>= 1.3.3, < 2.1)
+    slop (3.6.0)
     spring (1.1.3)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -133,12 +320,15 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.9)
+    temple (0.7.6)
+    terminal-table (1.5.2)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    tins (1.6.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -158,6 +348,24 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    unparser (0.2.4)
+      abstract_type (~> 0.0.7)
+      adamantium (~> 0.2.0)
+      concord (~> 0.1.5)
+      diff-lcs (~> 1.2.5)
+      equalizer (~> 0.0.9)
+      parser (~> 2.2.2)
+      procto (~> 0.0.2)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
+    wysiwyg-rails (1.2.7)
+      font-awesome-rails (>= 4.2.0.0)
+      railties (>= 3.2, < 5.0)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -165,22 +373,47 @@ PLATFORMS
 DEPENDENCIES
   actionpack-page_caching
   bcrypt (~> 3.1.7)
+  brakeman
+  capybara
   coffee-rails (~> 4.0.0)
+  exception_notification
+  factory_girl_rails
+  faker
+  flay
   font-awesome-rails
+  guard-rspec
+  haml
+  html2haml
   jbuilder (~> 2.0)
   jquery-rails
   jquery-raty-rails!
+  kaminari
+  launchy
   less-rails
+  nokogiri
+  paleta
   piwik_analytics!
+  premailer-rails
   rails (= 4.1.5)
+  rails-settings-cached (= 0.4.1)
   redcarpet
+  reek
+  rspec-rails
+  rubocop
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  simplecov
+  sitemap_generator!
   spring
+  spring-commands-rspec
   sqlite3
   therubyracer
   turbolinks
   twitter-bootstrap-rails (~> 3.2.0)
   uglifier (>= 1.3.0)
   unicorn
+  wysiwyg-rails
   yaml_db!
+
+BUNDLED WITH
+   1.10.6
