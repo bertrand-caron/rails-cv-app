@@ -20,9 +20,9 @@
       - else
         = render partial: 'pages/listable_index_others', locals: {listable_enum: listable_enum, pretty_model_name: pretty_model_name}
       - if empty_section?(pretty_model_name)
-        .listable-comment
+        .listable-comment.no-print
           %b NB
           This section will not be displayed to visitors until you add at least one item.
       %br
       - if signed_in?
-        = button_to "Add #{pretty_model_name.singularize}", new_item_path, :class => "btn btn-primary", :method => :get
+        = button_to "Add #{pretty_model_name.singularize}", new_item_path, :class => "btn btn-primary no-print", :method => :get

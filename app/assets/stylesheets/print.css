@@ -1,0 +1,70 @@
+@media print
+{
+  body
+  {
+    width: 100% !important;
+  }
+
+	.no-print, .no-print *
+	{
+    display: none !important;
+	}
+
+  a[href]:after
+  {
+    content: '' !important;
+    text-decoration: none !important;
+  }
+
+  h1
+  {
+    line-height: 20pt !important;
+    font-size:18pt !important;
+  }
+
+  h2
+  {
+    line-height: 18pt !important;
+    font-size:16pt !important;
+  }
+
+  h3
+  {
+    line-height: 16pt !important;
+    font-size:14pt !important;
+  }
+
+  h4
+  {
+    line-height: 14pt !important;
+    font-size:12pt !important;
+  }
+
+  h5
+  {
+    line-height: 12pt !important;
+    font-size:10pt !important;
+  }
+
+  *
+  {
+    line-height: 10pt !important;
+    font-size:8pt !important;
+  }
+
+  .curriculum-page
+  {
+    margin: 0 !important;
+  }
+
+  .listable-content
+  {
+    margin: 0 !important;
+  }
+
+  .listable-item
+  {
+    margin-top: 1em !important;
+    padding: 0 !important;
+  }
+}
