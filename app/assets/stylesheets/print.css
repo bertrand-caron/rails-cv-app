@@ -57,6 +57,12 @@
     margin: 0 !important;
   }
 
+  #id-img
+  {
+    height: 5cm !important;
+    width: auto !important;
+  }
+
   .listable-content
   {
     margin: 0 !important;
@@ -66,5 +72,11 @@
   {
     margin-top: 1em !important;
     padding: 0 !important;
+  }
+
+  .referee-img
+  {
+    height: 1.5cm !important;
+    width: auto !important;
   }
 }

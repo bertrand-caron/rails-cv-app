@@ -5,10 +5,10 @@
     - else
       = item.name
   - if signed_in?
-    .edit-tools= edit_tool_tag edit_referee_path(item)
-    .edit-tools= delete_tool_tag item
+    .edit-tools.no-print= edit_tool_tag edit_referee_path(item)
+    .edit-tools.no-print= delete_tool_tag item
   %p{:style => "margin-bottom:0"}= item.title
-  .bottom-links
+  .bottom-links.no-print
     %ul
       %li
         %a{:href => "mailto:#{item.email}"}
@@ -20,5 +20,5 @@
         %li
           %a{:href => item.uploaded_file.absolute_url} What #{item.gender_pronoun(:subject)} wrote about me
 %div{:align => "right", :clear => "both", :style => "padding-top:0"}
-  %img{:style => "border-radius:50%", :height => "62", :src => item.thumbnail_img, :'data-content' => "#{item.comment}", :'data-title' => "What  #{item.gender_pronoun(:subject)} says about me", :'data-placement' => 'left' , :onmouseover => "#{%q($(this).popover('toggle')) if item.comment}", :onmouseout => "#{%q($(this).popover('toggle')) if item.comment}"}/
+  %img.referee-img{:style => "border-radius:50%", :height => "62", :src => item.thumbnail_img, :'data-content' => "#{item.comment}", :'data-title' => "What  #{item.gender_pronoun(:subject)} says about me", :'data-placement' => 'left' , :onmouseover => "#{%q($(this).popover('toggle')) if item.comment}", :onmouseout => "#{%q($(this).popover('toggle')) if item.comment}"}/
 %div{style: 'clear:both'}
