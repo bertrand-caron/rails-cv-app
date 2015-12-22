@@ -284,14 +284,6 @@ There are two sites of settings inside the App :
     # Finally, refresh the sitemap and ping search engines
     sudo -u cv -H RAILS_ENV=production rake sitemap:refresh
 
-## Using Piwik Tracking instead of Google Analytics
-
-    # If you plan on using piwik, copy the following file
-    sudo -u cv -H cp config/piwik.yml.example config/piwik.yml
-    
-    # And update it with your settings
-    sudo -u cv -H editor config/piwik.yml
-
 ## Using HTTP over HTTPS
 
 The App was written with HTTPS in mind, and as such there is no option (yet?) for switching it off.

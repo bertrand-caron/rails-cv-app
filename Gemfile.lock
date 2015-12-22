@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/bertrand-caron/piwik-ruby-tracking.git
-  revision: 0a33656abd4f01009b54624ad17024fd72b41bab
-  specs:
-    piwik_analytics (1.0.3)
-      actionpack
-      activesupport
-      rails (>= 3.0.0)
-
-GIT
   remote: git://github.com/bmc/jquery-raty-rails.git
   revision: f362f17c0ff3ac039ab05b5e48e5db24a27794b3
   specs:
@@ -392,7 +383,6 @@ DEPENDENCIES
   less-rails
   nokogiri
   paleta
-  piwik_analytics!
   premailer-rails
   rails (= 4.1.5)
   rails-settings-cached (= 0.4.1)
