@@ -16,7 +16,7 @@
       - if item.personal_page.present?
         %li
           %a{:href => item.personal_page} Browse Personnal page
-      - if item.uploaded_file_id.present?
+      - if item.uploaded_file and item.uploaded_file_id.present?
         %li
           %a{:href => item.uploaded_file.absolute_url} What #{item.gender_pronoun(:subject)} wrote about me
 %div{:align => "right", :clear => "both", :style => "padding-top:0"}
