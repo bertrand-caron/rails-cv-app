@@ -11,6 +11,6 @@ class UploadedFile < ActiveRecord::Base
   end
 
   def absolute_url
-    "https://#{Settings['domain-name']}#{relative_url}"
+    "http://#{Settings['domain-name']}#{relative_url}"
   end
 end
